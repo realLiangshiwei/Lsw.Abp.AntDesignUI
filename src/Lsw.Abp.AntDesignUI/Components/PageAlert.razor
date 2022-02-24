@@ -1,0 +1,51 @@
+﻿@using Volo.Abp.AspNetCore.Components.Alerts
+@using System.Collections.Specialized
+@using Microsoft.AspNetCore.Components.Routing
+
+@foreach (var message in _messages)
+{
+    <Alert Type="@message.Type.ToString().ToLower()"
+           Message="@message.Title"
+           Description="@message.Text"
+           ShowIcon="true"
+           Closable="@message.Dismissible"/>
+}
+
+@code {
+
+    private readonly List<AlertMessage> _messages = new();
+
+    [Inject]
+    protected IAlertManager AlertManager { get; set; }
+    
+    [Inject]
+    protected NavigationManager NavigationManager { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        AlertManager.Alerts.CollectionChanged += Alerts_CollectionChanged;
+        NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+        
+        _messages.AddRange(AlertManager.Alerts);
+    }
+    
+    private void NavigationManager_LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        AlertManager.Alerts.Clear();
+        _messages.Clear();
+    }
+
+    protected virtual void Alerts_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+    {
+        if (e.Action == NotifyCollectionChangedAction.Add)
+        {
+            foreach (var item in e.NewItems)
+            {
+                _messages.Add((AlertMessage)item);
+            }
+        }
+        InvokeAsync(StateHasChanged);
+    }
+    
+}

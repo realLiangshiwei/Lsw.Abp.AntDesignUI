@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C9F4322-BDC7-42DA-ACBD-1AC641B907B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AntDesignUI", "src\Lsw.Abp.AntDesignUI\Lsw.Abp.AntDesignUI.csproj", "{9EA4AA35-DEFC-4C25-8333-78137853EC5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9EA4AA35-DEFC-4C25-8333-78137853EC5D} = {6C9F4322-BDC7-42DA-ACBD-1AC641B907B4}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

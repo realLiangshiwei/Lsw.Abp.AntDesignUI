@@ -1,0 +1,28 @@
+﻿@typeparam TItem
+
+@if (Visible && HasPermission)
+{
+    if (ParentActions.Type == ActionType.Dropdown)
+    {
+        if (!Primary)
+        {
+            <MenuItem disabled="@Disabled">
+                <a onclick="@ActionClickedAsync()">@Text</a>
+            </MenuItem>
+        }
+    }
+    else
+    {
+        <Button disabled="@Disabled"
+            Icon="@Icon"
+            Block="true" 
+            Type="@Color"
+            onclick="@ActionClickedAsync()">
+            @if (!string.IsNullOrEmpty(Icon))
+            {
+                <Icon Name="@Icon"/>
+            }
+            @Text
+        </Button>
+    }
+}

@@ -1,0 +1,12 @@
+﻿@if (_percent is >= 0 and <= 100)
+{
+    if (_progressStatus == ProgressStatus.Active)
+    {
+        <Progress StrokeColor="_gradients" Percent=_percent></Progress>
+    }
+    else
+    {
+        <Progress Percent=_percent></Progress>
+    }
+    
+}

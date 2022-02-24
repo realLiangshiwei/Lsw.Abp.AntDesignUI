@@ -1,0 +1,76 @@
+﻿@typeparam TItem
+
+<Table TItem="TItem" DataSource="@Data" Loading="@Loading" OnChange="@OnChange"
+       @bind-PageIndex="@CurrentPage"
+       @bind-PageSize="@PageSize"
+       Total="TotalItems"
+       Class="@Class"
+       RemoteDataSource="true"
+       Responsive="@Responsive"
+       ScrollX="1500"
+       ScrollY="300">
+
+    @if (Columns != null)
+    {
+        foreach (var column in Columns)
+        {
+            if (column.Actions.Any())
+            {
+                <TableEntityActionsColumn TItem="TItem" @ref="ActionColumns[column.Title]" Title="@column.Title">
+                    <EntityActions TItem="TItem" EntityActionsColumn="ActionColumns[column.Title]">
+                        @foreach (var action in column.Actions)
+                        {
+                            if (action.ConfirmationMessage != null)
+                            {
+                                <EntityAction TItem="TItem"
+                                              Color="@(action.Color != null ? action.Color.ToString() : ButtonType.Primary)"
+                                              Icon="@action.Icon"
+                                              Clicked="async () => await action.Clicked(context)"
+                                              ConfirmationMessage="() => action.ConfirmationMessage.Invoke(context)"
+                                              Visible="@(action.Visible?.Invoke(context) ?? true)"
+                                              Text="@action.Text"
+                                              Disabled="@action.Disabled">
+                                </EntityAction>
+                            }
+                            else
+                            {
+                                <EntityAction TItem="TItem"
+                                              Clicked="async () => await action.Clicked(context)"
+                                              Color="@(action.Color != null ? action.Color.ToString() : ButtonType.Default)"
+                                              Icon="@action.Icon"
+                                              Visible="@(action.Visible?.Invoke(context) ?? true)"
+                                              Text="@action.Text"
+                                              Disabled="@action.Disabled">
+                                </EntityAction>
+                            }
+                        }
+                    </EntityActions>
+                </TableEntityActionsColumn>
+            }
+            else
+            {
+                if (column.Component != null)
+                {
+                    <Column TData="object" Title="@column.Title">
+                        @RenderCustomTableColumnComponent(column.Component, context)
+                    </Column>
+                }
+                else
+                {
+                    if (column.ValueConverter == null)
+                    {
+                        <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
+                            @GetColumnValue(context, column.Data);
+                        </Column>
+                    }
+                    else
+                    {
+                        <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
+                            @(GetConvertedFieldValue(context, column))
+                        </Column>
+                    }
+                }
+            }
+        }
+    }
+</Table>

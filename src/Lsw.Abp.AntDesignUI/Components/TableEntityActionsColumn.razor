@@ -1,0 +1,20 @@
+﻿@typeparam TItem
+@using Localization.Resources.AbpUi
+@using Microsoft.Extensions.Localization
+@inherits Column<TItem>
+<CascadingValue Value="@this" IsFixed="true">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Inject]
+    public IStringLocalizer<AbpUiResource> UiLocalizer { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Title = UiLocalizer["Actions"];
+        Sortable = false;
+        base.OnInitialized();
+    }
+
+}
