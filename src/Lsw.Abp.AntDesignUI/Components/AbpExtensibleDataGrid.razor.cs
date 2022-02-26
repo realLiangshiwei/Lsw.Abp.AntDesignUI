@@ -17,7 +17,7 @@ public partial class AbpExtensibleDataGrid<TItem> : ComponentBase
     public IEnumerable<TItem> Data { get; set; }
     
     [Parameter]
-    public int? TotalItems { get; set; }
+    public int TotalItems { get; set; }
 
     [Parameter]
     public int PageSize { get; set; }

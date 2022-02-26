@@ -4,6 +4,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C9F4322-BDC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AntDesignUI", "src\Lsw.Abp.AntDesignUI\Lsw.Abp.AntDesignUI.csproj", "{9EA4AA35-DEFC-4C25-8333-78137853EC5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{0C432416-770F-4331-84E6-5835408A9BD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme", "modules\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj", "{75753009-1BE9-4994-8D2E-890829844C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme", "modules\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj", "{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme", "modules\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.csproj", "{84F26612-0056-4CD1-849B-B0B8F046350D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,11 +19,26 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9EA4AA35-DEFC-4C25-8333-78137853EC5D} = {6C9F4322-BDC7-42DA-ACBD-1AC641B907B4}
+		{75753009-1BE9-4994-8D2E-890829844C46} = {0C432416-770F-4331-84E6-5835408A9BD8}
+		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A} = {0C432416-770F-4331-84E6-5835408A9BD8}
+		{84F26612-0056-4CD1-849B-B0B8F046350D} = {0C432416-770F-4331-84E6-5835408A9BD8}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EA4AA35-DEFC-4C25-8333-78137853EC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75753009-1BE9-4994-8D2E-890829844C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75753009-1BE9-4994-8D2E-890829844C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75753009-1BE9-4994-8D2E-890829844C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75753009-1BE9-4994-8D2E-890829844C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F26612-0056-4CD1-849B-B0B8F046350D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F26612-0056-4CD1-849B-B0B8F046350D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F26612-0056-4CD1-849B-B0B8F046350D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F26612-0056-4CD1-849B-B0B8F046350D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

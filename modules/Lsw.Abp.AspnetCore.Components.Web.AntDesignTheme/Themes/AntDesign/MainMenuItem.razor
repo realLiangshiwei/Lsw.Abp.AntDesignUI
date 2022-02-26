@@ -1,0 +1,45 @@
+﻿@using Volo.Abp.UI.Navigation
+
+@if (Menu != null)
+{
+    var elementId = Menu.ElementId ?? "MenuItem_" + Menu.Name.Replace(".", "_");
+    var url = Menu.Url == null ? "#" : Menu.Url.TrimStart('/', '~');
+
+    if (Menu.IsLeaf && Menu.Url != null)
+    {
+        <MenuItem Id="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
+            @if (Menu.Icon != null)
+            {
+                <Icon Type="@Menu.Icon" Theme="outline"></Icon>
+            }
+            @Menu.Name
+        </MenuItem>
+    }
+    else
+    {
+        <SubMenu Title="@Menu.Name" TitleTemplate="@GetSubMenuTemplate()" Id="elementId">
+            @foreach (var menuItem in Menu.Items)
+            {
+                <MainMenuItem Menu="@menuItem"></MainMenuItem>
+            }
+        </SubMenu>
+    }
+}
+
+@code {
+
+    [Parameter]
+    public ApplicationMenuItem Menu { get; set; }
+
+    private RenderFragment GetSubMenuTemplate()
+    {
+        return @<span>
+                   @if (Menu.Icon != null)
+                   {
+                       <Icon Type="@Menu.Icon" Theme="outline"></Icon>
+                   }
+                   <span>@Menu.Name</span>
+               </span>;
+    }
+
+}

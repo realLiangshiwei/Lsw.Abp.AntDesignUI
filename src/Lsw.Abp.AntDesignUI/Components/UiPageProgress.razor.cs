@@ -7,7 +7,7 @@ namespace Lsw.Abp.AntDesignUI.Components;
 
 public partial class UiPageProgress : ComponentBase
 {
-    private int? _percent;
+    private double? _percent;
 
     private ProgressStatus _progressStatus;
     

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\..\configureawait.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="5.1.3" />
+    </ItemGroup>
+
+</Project>

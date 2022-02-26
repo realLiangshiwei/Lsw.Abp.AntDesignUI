@@ -1,0 +1,9 @@
+﻿<Menu Mode="@Options.Value.Menu.GetMode()" Theme="@Options.Value.Menu.Theme">
+    @if (Menu != null)
+    {
+        foreach (var menu in Menu.Items)
+        {
+            <MainMenuItem Menu="@menu"></MainMenuItem>
+        }
+    }
+</Menu>

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project=".\..\configureawait.props" />
+    
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.Server" Version="5.1.3" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bundling" Version="5.1.3" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Packages" Version="5.1.3" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Themes\AntDesign" />
+    </ItemGroup>
+
+</Project>
