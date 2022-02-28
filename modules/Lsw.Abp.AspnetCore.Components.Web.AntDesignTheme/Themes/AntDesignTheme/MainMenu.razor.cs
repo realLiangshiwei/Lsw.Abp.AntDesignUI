@@ -5,10 +5,12 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Options;
 using Volo.Abp.UI.Navigation;
 
-namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesign;
+namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme;
 
 public partial class MainMenu : IDisposable
 {
+    protected ApplicationMenu Menu { get; set; }
+    
     [Inject]
     protected IMenuManager MenuManager { get; set; }
 
@@ -17,9 +19,6 @@ public partial class MainMenu : IDisposable
     
     [Inject]
     protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-    
-
-    protected ApplicationMenu Menu { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

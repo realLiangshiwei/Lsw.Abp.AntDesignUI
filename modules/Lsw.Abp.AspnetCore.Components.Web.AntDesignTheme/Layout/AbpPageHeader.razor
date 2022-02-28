@@ -1,16 +1,15 @@
-﻿@using AntDesign
-@using Microsoft.Extensions.Options
+﻿@using Microsoft.Extensions.Options
 @inject IOptions<PageHeaderOptions> Options
 
-<Row>
-    @if (Options.Value.RenderPageTitle)
-    {
-        <PageHeader Class="site-page-header" Title="@PageLayout.Title"></PageHeader>
-    }
+<Row Style="margin-left: 15px">
+    <Breadcrumb>
+        @if (Options.Value.RenderPageTitle)
+        {
+            <b>@PageLayout.Title</b>
+        }
 
-    @if (Options.Value.RenderBreadcrumbs && PageLayout.BreadcrumbItems.Any())
-    {
-        <Breadcrumb>
+        @if (Options.Value.RenderBreadcrumbs && PageLayout.BreadcrumbItems.Any())
+        {
             @if (BreadcrumbShowHome)
             {
                 <BreadcrumbItem Href="">
@@ -27,8 +26,8 @@
                     @item.Text
                 </BreadcrumbItem>
             }
-        </Breadcrumb>
-    }
+        }
+    </Breadcrumb>
 
     @if (Options.Value.RenderToolbar)
     {
@@ -38,7 +37,7 @@
                 {
                     @ChildContent
                 }
-                
+
                 @foreach (var toolbarItemRender in ToolbarItemRenders)
                 {
                     <div class="px-1 pt-2">

@@ -1,0 +1,14 @@
+html,
+body,
+#root,
+#app,
+#ApplicationContainer,
+app {
+    height: 100%;
+}
+.colorWeak {
+    filter: invert(80%);
+}
+.ant-layout {
+    min-height: 100vh;
+}

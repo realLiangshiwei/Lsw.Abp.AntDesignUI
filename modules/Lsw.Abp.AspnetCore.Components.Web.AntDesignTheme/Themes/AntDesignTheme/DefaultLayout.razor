@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.Extensions.Options
+@inject IOptions<AbpAntDesignThemeOptions> Options
+
+@if (Options.Value.Menu.Place == MenuOptions.MenuPlace.Top)
+{
+    <Layout Class="ant-design-layout">
+        <Header Class="ant-design-header">
+            <Branding/>
+            <MainMenu/>
+        </Header>
+        <Content Class="ant-design-content">
+            <PageAlert/>
+            @Body
+            <UiPageProgress/>
+        </Content>
+        <Footer Class="ant-design-footer">Footer</Footer>
+    </Layout>
+}
+else
+{
+    <Layout Class="ant-design-layout">
+        <Sider
+            Class="ant-design-side"
+            Collapsible
+            Collapsed=Collapsed>
+            <Branding/>
+            <MainMenu/>
+        </Sider>
+        <Layout Class="ant-design-layout">
+            <Header Class="ant-design-header">
+                @if (Collapsed)
+                {
+                    <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="OnCollapse" />
+                }
+                else
+                {
+                    <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="OnCollapse" />
+                }
+            </Header>
+            <Content Class="ant-design-content">
+                <PageAlert/>
+                @Body
+                <UiPageProgress/>
+            </Content>
+            <Footer Class="ant-design-footer"></Footer>
+        </Layout>
+    </Layout>
+}
