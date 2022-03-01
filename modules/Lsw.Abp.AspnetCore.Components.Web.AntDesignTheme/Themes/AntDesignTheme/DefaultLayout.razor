@@ -2,45 +2,69 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<AbpAntDesignThemeOptions> Options
 
+@{
+    var sideTheme = Options.Value.Menu.Theme == MenuTheme.Light ? SiderTheme.Light : SiderTheme.Dark;
+    var light = Options.Value.Menu.Theme == MenuTheme.Light;
+}
+
 @if (Options.Value.Menu.Place == MenuOptions.MenuPlace.Top)
 {
+    var headerTopClass = light ? "ant-design-header-top ant-design-header-top-light" : "ant-design-header-top";
     <Layout Class="ant-design-layout">
-        <Header Class="ant-design-header">
+        <Header Class="@headerTopClass">
             <Branding/>
-            <MainMenu/>
+            <MainMenu Collapsed="@Collapsed"/>
+            <Row Justify="end">
+                <NavToolbar/>
+            </Row>
+            
         </Header>
         <Content Class="ant-design-content">
             <PageAlert/>
-            @Body
+            <div class="ant-design-body-content">
+                @Body
+            </div>
             <UiPageProgress/>
         </Content>
-        <Footer Class="ant-design-footer">Footer</Footer>
+        <Footer Class="ant-design-footer"></Footer>
     </Layout>
 }
 else
 {
+    var headerLeftClass = light ? "ant-design-header-left ant-design-header-left-light" : "ant-design-header-left";
     <Layout Class="ant-design-layout">
         <Sider
             Class="ant-design-side"
+            Theme="@sideTheme"
             Collapsible
+            NoTrigger
             Collapsed=Collapsed>
-            <Branding/>
-            <MainMenu/>
+            <Branding Collapsed="@Collapsed"/>
+            <MainMenu Collapsed="@Collapsed"/>
         </Sider>
         <Layout Class="ant-design-layout">
-            <Header Class="ant-design-header">
-                @if (Collapsed)
-                {
-                    <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="OnCollapse" />
-                }
-                else
-                {
-                    <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="OnCollapse" />
-                }
+            <Header Class="@headerLeftClass">
+                <div style="float: left">
+                    @if (Collapsed)
+                    {
+                        <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="OnCollapse"/>
+                    }
+                    else
+                    {
+                        <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="OnCollapse"/>
+                    }
+                </div>
+
+                <Row Justify="end">
+                    <NavToolbar/>
+                </Row>
+
             </Header>
             <Content Class="ant-design-content">
                 <PageAlert/>
-                @Body
+                <div class="ant-design-body-content">
+                    @Body
+                </div>
                 <UiPageProgress/>
             </Content>
             <Footer Class="ant-design-footer"></Footer>

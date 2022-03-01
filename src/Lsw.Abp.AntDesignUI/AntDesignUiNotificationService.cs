@@ -13,7 +13,7 @@ namespace Lsw.Abp.AntDesignUI;
 public class AntDesignUiNotificationService: IUiNotificationService, IScopedDependency
 {
     [Inject]
-    protected NotificationService NoticeService { get; set; }
+    public NotificationService NoticeService { get; set; }
 
     private readonly IStringLocalizer<AbpUiResource> _localizer;
 

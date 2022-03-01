@@ -21,7 +21,7 @@ public class MenuOptions
     public MenuOptions()
     {
         Theme = MenuTheme.Light;
-        Place = MenuPlace.Top;
+        Place = MenuPlace.Left;
     }
 
     public MenuMode GetMode()

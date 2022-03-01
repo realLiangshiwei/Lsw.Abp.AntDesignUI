@@ -19,6 +19,9 @@ public partial class MainMenu : IDisposable
     
     [Inject]
     protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
+    [Parameter]
+    public bool Collapsed { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

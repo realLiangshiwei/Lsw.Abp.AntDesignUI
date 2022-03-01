@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ClientProxies;
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.Modularity;
+using Volo.Abp.UI.Navigation;
 
 namespace AntDesignUIApp;
 
@@ -23,6 +24,12 @@ public class AntDesignUIAppModule : AbpModule
         {
             options.AppAssembly = typeof(AntDesignUIAppModule).Assembly;
         });
+        
+        Configure<AbpNavigationOptions>(options =>
+        {
+            options.MenuContributors.Add(new AntDesignUiAppMenuContributor());
+        });
+        
         
         context.Services.AddTransient(sp => new HttpClient
         {

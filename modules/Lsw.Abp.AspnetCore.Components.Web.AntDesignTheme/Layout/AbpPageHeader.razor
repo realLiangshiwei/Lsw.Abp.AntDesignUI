@@ -1,50 +1,50 @@
 ﻿@using Microsoft.Extensions.Options
 @inject IOptions<PageHeaderOptions> Options
 
-<Row Style="margin-left: 15px">
-    <Breadcrumb>
-        @if (Options.Value.RenderPageTitle)
-        {
-            <b>@PageLayout.Title</b>
-        }
-
-        @if (Options.Value.RenderBreadcrumbs && PageLayout.BreadcrumbItems.Any())
-        {
-            @if (BreadcrumbShowHome)
+<Row Class="ant-design-row-breadcrumb">
+    <Col Span="12">
+        <Breadcrumb Class="ant-design-breadcrumb">
+            @if (Options.Value.RenderBreadcrumbs && PageLayout.BreadcrumbItems.Any())
             {
-                <BreadcrumbItem Href="">
-                    <Icon Type="home"/>
-                </BreadcrumbItem>
+                @if (BreadcrumbShowHome)
+                {
+                    <BreadcrumbItem Href="">
+                        <Icon Type="home"/>
+                    </BreadcrumbItem>
+                }
+                @foreach (var item in PageLayout.BreadcrumbItems)
+                {
+                    <BreadcrumbItem Href="@item.Url">
+                        @if (!item.Icon.IsNullOrWhiteSpace())
+                        {
+                            <Icon Type="@item.Icon"/>
+                        }
+                        @item.Text
+                    </BreadcrumbItem>
+                }
             }
-            @foreach (var item in PageLayout.BreadcrumbItems)
-            {
-                <BreadcrumbItem Href="@item.Url">
-                    @if (!item.Icon.IsNullOrWhiteSpace())
-                    {
-                        <Icon Type="@item.Icon"/>
-                    }
-                    @item.Text
-                </BreadcrumbItem>
-            }
-        }
-    </Breadcrumb>
-
-    @if (Options.Value.RenderToolbar)
-    {
-        <div>
+        </Breadcrumb>
+    </Col>
+    
+    <Col Span="12">
+        @if (Options.Value.RenderToolbar)
+        {
             <Row justify="end">
                 @if (Toolbar == null)
                 {
                     @ChildContent
                 }
-
                 @foreach (var toolbarItemRender in ToolbarItemRenders)
                 {
-                    <div class="px-1 pt-2">
+                    <div style="margin: 0 5px">
                         @toolbarItemRender
                     </div>
                 }
             </Row>
-        </div>
-    }
+        }
+    </Col>
 </Row>
+@if (Options.Value.RenderPageTitle)
+{
+    <div class="ant-design-page-title">@PageLayout.Title</div>
+}

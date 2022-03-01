@@ -16,10 +16,10 @@
     private readonly List<AlertMessage> _messages = new();
 
     [Inject]
-    protected IAlertManager AlertManager { get; set; }
+    public IAlertManager AlertManager { get; set; }
     
     [Inject]
-    protected NavigationManager NavigationManager { get; set; }
+    public NavigationManager NavigationManager { get; set; }
 
     protected override void OnInitialized()
     {

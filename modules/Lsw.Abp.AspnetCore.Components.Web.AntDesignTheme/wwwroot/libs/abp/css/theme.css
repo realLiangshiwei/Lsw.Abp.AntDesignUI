@@ -6,9 +6,120 @@ body,
 app {
     height: 100%;
 }
+
 .colorWeak {
     filter: invert(80%);
 }
+
 .ant-layout {
     min-height: 100vh;
+}
+
+.ant-design-header-top {
+    background-color: #001529;
+}
+
+.ant-design-header-top-light {
+    background-color: #fff;
+}
+
+.ant-design-header-left {
+    background-color: white;
+    box-shadow: 0 1px 4px rgb(0 21 41 / 8%)
+}
+
+.ant-design-header-left-light {
+    background-color: #001529;
+}
+
+.ant-design-body-content {
+    margin: 16px 50px;
+}
+
+.ant-design-footer {
+    text-align: center;
+}
+
+.page-content {
+    min-height: 80vh;
+    background: #fff;
+    padding: 24px;
+    margin-top: 8px;
+}
+
+.ant-design-page-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.ant-design-header-left .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.ant-design-header-left .trigger:hover {
+    color: #1890ff;
+}
+
+.ant-design-header-left-light .trigger {
+    color: white;
+}
+
+.ant-design-side .ant-design-brand {
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    padding: 16px 16px;
+    cursor: pointer;
+}
+
+.ant-design-side .ant-design-brand img {
+    display: inline-block;
+    height: 35px
+}
+
+.ant-design-side .ant-design-brand h1 {
+    display: inline-block;
+    color: white;
+    margin: 0 0 0 12px;
+}
+
+.ant-layout-sider-light .ant-design-brand h1 {
+    color: #001529;
+}
+
+.ant-design-header-top .ant-design-brand img {
+    display: inline-block;
+    height: 35px
+}
+
+.ant-design-header-top .ant-design-brand {
+    position: relative;
+    float: left;
+    min-width: 170px;
+}
+
+.ant-design-header-top .ant-design-brand h1 {
+    display: inline-block;
+    color: white;
+    margin: 0 0 0 12px;
+    font-weight: 400;
+    font-size: 15px;
+    vertical-align: top;
+}
+
+.ant-design-header-top-light .ant-design-brand h1 {
+    color: #001529;
+}
+
+.ant-design-header-top .ant-menu-root{
+    margin-left: 20px;
+    float: left;
+}
+
+.abp-application-layout .ant-menu-sub li{
+    min-width: 120px;
 }

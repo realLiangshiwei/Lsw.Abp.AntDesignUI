@@ -17,7 +17,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="Themes\AntDesign" />
+      <Folder Include="Themes\AntDesignTheme" />
     </ItemGroup>
 
 </Project>

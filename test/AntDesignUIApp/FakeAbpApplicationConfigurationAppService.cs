@@ -17,7 +17,11 @@ public class FakeAbpApplicationConfigurationAppService : AbpApplicationConfigura
             Auth = new ApplicationAuthConfigurationDto(),
             Clock = new ClockDto(),
             CurrentTenant = new CurrentTenantDto(),
-            CurrentUser = new CurrentUserDto(),
+            CurrentUser = new CurrentUserDto()
+            {
+                Name = "admin",
+                UserName = "admin"
+            },
             Features = new ApplicationFeatureConfigurationDto(),
             Localization = new ApplicationLocalizationConfigurationDto(),
             MultiTenancy = new MultiTenancyInfoDto(),

@@ -42,10 +42,10 @@ public partial class EntityAction<TItem> : ComponentBase
     public EntityActions<TItem> ParentActions { get; set; }
     
     [Inject]
-    protected IAuthorizationService AuthorizationService { get; set; }
+    public IAuthorizationService AuthorizationService { get; set; }
 
     [Inject]
-    protected IUiMessageService UiMessageService { get; set; }
+    public IUiMessageService UiMessageService { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

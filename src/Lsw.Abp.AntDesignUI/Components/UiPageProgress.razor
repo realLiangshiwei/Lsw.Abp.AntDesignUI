@@ -1,16 +1,14 @@
-﻿@if (_percent is >= 0 and <= 100)
-{
-    <div Class="uiPageProgress">
-        if (_progressStatus == ProgressStatus.Active)
-        {
-        <Progress StrokeColor="_gradients" Percent=_percent.Value></Progress>
-        }
-        else
-        {
-        <Progress Percent=_percent.Value></Progress>
-        }
-    </div>
-}
+﻿<div Class="@_css">
+    @if (_progressStatus == ProgressStatus.Active)
+    {
+        <Progress Status="_progressStatus" StrokeColor="_gradients" Percent="@_percent" ShowInfo="false"></Progress>
+    }
+    else
+    {
+        <Progress Status="_progressStatus" ShowInfo="false" Percent=@_percent></Progress>
+    }
+</div>
+
 
 <style>
     .uiPageProgress{
@@ -19,5 +17,10 @@
         width: 100% !important;
         z-index: 9999 !important;
         position: fixed !important;
+        display: none;
+    }
+    
+    .uiPageProgress-show{
+        display: block;
     }
 </style>

@@ -7,17 +7,17 @@
 
     if (Menu.IsLeaf && Menu.Url != null)
     {
-        <MenuItem Id="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
+        <MenuItem Key="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
             @if (Menu.Icon != null)
             {
                 <Icon Type="@Menu.Icon" Theme="outline"></Icon>
             }
-            @Menu.Name
+            <span>@Menu.Name</span>
         </MenuItem>
     }
     else
     {
-        <SubMenu Title="@Menu.Name" TitleTemplate="@GetSubMenuTemplate()" Id="elementId">
+        <SubMenu Title="@Menu.Name" TitleTemplate="@GetSubMenuTemplate()" Key="@elementId">
             @foreach (var menuItem in Menu.Items)
             {
                 <MainMenuItem Menu="@menuItem"></MainMenuItem>

@@ -8,15 +8,15 @@ namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout;
 
 public class PageLayout : IScopedDependency, INotifyPropertyChanged
 {
-    private string title;
+    private string _title;
 
     // TODO: Consider using this property for setting Page Title too.
     public virtual string Title
     {
-        get => title;
+        get => _title;
         set
         {
-            title = value;
+            _title = value;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
         }
     }

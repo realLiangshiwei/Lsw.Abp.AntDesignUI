@@ -1,10 +1,15 @@
 ﻿@using Volo.Abp.Ui.Branding
 @inject IBrandingProvider BrandingProvider
+<div class="ant-design-brand">
+    <a href="">
+        @if (!BrandingProvider.LogoUrl.IsNullOrWhiteSpace())
+        {
+            <img src="@BrandingProvider.LogoUrl.TrimStart('/','~')" alt="@BrandingProvider.AppName"/>
+        }
+        @if (!Collapsed)
+        {
+            <h1>@BrandingProvider.AppName</h1>
+        }
+    </a>
+</div>
 
-<a class="ant-design-brand" href="">
-    @if (!BrandingProvider.LogoUrl.IsNullOrWhiteSpace())
-    {
-        <img src="@BrandingProvider.LogoUrl.TrimStart('/','~')" alt="@BrandingProvider.AppName"/>
-    }
-    @BrandingProvider.AppName
-</a>
