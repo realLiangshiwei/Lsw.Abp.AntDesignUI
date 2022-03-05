@@ -1,8 +1,12 @@
-﻿using Lsw.Abp.AntDesignUI;
+﻿using AntDesign;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.PageToolbars;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Options;
 using Volo.Abp.AspNetCore.Components.Notifications;
 using Volo.Abp.AspNetCore.Components.Progression;
+using BreadcrumbItem = Lsw.Abp.AntDesignUI.BreadcrumbItem;
 
 namespace AntDesignUIApp.Pages;
 
@@ -17,6 +21,12 @@ public partial class Index : ComponentBase
     
     [Inject]
     public IUiPageProgressService UiPageProgressService { get; set; }
+    
+    [Inject]
+    protected IOptions<AbpAntDesignThemeOptions> Options { get; set; }
+    
+    [Inject]
+    protected IAntDesignSettingsProvider AntDesignSettingsProvider { get; set; }
 
     protected override void OnInitialized()
     {
@@ -39,5 +49,17 @@ public partial class Index : ComponentBase
             
             await UiPageProgressService.Go(null);
         }, "double-right");
+    }
+
+    private async Task ChangeMenuPlacement(MenuPlacement menuPlacement)
+    {
+        Options.Value.Menu.Placement = menuPlacement;
+        await AntDesignSettingsProvider.TriggerSettingChanged();
+    }
+    
+    private async Task ChangeMenuTheme(MenuTheme menuTheme)
+    {
+        Options.Value.Menu.Theme = menuTheme;
+        await AntDesignSettingsProvider.TriggerSettingChanged();
     }
 }

@@ -1,6 +1,15 @@
 ﻿@page "/"
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
 
 <AbpPageHeader Title="Index" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar"/>
+
 <div class="page-content">
-    <p>hello world</p>
+    
+    <h4>Menu Placement</h4>
+    <Button Type="@ButtonType.Primary" OnClick="() => ChangeMenuPlacement(MenuPlacement.Top)">Top</Button>
+    <Button Type="@ButtonType.Primary" OnClick="() => ChangeMenuPlacement(MenuPlacement.Left)">Left</Button>
+    
+    <h4>Menu Theme</h4>
+    <Button Type="@ButtonType.Primary" OnClick="() => ChangeMenuTheme(MenuTheme.Dark)">Dark</Button>
+    <Button Type="@ButtonType.Primary" OnClick="() => ChangeMenuTheme(MenuTheme.Light)">Light</Button>
 </div>

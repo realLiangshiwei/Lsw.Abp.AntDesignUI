@@ -1,4 +1,5 @@
 ﻿using AntDesign;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings;
 
 namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 
@@ -16,22 +17,11 @@ public class MenuOptions
 {
     public MenuTheme Theme { get; set; }
 
-    public MenuPlace Place { get; set; }
+    public MenuPlacement Placement { get; set; }
 
     public MenuOptions()
     {
-        Theme = MenuTheme.Light;
-        Place = MenuPlace.Left;
-    }
-
-    public MenuMode GetMode()
-    {
-        return Place == MenuPlace.Left ? MenuMode.Inline : MenuMode.Horizontal;
-    }
-    
-    public enum MenuPlace
-    {
-        Top,
-        Left
+        Theme = MenuTheme.Dark;
+        Placement = MenuPlacement.Left;
     }
 }

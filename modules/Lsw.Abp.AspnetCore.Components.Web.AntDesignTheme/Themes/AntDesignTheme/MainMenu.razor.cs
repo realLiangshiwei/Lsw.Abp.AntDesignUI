@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AntDesign;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Options;
@@ -13,12 +15,15 @@ public partial class MainMenu : IDisposable
     
     [Inject]
     protected IMenuManager MenuManager { get; set; }
-
-    [Inject]
-    protected IOptions<AbpAntDesignThemeOptions> Options { get; set; }
     
     [Inject]
     protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    
+    [Parameter]
+    public MenuPlacement Placement { get; set; }
+    
+    [Parameter]
+    public MenuTheme Theme { get; set; }
     
     [Parameter]
     public bool Collapsed { get; set; }

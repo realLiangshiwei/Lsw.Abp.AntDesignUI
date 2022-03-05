@@ -1,4 +1,5 @@
-﻿<Menu Mode="@Options.Value.Menu.GetMode()" Theme="@Options.Value.Menu.Theme" InlineCollapsed="@Collapsed">
+﻿@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
+<Menu Mode="@(Placement == MenuPlacement.Left? MenuMode.Inline: MenuMode.Horizontal)" Theme="@Theme" InlineCollapsed="@Collapsed">
     @if (Menu != null)
     {
         foreach (var menu in Menu.Items)

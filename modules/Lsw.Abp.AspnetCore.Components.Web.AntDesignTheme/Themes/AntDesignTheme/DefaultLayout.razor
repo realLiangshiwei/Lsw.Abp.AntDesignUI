@@ -1,23 +1,18 @@
 ﻿@inherits LayoutComponentBase
 @using Microsoft.Extensions.Options
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
 @inject IOptions<AbpAntDesignThemeOptions> Options
 
-@{
-    var sideTheme = Options.Value.Menu.Theme == MenuTheme.Light ? SiderTheme.Light : SiderTheme.Dark;
-    var light = Options.Value.Menu.Theme == MenuTheme.Light;
-}
 
-@if (Options.Value.Menu.Place == MenuOptions.MenuPlace.Top)
+@if (Options.Value.Menu.Placement == MenuPlacement.Top)
 {
-    var headerTopClass = light ? "ant-design-header-top ant-design-header-top-light" : "ant-design-header-top";
     <Layout Class="ant-design-layout">
-        <Header Class="@headerTopClass">
+        <Header Class="@HeaderClass">
             <Branding/>
-            <MainMenu Collapsed="@Collapsed"/>
+            <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed"/>
             <Row Justify="end">
                 <NavToolbar/>
             </Row>
-            
         </Header>
         <Content Class="ant-design-content">
             <PageAlert/>
@@ -31,19 +26,18 @@
 }
 else
 {
-    var headerLeftClass = light ? "ant-design-header-left ant-design-header-left-light" : "ant-design-header-left";
     <Layout Class="ant-design-layout">
         <Sider
             Class="ant-design-side"
-            Theme="@sideTheme"
+            Theme="@SiderTheme"
             Collapsible
             NoTrigger
             Collapsed=Collapsed>
             <Branding Collapsed="@Collapsed"/>
-            <MainMenu Collapsed="@Collapsed"/>
+            <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed"/>
         </Sider>
         <Layout Class="ant-design-layout">
-            <Header Class="@headerLeftClass">
+            <Header Class="@HeaderClass">
                 <div style="float: left">
                     @if (Collapsed)
                     {
