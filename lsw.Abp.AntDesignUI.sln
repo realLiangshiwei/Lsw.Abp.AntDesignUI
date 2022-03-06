@@ -14,10 +14,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.AspnetCore.Componen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E36D7268-C7A6-4A7F-81DB-57070F4B049C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DA09D6FA-2DA0-4C76-AF49-BF24A015FF49}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntDesignUIApp", "test\AntDesignUIApp\AntDesignUIApp.csproj", "{62B99860-4CED-404F-A378-37B40043F10C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore", "BookStore", "{1F85F600-70F9-4286-B8BD-6A124D9DC43D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Application", "samples\BookStore\src\BookStore.Application\BookStore.Application.csproj", "{39E479A5-92DB-4F5B-918A-1920886D4D60}"
@@ -74,11 +70,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.TenantManagement.Bl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SettingManagement", "SettingManagement", "{CCAB1F41-EAB4-4564-B956-C32ED0B03EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.SettingManagement.Blazor.AntDesignUI", "modules\SettingManagement\Volo.Abp.SettingManagement.Blazor.AntDesignUI\Volo.Abp.SettingManagement.Blazor.AntDesignUI.csproj", "{2E033BD6-16C2-4F3A-ADD5-C08D6FB8482B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.SettingManagement.Blazor.AntDesignUI", "modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.AntDesignUI.csproj", "{2E033BD6-16C2-4F3A-ADD5-C08D6FB8482B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI", "modules\SettingManagement\Volo.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI\Volo.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI.csproj", "{3D8714C4-B78B-4B5E-8675-F6531C21AE2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI", "modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI.csproj", "{3D8714C4-B78B-4B5E-8675-F6531C21AE2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI", "modules\SettingManagement\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj", "{F3ADEF50-755E-4FCB-9746-C946CB0306B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI", "modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj", "{F3ADEF50-755E-4FCB-9746-C946CB0306B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.BlazorServer", "samples\BookStore\BookStore.BlazorServer\BookStore.BlazorServer.csproj", "{1E5B082C-96F6-44B4-856E-AC26A5395243}"
 EndProject
@@ -92,7 +88,6 @@ Global
 		{75753009-1BE9-4994-8D2E-890829844C46} = {0C432416-770F-4331-84E6-5835408A9BD8}
 		{7C86BBAF-609E-4651-B1AF-FBF3EA669E3A} = {0C432416-770F-4331-84E6-5835408A9BD8}
 		{84F26612-0056-4CD1-849B-B0B8F046350D} = {0C432416-770F-4331-84E6-5835408A9BD8}
-		{62B99860-4CED-404F-A378-37B40043F10C} = {DA09D6FA-2DA0-4C76-AF49-BF24A015FF49}
 		{1F85F600-70F9-4286-B8BD-6A124D9DC43D} = {E36D7268-C7A6-4A7F-81DB-57070F4B049C}
 		{39E479A5-92DB-4F5B-918A-1920886D4D60} = {1F85F600-70F9-4286-B8BD-6A124D9DC43D}
 		{BBBBFA7B-B24D-4ED4-9DAE-71A60EDAA640} = {1F85F600-70F9-4286-B8BD-6A124D9DC43D}
@@ -143,10 +138,6 @@ Global
 		{84F26612-0056-4CD1-849B-B0B8F046350D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F26612-0056-4CD1-849B-B0B8F046350D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84F26612-0056-4CD1-849B-B0B8F046350D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62B99860-4CED-404F-A378-37B40043F10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62B99860-4CED-404F-A378-37B40043F10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62B99860-4CED-404F-A378-37B40043F10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62B99860-4CED-404F-A378-37B40043F10C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{39E479A5-92DB-4F5B-918A-1920886D4D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{39E479A5-92DB-4F5B-918A-1920886D4D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39E479A5-92DB-4F5B-918A-1920886D4D60}.Release|Any CPU.ActiveCfg = Release|Any CPU

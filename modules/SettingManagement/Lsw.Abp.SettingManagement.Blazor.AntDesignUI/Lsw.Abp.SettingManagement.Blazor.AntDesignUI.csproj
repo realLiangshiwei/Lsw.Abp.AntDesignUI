@@ -9,12 +9,11 @@
 
     <ItemGroup>
       <PackageReference Include="Volo.Abp.AutoMapper" Version="5.1.4" />
-      <PackageReference Include="Volo.Abp.Features" Version="5.1.4" />
-      <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="5.1.4" />
+      <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="5.1.4" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
+        <ProjectReference Include="..\..\FeatureManagement\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI.csproj" />
     </ItemGroup>
 
 </Project>

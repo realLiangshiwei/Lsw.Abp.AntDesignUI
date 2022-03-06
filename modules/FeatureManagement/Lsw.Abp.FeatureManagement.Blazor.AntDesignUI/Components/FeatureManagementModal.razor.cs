@@ -77,7 +77,7 @@ public partial class FeatureManagementModal
                 }
             }
             _visible = true;
-            StateHasChanged();
+            await InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
         {

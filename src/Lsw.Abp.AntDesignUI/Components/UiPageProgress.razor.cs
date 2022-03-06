@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AntDesign;
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Progression;
@@ -28,7 +29,7 @@ public partial class UiPageProgress : ComponentBase
         UiPageProgressService.ProgressChanged += OnProgressChanged;
     }
 
-    protected virtual void OnProgressChanged(object sender, UiPageProgressEventArgs e)
+    protected virtual async void OnProgressChanged(object sender, UiPageProgressEventArgs e)
     {
         _percent = e.Percentage ?? new Random().Next(0, 100);
         
@@ -41,8 +42,8 @@ public partial class UiPageProgress : ComponentBase
         {
             HideProgress();
         }
-        
-        StateHasChanged();
+
+        await InvokeAsync(StateHasChanged);
     }
 
     protected virtual void ShowProgress()

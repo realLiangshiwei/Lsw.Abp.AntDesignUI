@@ -4,7 +4,7 @@ using BookStore.Localization;
 using BookStore.MultiTenancy;
 using Lsw.Abp.IdentityManagement.Blazor.AntDesignUI;
 using Lsw.Abp.TenantManagement.Blazor.AntDesignUI;
-using Volo.Abp.SettingManagement.Blazor.AntDesignUI;
+using Lsw.Abp.SettingManagement.Blazor.AntDesignUI;
 using Volo.Abp.UI.Navigation;
 
 namespace BookStore.Blazor.Menus;

@@ -27,8 +27,8 @@ using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
-using Volo.Abp.SettingManagement.Blazor.AntDesignUI;
-using Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI;
+using Lsw.Abp.SettingManagement.Blazor.AntDesignUI;
+using Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
@@ -48,7 +48,7 @@ namespace BookStore.Blazor;
     typeof(AbpAccountWebIdentityServerModule),
     typeof(AbpIdentityBlazorServerAntDesignModule),
     typeof(AbpTenantManagementBlazorServerAntDesignModule),
-    typeof(AbpSettingManagementBlazorAntDesignModule)
+    typeof(AbpSettingManagementBlazorServerAntDesignModule)
    )]
 public class BookStoreBlazorModule : AbpModule
 {

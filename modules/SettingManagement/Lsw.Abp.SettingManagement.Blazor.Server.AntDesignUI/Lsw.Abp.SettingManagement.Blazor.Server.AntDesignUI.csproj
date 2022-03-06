@@ -9,7 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
-      <ProjectReference Include="..\Lsw.Abp.IdentityManagement.Blazor.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.AntDesignUI.csproj" />
+      <ProjectReference Include="..\Lsw.Abp.SettingManagement.Blazor.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.AntDesignUI.csproj" />
     </ItemGroup>
 
 </Project>

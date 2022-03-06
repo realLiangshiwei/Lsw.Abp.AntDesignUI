@@ -84,7 +84,7 @@ public partial class PermissionManagementModal
             _selectedTabName = GetNormalizedGroupName(_groups.First().Name);
             
             _visible = true;
-            StateHasChanged();
+            await InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
         {

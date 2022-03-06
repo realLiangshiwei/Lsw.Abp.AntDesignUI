@@ -13,7 +13,7 @@ using Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI;
 using Volo.Abp.Autofac.WebAssembly;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
-using Volo.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI;
+using Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI;
 using Volo.Abp.UI.Navigation;
 
 namespace BookStore.Blazor;

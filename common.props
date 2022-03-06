@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1</Version>
+    <!--TODO  <PackageIconUrl></PackageIconUrl> -->
+    <PackageProjectUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</RepositoryUrl>
+  </PropertyGroup>
+</Project>

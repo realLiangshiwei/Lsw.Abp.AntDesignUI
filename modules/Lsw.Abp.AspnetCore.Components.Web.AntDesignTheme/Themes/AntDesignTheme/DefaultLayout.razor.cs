@@ -31,7 +31,7 @@ public partial class DefaultLayout
     protected virtual async Task OnSettingChanged()
     {
         await SetLayout();
-        StateHasChanged();
+        await InvokeAsync(StateHasChanged);
     }
 
     private async Task SetLayout()

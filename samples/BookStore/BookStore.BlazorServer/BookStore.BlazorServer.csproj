@@ -19,7 +19,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI.csproj" />
         <ProjectReference Include="..\..\..\modules\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
-        <ProjectReference Include="..\..\..\modules\SettingManagement\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
+        <ProjectReference Include="..\..\..\modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
         <ProjectReference Include="..\..\..\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI.csproj" />
         <ProjectReference Include="..\src\BookStore.Application\BookStore.Application.csproj" />
         <ProjectReference Include="..\src\BookStore.HttpApi\BookStore.HttpApi.csproj" />
