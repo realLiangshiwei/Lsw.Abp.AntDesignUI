@@ -14,13 +14,13 @@ Check the [samples](/samples/BookStore/)
 
 ## Quick Start
 
-First step, Use ABP CLI to create a new project.
+The first step is to use ABP CLI to create a new project.
 
 `abp new BookStore -u blazor`
 
-> See the [ABP official documentation](https://docs.abp.io) learn [ABP framework](https://github.com/abpframework/abp).
+> See the [ABP official documentation](https://docs.abp.io) to learn [ABP framework](https://github.com/abpframework/abp).
 
-Open `BookStore.Blazor.csproj` and replace with the following:
+**Open `BookStore.Blazor.csproj` and replace with the following:**
 
 ```csharp
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
@@ -55,7 +55,7 @@ Open `BookStore.Blazor.csproj` and replace with the following:
 
 ```
 
-Open `_Imports.razor` and add with the following:
+**Open `_Imports.razor` and add with the following:**
 
 ```csharp
 @using AntDesign
@@ -64,19 +64,19 @@ Open `_Imports.razor` and add with the following:
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
 ```
 
-Open `BookStoreBlazorModule` make the following changes:
+**Open `BookStoreBlazorModule` make the following changes:**
 
 * Remove the `ConfigureBlazorise` method
 * Fix wrong using namespace
 * Update module dependencies
     * For example, replace `AbpIdentityBlazorWebAssemblyModule` with `AbpIdentityBlazorWebAssemblyAntDesignModule`
 
-Open `BookStoreMenuContributor` to update icon:
+**Open `BookStoreMenuContributor` to update icon:**
 
 * `"fas fa-home"` to `IconType.Outline.Home`
 * `"fa fa-cog"` to `IconType.Outline.Setting`
 
-Open `Index.razor` and replace with the following:
+**Open `Index.razor` and replace with the following:**
 
 ```csharp
 @page "/"
@@ -99,9 +99,9 @@ Open `Index.razor` and replace with the following:
 
 ```
 
-Run the `abp bundle` command in the `BookStore.Blazor` folder.
+Run the `dotnet build` & `abp bundle` command in the `BookStore.Blazor` folder.
 
-That all, enjoy your code :).
+That's all, enjoy your code :).
 
 ![3](img/3.png)
 
