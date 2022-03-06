@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+        <PreserveCompilationReferences>true</PreserveCompilationReferences>
+        <UserSecretsId>BookStore-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI.csproj" />
+        <ProjectReference Include="..\..\..\modules\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
+        <ProjectReference Include="..\..\..\modules\SettingManagement\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI\Volo.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
+        <ProjectReference Include="..\..\..\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI.csproj" />
+        <ProjectReference Include="..\src\BookStore.Application\BookStore.Application.csproj" />
+        <ProjectReference Include="..\src\BookStore.HttpApi\BookStore.HttpApi.csproj" />
+        <ProjectReference Include="..\src\BookStore.EntityFrameworkCore\BookStore.EntityFrameworkCore.csproj" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Autofac" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Swashbuckle" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="5.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Logs\**" />
+        <Content Remove="Logs\**" />
+        <EmbeddedResource Remove="Logs\**" />
+        <None Remove="Logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Pages\**\*.js">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Pages\**\*.css">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    
+</Project>

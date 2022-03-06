@@ -1,0 +1,78 @@
+﻿@using AntDesign
+@using Microsoft.AspNetCore.Components
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Validation.StringValues
+@inherits AbpFeatureManagementComponentBase
+
+<Modal Title="@L["Features"]"
+       Visible="@_visible"
+       OnOk="@SaveAsync"
+       OnCancel="@CloseModal" Style="min-width: 700px">
+
+    @if (_visible)
+    {
+        @if (Groups == null || !Groups.Any())
+        {
+            <Empty Description="false" />
+        }
+        else
+        {
+            <Tabs TabPosition="@TabPosition.Left">
+                @foreach (var group in Groups)
+                {
+                    <TabPane Key="@GetNormalizedGroupName(group.Name)" Tab="@group.DisplayName">
+                        <h4>@group.DisplayName</h4>
+                        <Divider/>
+
+                        @foreach (var feature in group.Features)
+                        {
+                            var disabled = IsDisabled(feature.Provider.Name);
+                            
+                            <div style="@GetFeatureStyles(feature)">
+                                
+                           
+                            @if (feature.ValueType is FreeTextStringValueType)
+                            {
+                                <Text>@feature.DisplayName</Text>
+                                <Input
+                                    TValue="string"
+                                    Disabled="@disabled"
+                                    @bind-Value="@feature.Value"
+                                    OnChange=" args =>  OnFeatureValueChangedAsync(args, feature)"/>
+                                @if (feature.Description != null)
+                                {
+                                    <span>@feature.Description</span>
+                                }
+                            }
+                            
+                            @if (feature.ValueType is SelectionStringValueType type)
+                            {
+                                var items = type.ItemSource.Items;
+                                <Select DataSource="@items"
+                                        @bind-Value="@SelectionStringValues[feature.Name]"
+                                        LabelName="@nameof(ISelectionStringValueItem.DisplayText)"
+                                        ValueName="@nameof(ISelectionStringValueItem.Value)"
+                                        DefaultActiveFirstItem="false">
+                                    <ItemTemplate>
+                                        <span>@CreateStringLocalizer(context.DisplayText.ResourceName).GetString(context.DisplayText.Name)</span>
+                                    </ItemTemplate>
+                                </Select>
+                            }
+                            
+                            @if (feature.ValueType is ToggleStringValueType)
+                            {
+                                 <Checkbox 
+                                     Disabled="@disabled" 
+                                     @bind-Checked="@ToggleValues[feature.Name]"
+                                     OnChange="b =>  OnSelectedValueChangedAsync(b, feature)">
+                                     @feature.DisplayName 
+                                 </Checkbox> 
+                            }
+                            </div>
+                        }
+                    </TabPane>
+                }
+            </Tabs>
+        }
+    }
+</Modal>

@@ -1,4 +1,5 @@
 ﻿using AntDesign;
+using Lsw.Abp.AntDesignUI;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.PageToolbars;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings;
@@ -6,13 +7,12 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Options;
 using Volo.Abp.AspNetCore.Components.Notifications;
 using Volo.Abp.AspNetCore.Components.Progression;
-using BreadcrumbItem = Lsw.Abp.AntDesignUI.BreadcrumbItem;
 
 namespace AntDesignUIApp.Pages;
 
 public partial class Index : ComponentBase
 {
-    public List<BreadcrumbItem> BreadcrumbItems { get; set; } = new();
+    public List<AbpBreadcrumbItem> BreadcrumbItems { get; set; } = new();
 
     public PageToolbar Toolbar { get; set; } = new(); 
     
@@ -30,7 +30,7 @@ public partial class Index : ComponentBase
 
     protected override void OnInitialized()
     {
-        BreadcrumbItems = new List<BreadcrumbItem>()
+        BreadcrumbItems = new List<AbpBreadcrumbItem>()
         {
             new("Index")
         };

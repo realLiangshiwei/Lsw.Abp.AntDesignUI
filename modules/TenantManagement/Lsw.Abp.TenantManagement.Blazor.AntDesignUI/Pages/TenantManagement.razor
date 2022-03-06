@@ -1,0 +1,66 @@
+﻿@page "/tenant-management/tenants"
+@attribute [Authorize(TenantManagementPermissions.Tenants.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Lsw.Abp.FeatureManagement.Blazor.AntDesignUI.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Volo.Abp.TenantManagement.Localization
+@using Volo.Abp.AspNetCore.Components.Web
+@using Volo.Abp.TenantManagement
+@inject AbpBlazorMessageLocalizerHelper<AbpTenantManagementResource> LH
+@inherits AbpCrudPageBase<ITenantAppService, TenantDto, Guid, GetTenantsInput, TenantCreateDto, TenantUpdateDto>
+
+<AbpPageHeader Title="@L["Tenants"]" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar"/>
+
+<div class="page-content">
+    <AbpExtensibleDataGrid TItem="TenantDto"
+                           Data="@Entities"
+                           OnChange="@OnDataGridReadAsync"
+                           TotalItems="@TotalCount"
+                           PageSize="@PageSize"
+                           CurrentPage="@CurrentPage"
+                           Columns="@TenantManagementTableColumns">
+    </AbpExtensibleDataGrid>
+</div>
+
+@if (HasCreatePermission)
+{
+    <Modal @ref="CreateModal" Title="@L["NewTenant"]" Visible="@CreateModalVisible" OnCancel="@CloseCreateModalAsync" OnOk="CreateEntityAsync">
+        <Form
+            Layout="@FormLayout.Vertical"
+            @ref="@CreateFormRef"
+            Model="@NewEntity">
+
+            <FormItem Label="@L["TenantName"]">
+                <Input @bind-Value="@context.Name"/>
+            </FormItem>
+            <FormItem Label="@L["DisplayName:AdminEmailAddress"]">
+                <Input @bind-Value="@context.AdminEmailAddress"/>
+            </FormItem>
+            <FormItem Label="@L["DisplayName:AdminPassword"]">
+                <InputPassword @bind-Value="@context.AdminPassword"/>
+            </FormItem>
+
+        </Form>
+    </Modal>
+}
+
+@if (HasUpdatePermission)
+{
+    <Modal @ref="EditModal" Title="@L["Edit"]" Visible="@EditModalVisible" OnCancel="@CloseEditModalAsync" OnOk="UpdateEntityAsync">
+        <Form
+            Layout="@FormLayout.Vertical"
+            @ref="@EditFormRef"
+            Model="@EditingEntity">
+
+            <FormItem Label="@L["TenantName"]">
+                <Input @bind-Value="@context.Name"/>
+            </FormItem>
+
+        </Form>
+    </Modal>
+}
+
+@if (HasManageFeaturesPermission)
+{
+    <FeatureManagementModal @ref="FeatureManagementModal"/>
+}

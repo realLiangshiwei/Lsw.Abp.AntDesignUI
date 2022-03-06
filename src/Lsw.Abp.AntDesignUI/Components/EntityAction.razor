@@ -6,23 +6,23 @@
     {
         if (!Primary)
         {
-            <MenuItem disabled="@Disabled">
-                <a onclick="@ActionClickedAsync()">@Text</a>
+            <MenuItem Disabled="@Disabled" OnClick="@ActionClickedAsync">
+                @Text
             </MenuItem>
         }
-    }
-    else
-    {
-        <Button disabled="@Disabled"
-            Icon="@Icon"
-            Block="true" 
-            Type="@Color"
-            onclick="@ActionClickedAsync()">
-            @if (!string.IsNullOrEmpty(Icon))
-            {
-                <Icon Name="@Icon"/>
-            }
-            @Text
-        </Button>
+        else
+        {
+            <Button disabled="@Disabled"
+                    Icon="@Icon"
+                    Block="true"
+                    Type="@Color"
+                    OnClick="@ActionClickedAsync">
+                @if (!string.IsNullOrEmpty(Icon))
+                {
+                    <Icon Name="@Icon"/>
+                }
+                @Text
+            </Button>
+        }
     }
 }

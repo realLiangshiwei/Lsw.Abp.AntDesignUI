@@ -20,6 +20,8 @@ public partial class DefaultLayout
 
     protected SiderTheme SiderTheme { get; set; }
 
+    protected string SiderStyle { get; set; } = "min-width:256px";
+
     protected override async Task OnInitializedAsync()
     {
         await SetLayout();
@@ -45,5 +47,6 @@ public partial class DefaultLayout
     protected virtual void OnCollapse()
     {
         Collapsed = !Collapsed;
+        SiderStyle = Collapsed ? "" : "min-width:256px";
     }
 }

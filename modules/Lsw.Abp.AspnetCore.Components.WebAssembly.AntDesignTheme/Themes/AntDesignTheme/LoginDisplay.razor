@@ -1,6 +1,6 @@
 ﻿@using global::Localization.Resources.AbpUi
 @using Microsoft.Extensions.Localization
-@* @using Microsoft.AspNetCore.Components.Authorization *@
+@using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.JSInterop
 @inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
 @inject IJSRuntime JsRuntime
@@ -28,15 +28,15 @@
                  </Menu>
              </Overlay>
              <ChildContent>
-                @* @if (CurrentTenant.Name != null) *@
-                @* { *@
-                @*     <span><i>@CurrentTenant.Name</i>\@CurrentUser.UserName</span> *@
-                @* } *@
-                @* else *@
-                @* { *@
-                @*     <span>@CurrentUser.UserName</span> *@
-                @* } *@
-                @* <Icon Type="down" /> *@
+                @if (CurrentTenant.Name != null)
+                {
+                    <span><i>@CurrentTenant.Name</i>\@CurrentUser.UserName</span>
+                }
+                else
+                {
+                    <span>@CurrentUser.UserName</span>
+                }
+                <Icon Type="down" />
              </ChildContent>
          </Dropdown>
     </Authorized>

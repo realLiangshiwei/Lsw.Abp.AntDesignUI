@@ -21,7 +21,7 @@ public class PageLayout : IScopedDependency, INotifyPropertyChanged
         }
     }
 
-    public virtual ObservableCollection<BreadcrumbItem> BreadcrumbItems { get; set; } = new();
+    public virtual ObservableCollection<AbpBreadcrumbItem> BreadcrumbItems { get; set; } = new();
 
     public virtual ObservableCollection<PageToolbarItem> ToolbarItems { get; set; } = new();
 

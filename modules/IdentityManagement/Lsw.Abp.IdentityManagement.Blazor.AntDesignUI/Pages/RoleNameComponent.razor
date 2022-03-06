@@ -1,0 +1,22 @@
+﻿@using System;
+@using Volo.Abp.Identity
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.Identity.Localization
+
+@inject IStringLocalizer<IdentityResource> L
+
+@(Data.As<IdentityRoleDto>().Name)
+@if (Data.As<IdentityRoleDto>().IsDefault)
+{
+    <Badge Dot="true"
+           Status="success"
+           Style="margin-left: 0.25rem"
+           Text="@L["DisplayName:IsDefault"]"/>
+}
+@if (Data.As<IdentityRoleDto>().IsPublic)
+{
+    <Badge Dot="true"
+           Status="processing"
+           Style="margin-left: 0.25rem"
+           Text="@L["DisplayName:IsPublic"]"/>
+}

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Volo.Abp.AutoMapper" Version="5.1.4" />
+      <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="5.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
+      <ProjectReference Include="..\..\PermissionManagement\Lsw.Abp.PermissionManagement.Blazor.AntDesignUI\Lsw.Abp.PermissionManagement.Blazor.AntDesignUI.csproj" />
+    </ItemGroup>
+
+</Project>

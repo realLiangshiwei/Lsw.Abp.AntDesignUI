@@ -1,0 +1,27 @@
+﻿@page "/"
+@using Volo.Abp.MultiTenancy
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
+@inherits BookStoreComponentBase
+@inject ICurrentTenant CurrentTenant
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="page-content">
+    <div style="text-align: center">
+        
+        <Alert Type="@AlertType.Success"
+               Message="Success"
+               Description=" Congratulations, BookStore is successfully running!"
+               ShowIcon="true"/>
+
+        <Divider/>
+
+        <p>@L["LongWelcomeMessage"]</p>
+
+        @if (!CurrentUser.IsAuthenticated)
+        {
+            <a class="ant-btn ant-btn-primary" href="/authentication/login">
+                @L["Login"]
+            </a>
+        }
+    </div>
+</div>

@@ -31,11 +31,11 @@ public partial class EntityActions<TItem> : ComponentBase
     [Parameter]
     public RenderFragment ChildContent { get; set; }
     
-    [Parameter]
-    public TableEntityActionsColumn<TItem> EntityActionsColumn { get; set; }
-    
-    [CascadingParameter]
-    public TableEntityActionsColumn<TItem> ParentEntityActionsColumn { get; set; }
+    // [Parameter]
+    // public TableEntityActionsColumn<TItem> EntityActionsColumn { get; set; }
+    //
+    // [CascadingParameter]
+    // public TableEntityActionsColumn<TItem> ParentEntityActionsColumn { get; set; }
     
     [Inject]
     public IStringLocalizer<AbpUiResource> UiLocalizer { get; set; }
@@ -46,20 +46,20 @@ public partial class EntityActions<TItem> : ComponentBase
         ToggleText = UiLocalizer["Actions"];
     }
     
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            if (ParentEntityActionsColumn != null)
-            {
-                ParentEntityActionsColumn.Hidden = !Actions.Any(t => t.Visible && t.HasPermission);
-            }
-
-            await InvokeAsync(StateHasChanged);
-        }
-
-        await base.OnAfterRenderAsync(firstRender);
-    }
+    // protected override async Task OnAfterRenderAsync(bool firstRender)
+    // {
+    //     if (firstRender)
+    //     {
+    //         if (ParentEntityActionsColumn != null)
+    //         {
+    //             ParentEntityActionsColumn.Hidden = !Actions.Any(t => t.Visible && t.HasPermission);
+    //         }
+    //
+    //         await InvokeAsync(StateHasChanged);
+    //     }
+    //
+    //     await base.OnAfterRenderAsync(firstRender);
+    // }
     
     internal void AddAction(EntityAction<TItem> action)
     {

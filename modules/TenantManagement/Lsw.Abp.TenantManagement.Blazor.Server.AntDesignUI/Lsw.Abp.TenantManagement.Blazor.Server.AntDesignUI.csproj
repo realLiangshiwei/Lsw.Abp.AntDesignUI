@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\FeatureManagement\Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI.csproj" />
+        <ProjectReference Include="..\Lsw.Abp.TenantManagement.Blazor.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.AntDesignUI.csproj" />
+    </ItemGroup>
+
+</Project>

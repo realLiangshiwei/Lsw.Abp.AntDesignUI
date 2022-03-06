@@ -30,9 +30,9 @@ public partial class AbpPageHeader : ComponentBase
     public RenderFragment ChildContent { get; set; }
     
     [Parameter] 
-    public List<BreadcrumbItem> BreadcrumbItems {
+    public List<AbpBreadcrumbItem> BreadcrumbItems {
         get => PageLayout.BreadcrumbItems.ToList();
-        set => PageLayout.BreadcrumbItems = new ObservableCollection<BreadcrumbItem>(value);
+        set => PageLayout.BreadcrumbItems = new ObservableCollection<AbpBreadcrumbItem>(value);
     }
     
     [Parameter]

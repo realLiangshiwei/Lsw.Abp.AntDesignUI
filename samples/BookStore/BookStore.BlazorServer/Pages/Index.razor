@@ -1,0 +1,24 @@
+﻿@page "/"
+@using Volo.Abp.MultiTenancy
+@inherits BookStoreComponentBase
+@inject ICurrentTenant CurrentTenant
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<div class="page-content">
+    <div style="text-align: center">
+        
+        <Alert Type="@AlertType.Success"
+               Message="Success"
+               Description=" Congratulations, BookStore is successfully running!"
+               ShowIcon="true"/>
+
+        <Divider/>
+
+        <p>@L["LongWelcomeMessage"]</p>
+
+        @if (!CurrentUser.IsAuthenticated)
+        {
+            <a class="btn btn-primary" href="Account/Login" ><i class="fa fa-sign-in"></i> @L["Login"]</a>
+        }
+    </div>
+</div>

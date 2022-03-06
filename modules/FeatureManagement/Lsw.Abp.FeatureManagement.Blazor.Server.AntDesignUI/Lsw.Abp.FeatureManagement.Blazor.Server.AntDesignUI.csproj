@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
+      <ProjectReference Include="..\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.AntDesignUI.csproj" />
+    </ItemGroup>
+
+</Project>

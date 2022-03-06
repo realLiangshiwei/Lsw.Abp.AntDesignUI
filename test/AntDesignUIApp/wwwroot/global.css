@@ -118,9 +118,26 @@ app {
 
 .ant-design-header-top .ant-menu-root{
     margin-left: 20px;
+    float: left;
 }
 
 .abp-application-layout .ant-menu-sub li{
     min-width: 120px;
+}
+
+.ant-design-header-left .nav-link{
+    color: #001529;
+}
+
+.ant-design-header-left-light .nav-link{
+    color: white;
+}
+
+.ant-design-header-top .nav-link{
+    color: white;
+}
+
+.ant-design-header-top-light .nav-link{
+    color: #001529;
 }
 

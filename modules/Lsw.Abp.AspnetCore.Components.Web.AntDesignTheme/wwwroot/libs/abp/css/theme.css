@@ -41,7 +41,7 @@ app {
 }
 
 .page-content {
-    min-height: 80vh;
+    min-height: 70vh;
     background: #fff;
     padding: 24px;
     margin-top: 8px;
@@ -69,22 +69,27 @@ app {
 }
 
 .ant-design-side .ant-design-brand {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     display: flex;
     padding: 16px 16px;
     cursor: pointer;
 }
 
+.ant-design-side .ant-design-brand a {
+    display: flex
+}
+
+
 .ant-design-side .ant-design-brand img {
     display: inline-block;
-    height: 35px
+    height: 40px
 }
 
 .ant-design-side .ant-design-brand h1 {
     display: inline-block;
     color: white;
-    margin: 0 0 0 12px;
+    margin: 0 0 0 15px;
 }
 
 .ant-layout-sider-light .ant-design-brand h1 {
@@ -115,11 +120,51 @@ app {
     color: #001529;
 }
 
-.ant-design-header-top .ant-menu-root{
+.ant-design-header-top .ant-menu-root {
     margin-left: 20px;
     float: left;
 }
 
-.abp-application-layout .ant-menu-sub li{
+.abp-application-layout .ant-menu-sub li {
     min-width: 120px;
+}
+
+.ant-design-header-left .nav-link {
+    color: #001529;
+}
+
+.ant-design-header-left-light .nav-link {
+    color: white;
+}
+
+.ant-design-header-top .nav-link {
+    color: white;
+}
+
+.ant-design-header-top-light .nav-link {
+    color: #001529;
+}
+
+.ant-dropdown-link {
+    margin-right: 20px;
+}
+
+.ant-design-header-left .ant-dropdown-link {
+    color: #001529;
+}
+
+.ant-design-header-top .ant-dropdown-trigger {
+    color: white;
+}
+
+.ant-design-header-top-light .ant-dropdown-trigger{
+    color: #001529;
+}
+
+.ant-design-header-top-light .ant-dropdown-trigger{
+    color: #001529;
+}
+
+.ant-design-header-left-light .ant-dropdown-trigger{
+    color: white;
 }

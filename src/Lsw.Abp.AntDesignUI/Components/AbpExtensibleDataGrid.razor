@@ -1,14 +1,15 @@
 ﻿@typeparam TItem
 
-<Table TItem="TItem" DataSource="@Data" Loading="@Loading" OnChange="@OnChange"
+<Table TItem="TItem"
+       DataSource="@Data"
+       Loading="@Loading"
+       OnChange="@OnChange"
        @bind-PageIndex="@CurrentPage"
        @bind-PageSize="@PageSize"
        Total="TotalItems"
        Class="@Class"
        RemoteDataSource="true"
-       Responsive="@Responsive"
-       ScrollX="1500"
-       ScrollY="300">
+       Responsive="@Responsive">
 
     @if (Columns != null)
     {
@@ -16,8 +17,8 @@
         {
             if (column.Actions.Any())
             {
-                <TableEntityActionsColumn TItem="TItem" @ref="ActionColumns[column.Title]" Title="@column.Title">
-                    <EntityActions TItem="TItem" EntityActionsColumn="ActionColumns[column.Title]">
+                <Column TData="object" Title="@column.Title" Fixed="true">
+                     <EntityActions TItem="TItem">
                         @foreach (var action in column.Actions)
                         {
                             if (action.ConfirmationMessage != null)
@@ -45,7 +46,7 @@
                             }
                         }
                     </EntityActions>
-                </TableEntityActionsColumn>
+                </Column>
             }
             else
             {
@@ -60,7 +61,7 @@
                     if (column.ValueConverter == null)
                     {
                         <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
-                            @GetColumnValue(context, column.Data);
+                            @GetColumnValue(context, column.Data)
                         </Column>
                     }
                     else

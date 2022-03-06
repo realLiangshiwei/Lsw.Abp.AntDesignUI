@@ -2,6 +2,6 @@
 
 public enum MenuPlacement
 {
-    Top,
-    Left
+    Top = 1,
+    Left = 2
 }

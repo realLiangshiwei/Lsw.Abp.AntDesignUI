@@ -8,20 +8,34 @@
     if (Menu.IsLeaf && Menu.Url != null)
     {
         <MenuItem Key="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
-            @if (Menu.Icon != null)
+            @if (!Menu.Icon.IsNullOrWhiteSpace())
             {
                 <Icon Type="@Menu.Icon" Theme="outline"></Icon>
             }
-            <span>@Menu.Name</span>
+            <span>@Menu.DisplayName</span>
         </MenuItem>
     }
     else
     {
-        <SubMenu Title="@Menu.Name" TitleTemplate="@GetSubMenuTemplate()" Key="@elementId">
+        <SubMenu Title="@Menu.DisplayName" TitleTemplate="@GetSubMenuTemplate(Menu)" Key="@elementId">
             @foreach (var menuItem in Menu.Items)
             {
                 <MainMenuItem Menu="@menuItem"></MainMenuItem>
             }
         </SubMenu>
+    }
+}
+
+@{
+    
+    RenderFragment GetSubMenuTemplate(ApplicationMenuItem menu)
+    {
+        return @<span>
+                   @if (!Menu.Icon.IsNullOrWhiteSpace())
+                   {
+                       <Icon Type="@Menu.Icon" Theme="outline"></Icon>
+                   }
+                   <span>@menu.DisplayName</span>
+               </span>;
     }
 }

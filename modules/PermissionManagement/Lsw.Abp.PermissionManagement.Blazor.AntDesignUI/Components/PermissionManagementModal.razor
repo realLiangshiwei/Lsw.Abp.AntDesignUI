@@ -1,0 +1,48 @@
+﻿@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+
+<Modal Title="@($"{L["Permissions"]} - {_entityDisplayName}")"
+       Visible="@_visible"
+       OnOk="@SaveAsync"
+       OnCancel="@ClosingModal" Style="min-width: 700px">
+
+    @if (_visible)
+    {
+        var grantAll = _groups.All(x => x.Permissions.All(p => p.IsGranted));
+        <Checkbox @bind-Checked="@grantAll" OnChange="@GrantAllChanged">@L["SelectAllInAllTabs"]</Checkbox>
+        <Divider/>
+
+        @if (_groups != null)
+        {
+            <Tabs DefaultActiveKey="@_selectedTabName" TabPosition="@TabPosition.Left">
+                @foreach (var group in _groups)
+                {
+                    var selectAllInThisTab = group.Permissions.All(x => x.IsGranted);
+                    <TabPane Key="@GetNormalizedGroupName(group.Name)" Tab="@group.DisplayName">
+                        <h4>@group.DisplayName</h4>
+                        <Divider/>
+                        <Checkbox
+                             @bind-Checked="@selectAllInThisTab"
+                             OnChange="b => GroupGrantAllChanged(b, group)">
+                            @L["SelectAllInThisTab"]
+                        </Checkbox>
+
+                        <Divider/>
+
+                        @foreach (var permission in group.Permissions)
+                        {
+                            var margin = permission.ParentName != null ? "1rem" : "0";
+                            <div style="margin: @margin">
+                                <Checkbox
+                                    Disabled="@(IsDisabledPermission(permission))"
+                                    @bind-Checked="@permission.IsGranted"
+                                    OnChange="b => PermissionChanged(b, group, permission)">
+                                    @GetShownName(permission)
+                                </Checkbox>
+                            </div>
+                        }
+                    </TabPane>
+                }
+            </Tabs>
+        }
+    }
+</Modal>

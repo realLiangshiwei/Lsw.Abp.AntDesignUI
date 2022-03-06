@@ -1,0 +1,70 @@
+﻿@page "/identity/roles"
+@attribute [Authorize(IdentityPermissions.Roles.Default)]
+@using Microsoft.AspNetCore.Authorization
+@using Volo.Abp.Identity
+@using Volo.Abp.Identity.Localization
+@using Lsw.Abp.PermissionManagement.Blazor.AntDesignUI.Components
+@using Volo.Abp.AspNetCore.Components.Web
+@inject AbpBlazorMessageLocalizerHelper<IdentityResource> LH
+@inherits AbpCrudPageBase<IIdentityRoleAppService, IdentityRoleDto, Guid, GetIdentityRolesInput, IdentityRoleCreateDto, IdentityRoleUpdateDto>
+
+<AbpPageHeader Title="@L["Roles"]" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar"/>
+
+<div class="page-content">
+    <AbpExtensibleDataGrid TItem="IdentityRoleDto"
+                           Data="@Entities"
+                           OnChange="@OnDataGridReadAsync"
+                           TotalItems="@TotalCount"
+                           PageSize="@PageSize"
+                           CurrentPage="@CurrentPage"
+                           Columns="@RoleManagementTableColumns">
+    </AbpExtensibleDataGrid>
+</div>
+
+@if (HasCreatePermission)
+{
+    <Modal @ref="CreateModal" Title="@L["NewRole"]" Visible="@CreateModalVisible" OnCancel="@CloseCreateModalAsync" OnOk="CreateEntityAsync">
+        <Form
+            Layout="@FormLayout.Vertical"
+            @ref="@CreateFormRef"
+            Model="@NewEntity">
+
+            <FormItem Label="@L["DisplayName:RoleName"]">
+                <Input @bind-Value="@context.Name"/>
+            </FormItem>
+            <FormItem>
+                <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
+            </FormItem>
+            <FormItem>
+                <Checkbox @bind-Value="context.IsPublic">@L["DisplayName:IsPublic"]</Checkbox>
+            </FormItem>
+        </Form>
+    </Modal>
+}
+
+@if (HasUpdatePermission)
+{
+    <Modal @ref="EditModal" Title="@L["Edit"]" Visible="@EditModalVisible" OnCancel="@CloseEditModalAsync" OnOk="UpdateEntityAsync">
+        <Form
+            Layout="@FormLayout.Vertical"
+            @ref="@EditFormRef"
+            Model="@EditingEntity">
+            <input type="hidden" name="ConcurrencyStamp" @bind-value="EditingEntity.ConcurrencyStamp"/>
+            <FormItem Label="@L["DisplayName:RoleName"]">
+                <Input @bind-Value="@context.Name"/>
+            </FormItem>
+            <FormItem>
+                <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
+            </FormItem>
+            <FormItem>
+                <Checkbox @bind-Value="context.IsPublic">@L["DisplayName:IsPublic"]</Checkbox>
+            </FormItem>
+        </Form>
+    </Modal>
+}
+
+
+@if (HasManagePermissionsPermission)
+{
+    <PermissionManagementModal @ref="PermissionManagementModal"/>
+}

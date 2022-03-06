@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="5.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\FeatureManagement\Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI\Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI.csproj" />
+        <ProjectReference Include="..\Lsw.Abp.TenantManagement.Blazor.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.AntDesignUI.csproj" />
+    </ItemGroup>
+    
+</Project>

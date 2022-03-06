@@ -178,7 +178,7 @@ public abstract class AbpCrudPageBase<
 
     protected int CurrentPage = 1;
     protected string CurrentSorting;
-    protected int? TotalCount;
+    protected int TotalCount;
     protected bool Loading = false;
     protected TGetListInput GetListInput = new();
     protected IReadOnlyList<TListViewModel> Entities = Array.Empty<TListViewModel>();
@@ -191,7 +191,7 @@ public abstract class AbpCrudPageBase<
     protected bool EditModalVisible;
     protected Form<TCreateViewModel> CreateFormRef;
     protected Form<TUpdateViewModel> EditFormRef;
-    protected List<BreadcrumbItem> BreadcrumbItems = new(2);
+    protected List<AbpBreadcrumbItem> BreadcrumbItems = new(2);
     protected TableEntityActionsColumn<TListViewModel> EntityActionsColumn;
     protected EntityActionDictionary EntityActions { get; set; }
     protected TableColumnDictionary TableColumns { get; set; }
@@ -256,7 +256,7 @@ public abstract class AbpCrudPageBase<
             await UpdateGetListInputAsync();
             var result = await AppService.GetListAsync(GetListInput);
             Entities = MapToListViewModel(result.Items);
-            TotalCount = (int?)result.TotalCount;
+            TotalCount = (int)result.TotalCount;
         }
         catch (Exception ex)
         {
@@ -321,16 +321,15 @@ public abstract class AbpCrudPageBase<
     {
         try
         {
-            CreateFormRef.Reset();
-
+            CreateModalVisible = true;
             await CheckCreatePolicyAsync();
 
             NewEntity = new TCreateViewModel();
 
             await InvokeAsync(() =>
             {
+                CreateFormRef?.Reset();
                 StateHasChanged();
-                CreateModalVisible = true;
 
                 return Task.CompletedTask;
             });
@@ -360,8 +359,8 @@ public abstract class AbpCrudPageBase<
     {
         try
         {
-            EditFormRef.Reset();
-
+            EditModalVisible = true;
+            
             await CheckUpdatePolicyAsync();
 
             var entityDto = await AppService.GetAsync(entity.Id);
@@ -371,9 +370,8 @@ public abstract class AbpCrudPageBase<
 
             await InvokeAsync(() =>
             {
+                EditFormRef?.Reset();
                 StateHasChanged();
-                EditModalVisible = true;
-
                 return Task.CompletedTask;
             });
         }

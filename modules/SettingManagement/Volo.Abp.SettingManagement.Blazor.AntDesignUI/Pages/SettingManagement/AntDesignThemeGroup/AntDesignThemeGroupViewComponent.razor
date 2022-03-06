@@ -1,0 +1,30 @@
+﻿@using Volo.Abp.SettingManagement.Localization
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+@inject AbpBlazorMessageLocalizerHelper<AbpSettingManagementResource> LH
+
+<Form
+    Layout="@FormLayout.Vertical"
+    Model="@AbpAntDesignThemeOptions">
+
+    <FormItem Label="Menu placement">
+        <Select DataSource="@MenuPlacements"
+                ValueName="@nameof(SelectOptionItem.Value)"
+                LabelName="@nameof(SelectOptionItem.Text)"
+                @bind-Value="@context.Menu.Placement">
+        </Select>
+    </FormItem>
+    
+    <FormItem Label="Menu theme">
+        <Select DataSource="@MenuThemes"
+                ValueName="@nameof(SelectOptionItem.Value)"
+                LabelName="@nameof(SelectOptionItem.Text)"
+                @bind-Value="@context.Menu.Theme">
+        </Select>
+    </FormItem>
+    
+    <FormItem WrapperColOffset="8">
+        <Button Type="@ButtonType.Primary" HtmlType="submit" OnClick="@UpdateSettingAsync">
+            @L["Submit"]
+        </Button>
+    </FormItem>
+</Form>

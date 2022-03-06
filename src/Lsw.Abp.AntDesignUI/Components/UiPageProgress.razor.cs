@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AntDesign;
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Progression;
@@ -29,9 +30,10 @@ public partial class UiPageProgress : ComponentBase
 
     protected virtual void OnProgressChanged(object sender, UiPageProgressEventArgs e)
     {
-        _percent = e.Percentage ?? 0;
+        _percent = e.Percentage ?? new Random().Next(0, 100);
+        
         SetProgressStatus(e.Options.Type);
-        if (_percent != 0)
+        if (_percent is >= 0 and <= 100)
         {
             ShowProgress();
         }
