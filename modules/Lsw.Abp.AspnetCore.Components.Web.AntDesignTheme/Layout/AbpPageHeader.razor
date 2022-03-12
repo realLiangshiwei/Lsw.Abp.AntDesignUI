@@ -4,7 +4,7 @@
 <Row Class="ant-design-row-breadcrumb">
     <Col Span="12">
         <Breadcrumb Class="ant-design-breadcrumb">
-            @if (Options.Value.RenderBreadcrumbs && PageLayout.BreadcrumbItems.Any())
+            @if (Options.Value.RenderBreadcrumbs && BreadcrumbItems.Any())
             {
                 @if (BreadcrumbShowHome)
                 {
@@ -12,7 +12,7 @@
                         <Icon Type="home"/>
                     </BreadcrumbItem>
                 }
-                @foreach (var item in PageLayout.BreadcrumbItems)
+                @foreach (var item in BreadcrumbItems)
                 {
                     <BreadcrumbItem Href="@item.Url">
                         @if (!item.Icon.IsNullOrWhiteSpace())
@@ -46,5 +46,5 @@
 </Row>
 @if (Options.Value.RenderPageTitle)
 {
-    <div class="ant-design-page-title">@PageLayout.Title</div>
+    <div class="ant-design-page-title">@Title</div>
 }

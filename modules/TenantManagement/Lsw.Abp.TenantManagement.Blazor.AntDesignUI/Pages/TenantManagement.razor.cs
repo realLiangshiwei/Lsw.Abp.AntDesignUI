@@ -41,11 +41,8 @@ public partial class TenantManagement
 
     protected override ValueTask SetBreadcrumbItemsAsync()
     {
-        BreadcrumbItems = new List<AbpBreadcrumbItem>()
-        {
-            new(L["Menu:TenantManagement"]),
-            new(L["Tenants"])
-        };
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Menu:TenantManagement"]));
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Tenants"]));
 
         return base.SetBreadcrumbItemsAsync();
     }

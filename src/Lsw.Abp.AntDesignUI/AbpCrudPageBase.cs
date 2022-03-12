@@ -191,7 +191,7 @@ public abstract class AbpCrudPageBase<
     protected bool EditModalVisible;
     protected Form<TCreateViewModel> CreateFormRef;
     protected Form<TUpdateViewModel> EditFormRef;
-    protected List<AbpBreadcrumbItem> BreadcrumbItems = new(2);
+    protected List<AbpBreadcrumbItem> BreadcrumbItems = new();
     protected TableEntityActionsColumn<TListViewModel> EntityActionsColumn;
     protected EntityActionDictionary EntityActions { get; set; }
     protected TableColumnDictionary TableColumns { get; set; }
@@ -217,17 +217,9 @@ public abstract class AbpCrudPageBase<
         await SetPermissionsAsync();
         await SetEntityActionsAsync();
         await SetTableColumnsAsync();
+        await SetToolbarItemsAsync();
+        await SetBreadcrumbItemsAsync();
         await InvokeAsync(StateHasChanged);
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await base.OnAfterRenderAsync(true);
-            await SetToolbarItemsAsync();
-            await SetBreadcrumbItemsAsync();
-        }
     }
 
     protected virtual async Task SetPermissionsAsync()

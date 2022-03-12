@@ -33,11 +33,7 @@ public partial class SettingManagement
 
     protected override async Task OnInitializedAsync()
     {
-        BreadcrumbItems = new List<AbpBreadcrumbItem>
-        {
-            new(L["Settings"])
-        };
-        
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Settings"]));
         SettingComponentCreationContext = new SettingComponentCreationContext(ServiceProvider);
 
         foreach (var contributor in Options.Contributors)

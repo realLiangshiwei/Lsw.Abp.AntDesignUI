@@ -61,11 +61,8 @@ public partial class UserManagement
 
     protected override ValueTask SetBreadcrumbItemsAsync()
     {
-        BreadcrumbItems = new List<AbpBreadcrumbItem>()
-        {
-            new(L["Menu:IdentityManagement"]),
-            new(L["Users"])
-        };
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Menu:IdentityManagement"]));
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Users"]));
 
         return base.SetBreadcrumbItemsAsync();
     }

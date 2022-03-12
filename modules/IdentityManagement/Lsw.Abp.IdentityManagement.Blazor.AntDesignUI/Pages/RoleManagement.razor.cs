@@ -40,11 +40,8 @@ public partial class RoleManagement
 
     protected override ValueTask SetBreadcrumbItemsAsync()
     {
-        BreadcrumbItems = new List<AbpBreadcrumbItem>()
-        {
-            new(L["Menu:IdentityManagement"]),
-            new(L["Roles"])
-        };
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Menu:IdentityManagement"]));
+        BreadcrumbItems.Add(new AbpBreadcrumbItem(L["Roles"]));
 
         return base.SetBreadcrumbItemsAsync();
     }
@@ -127,6 +124,7 @@ public partial class RoleManagement
 
     protected override ValueTask SetToolbarItemsAsync()
     {
+        
         Toolbar.AddButton(L["NewRole"],
             OpenCreateModalAsync,
             IconType.Outline.Plus,

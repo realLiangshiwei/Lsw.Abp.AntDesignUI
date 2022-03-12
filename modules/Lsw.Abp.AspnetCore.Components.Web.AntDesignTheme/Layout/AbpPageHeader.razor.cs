@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,11 +15,8 @@ public partial class AbpPageHeader : ComponentBase
 
     public IPageToolbarManager PageToolbarManager { get; set; }
 
-    [Inject]
-    public PageLayout PageLayout { get; private set; }
-
     [Parameter]
-    public string Title { get => PageLayout.Title; set => PageLayout.Title = value; }
+    public string Title { get; set; }
 
     [Parameter]
     public bool BreadcrumbShowHome { get; set; } = true;
@@ -30,10 +28,7 @@ public partial class AbpPageHeader : ComponentBase
     public RenderFragment ChildContent { get; set; }
     
     [Parameter] 
-    public List<AbpBreadcrumbItem> BreadcrumbItems {
-        get => PageLayout.BreadcrumbItems.ToList();
-        set => PageLayout.BreadcrumbItems = new ObservableCollection<AbpBreadcrumbItem>(value);
-    }
+    public List<AbpBreadcrumbItem> BreadcrumbItems { get; set; }
     
     [Parameter]
     public PageToolbar Toolbar { get; set; }
@@ -48,18 +43,13 @@ public partial class AbpPageHeader : ComponentBase
         await base.OnParametersSetAsync();
         if (Toolbar != null)
         {
-            var toolbarItems = await PageToolbarManager.GetItemsAsync(Toolbar);
-            ToolbarItemRenders.Clear();
-
             if (!Options.Value.RenderToolbar)
             {
-                PageLayout.ToolbarItems.Clear();
-                foreach (var item in toolbarItems)
-                {
-                    PageLayout.ToolbarItems.Add(item);
-                }
                 return;
             }
+            
+            var toolbarItems = await PageToolbarManager.GetItemsAsync(Toolbar);
+            ToolbarItemRenders.Clear();
 
             foreach (var item in toolbarItems)
             {
