@@ -36,6 +36,7 @@ public partial class AbpPageHeader : ComponentBase
     public AbpPageHeader()
     {
         ToolbarItemRenders = new List<RenderFragment>();
+        BreadcrumbItems = new List<AbpBreadcrumbItem>();
     }
 
     protected override async Task OnParametersSetAsync()
