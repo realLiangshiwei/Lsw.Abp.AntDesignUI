@@ -26,13 +26,11 @@ public partial class UserManagement
     
     protected AssignedRoleViewModel[] EditUserRoles;
 
-    protected string ManagePermissionsPolicyName;
-
     protected bool HasManagePermissionsPermission { get; set; }
 
     protected PageToolbar Toolbar { get; } = new();
 
-    private List<TableColumn> UserManagementTableColumns => TableColumns.Get<UserManagement>();
+    protected List<TableColumn> UserManagementTableColumns => TableColumns.Get<UserManagement>();
     
     public UserManagement()
     {
@@ -42,7 +40,6 @@ public partial class UserManagement
         CreatePolicyName = IdentityPermissions.Users.Create;
         UpdatePolicyName = IdentityPermissions.Users.Update;
         DeletePolicyName = IdentityPermissions.Users.Delete;
-        ManagePermissionsPolicyName = IdentityPermissions.Users.ManagePermissions;
     }
     
     protected override async Task OnInitializedAsync()

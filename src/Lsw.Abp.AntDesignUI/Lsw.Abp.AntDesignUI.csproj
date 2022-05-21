@@ -10,9 +10,14 @@
     
     <ItemGroup>
       <PackageReference Include="AntDesign" Version="0.10.3.1" />
-      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="5.1.4" />
-      <PackageReference Include="Volo.Abp.Authorization" Version="5.1.4" />
-      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="5.1.4" />
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="5.2.2" />
+      <PackageReference Include="Volo.Abp.Authorization" Version="5.2.2" />
+      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="5.2.2" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Components\ObjectExtending\ExtensionProperties.razor" />
+      <_ContentIncludedByDefault Remove="Components\ObjectExtending\SelectExtensionProperty.razor" />
     </ItemGroup>
 
 </Project>

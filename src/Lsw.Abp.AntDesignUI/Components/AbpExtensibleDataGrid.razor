@@ -58,17 +58,24 @@
                 }
                 else
                 {
-                    if (column.ValueConverter == null)
+                    if (!ExtensionPropertiesRegex.IsMatch(column.Data))
                     {
-                        <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
-                            @GetColumnValue(context, column.Data)
-                        </Column>
+                        if (column.ValueConverter == null)
+                        {
+                            <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
+                                @GetColumnValue(context, column.Data)
+                            </Column>
+                        }
+                        else
+                        {
+                            <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
+                                @(GetConvertedFieldValue(context, column))
+                            </Column>
+                        }
                     }
                     else
                     {
-                        <Column TData="object" Sortable="@column.Sortable" Title="@column.Title">
-                            @(GetConvertedFieldValue(context, column))
-                        </Column>
+                        
                     }
                 }
             }

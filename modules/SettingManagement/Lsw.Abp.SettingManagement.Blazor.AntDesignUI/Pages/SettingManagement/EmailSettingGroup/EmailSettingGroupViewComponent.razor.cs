@@ -13,7 +13,7 @@ public partial class EmailSettingGroupViewComponent
     protected IEmailSettingsAppService EmailSettingsAppService { get; set; }
 
     [Inject]
-    private ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService { get; set; }
+    protected ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService { get; set; }
 
     protected EmailSettingsDto EmailSettings = new();
 

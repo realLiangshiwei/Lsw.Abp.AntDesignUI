@@ -19,8 +19,6 @@ public partial class RoleManagement
 
     protected PermissionManagementModal PermissionManagementModal;
 
-    protected string ManagePermissionsPolicyName;
-
     protected bool HasManagePermissionsPermission { get; set; }
 
     protected PageToolbar Toolbar { get; } = new();
@@ -35,7 +33,6 @@ public partial class RoleManagement
         CreatePolicyName = IdentityPermissions.Roles.Create;
         UpdatePolicyName = IdentityPermissions.Roles.Update;
         DeletePolicyName = IdentityPermissions.Roles.Delete;
-        ManagePermissionsPolicyName = IdentityPermissions.Roles.ManagePermissions;
     }
 
     protected override ValueTask SetBreadcrumbItemsAsync()

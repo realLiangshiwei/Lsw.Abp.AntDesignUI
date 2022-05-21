@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using AntDesign.TableModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
@@ -10,6 +11,8 @@ namespace Lsw.Abp.AntDesignUI.Components;
 public partial class AbpExtensibleDataGrid<TItem> : ComponentBase
 {
     protected const string DataFieldAttributeName = "Data";
+    
+    protected Regex ExtensionPropertiesRegex = new Regex(@"ExtraProperties\[(.*?)\]");
 
     protected Dictionary<string, TableEntityActionsColumn<TItem>> ActionColumns = new();
     

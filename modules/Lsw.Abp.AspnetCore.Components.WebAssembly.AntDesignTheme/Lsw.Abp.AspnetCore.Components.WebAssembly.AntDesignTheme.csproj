@@ -13,9 +13,9 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.0" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="5.2.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
-        <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" Version="5.1.4" />
+        <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" Version="5.2.2" />
     </ItemGroup>
 
 </Project>
