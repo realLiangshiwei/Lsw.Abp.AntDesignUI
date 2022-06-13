@@ -41,7 +41,7 @@
                             <Input @bind-Value="@context.Surname"/>
                         </FormItem>
                         <FormItem Label="@L["DisplayName:Password"]">
-                            <InputPassword  @bind-Value="@context.Password"/>
+                            <InputPassword @bind-Value="@context.Password"/>
                         </FormItem>
                         <FormItem Label="@L["DisplayName:Email"]">
                             <Input @bind-Value="@context.Email"/>
@@ -55,15 +55,16 @@
                         <FormItem>
                             <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
                         </FormItem>
+                        <ExtensionProperties TEntityType="IdentityUserCreateDto" TResourceType="IdentityResource" Entity="@NewEntity" LH="@LH"/>
                     </TabPane>
-                    
+
                     <TabPane Tab="@L["Roles"]">
-                          @foreach (var role in NewUserRoles)
-                          {
-                              <FormItem WrapperColOffset="2">
-                                  <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
-                              </FormItem>
-                          }
+                        @foreach (var role in NewUserRoles)
+                        {
+                            <FormItem WrapperColOffset="2">
+                                <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
+                            </FormItem>
+                        }
                     </TabPane>
                 </Tabs>
             }
@@ -92,7 +93,7 @@
                             <Input @bind-Value="@context.Surname"/>
                         </FormItem>
                         <FormItem Label="@L["DisplayName:Password"]">
-                            <InputPassword  @bind-Value="@context.Password"/>
+                            <InputPassword @bind-Value="@context.Password"/>
                         </FormItem>
                         <FormItem Label="@L["DisplayName:Email"]">
                             <Input @bind-Value="@context.Email"/>
@@ -106,15 +107,17 @@
                         <FormItem>
                             <Checkbox @bind-Value="context.LockoutEnabled">@L["DisplayName:LockoutEnabled"]</Checkbox>
                         </FormItem>
+                        <ExtensionProperties TEntityType="IdentityUserUpdateDto" TResourceType="IdentityResource" Entity="@EditingEntity" LH="@LH"/>
+
                     </TabPane>
-                    
+
                     <TabPane Tab="@L["Roles"]">
-                          @foreach (var role in EditUserRoles)
-                          {
-                              <FormItem WrapperColOffset="2">
-                                  <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
-                              </FormItem>
-                          }
+                        @foreach (var role in EditUserRoles)
+                        {
+                            <FormItem WrapperColOffset="2">
+                                <Checkbox @bind-Value="role.IsAssigned">@role.Name</Checkbox>
+                            </FormItem>
+                        }
                     </TabPane>
                 </Tabs>
             }

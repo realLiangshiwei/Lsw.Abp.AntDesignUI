@@ -1,0 +1,12 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.Localization
+@inherits ExtensionPropertyComponentBase<TEntity, TResourceType>
+
+<FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)">
+    <Select DataSource="@SelectItems"
+            @bind-Value="@SelectedValue"
+            ValueName="@nameof(SelectItem<int>.Value)"
+            LabelName="@nameof(SelectItem<int>.Text)">
+    </Select>
+</FormItem>

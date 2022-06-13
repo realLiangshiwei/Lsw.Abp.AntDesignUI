@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.EntityActions;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.TableColumns;
 using Volo.Abp.FeatureManagement;
+using Volo.Abp.ObjectExtending;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.Localization;
 
@@ -117,18 +118,19 @@ public partial class TenantManagement
                 {
                     Title = L["TenantName"],
                     Data = nameof(TenantDto.Name),
-                },
-                new TableColumn
-                {
-                    Title = L["Actions"],
-                    Actions = EntityActions.Get<TenantManagement>()
-                },
+                }
             });
 
-        // TenantManagementTableColumns.AddRange(GetExtensionTableColumns(
-        //     TenantManagementModuleExtensionConsts.ModuleName,
-        //     TenantManagementModuleExtensionConsts.EntityNames.Tenant));
+        TenantManagementTableColumns.AddRange(GetExtensionTableColumns(
+            TenantManagementModuleExtensionConsts.ModuleName,
+            TenantManagementModuleExtensionConsts.EntityNames.Tenant));
 
+        TenantManagementTableColumns.Add(new TableColumn
+        {
+            Title = L["Actions"],
+            Actions = EntityActions.Get<TenantManagement>()
+        });
+        
         return base.SetTableColumnsAsync();
     }
 }

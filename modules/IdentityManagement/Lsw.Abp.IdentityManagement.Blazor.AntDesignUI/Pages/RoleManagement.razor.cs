@@ -10,6 +10,7 @@ using Volo.Abp.AspNetCore.Components.Web.Extensibility.EntityActions;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.TableColumns;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
+using Volo.Abp.ObjectExtending;
 
 namespace Lsw.Abp.IdentityManagement.Blazor.AntDesignUI.Pages;
 
@@ -90,19 +91,18 @@ public partial class RoleManagement
                         Title = L["RoleName"],
                         Data = nameof(IdentityRoleDto.Name),
                         Component = typeof(RoleNameComponent)
-                    },
-                    new TableColumn
-                    {
-                        Title = L["Actions"],
-                        Actions = EntityActions.Get<RoleManagement>()
-                    },
+                    }
             });
         
+        RoleManagementTableColumns.AddRange(GetExtensionTableColumns(IdentityModuleExtensionConsts.ModuleName,
+            IdentityModuleExtensionConsts.EntityNames.Role));
         
-        //TODO Implement object extensions
-        // RoleManagementTableColumns.AddRange(GetExtensionTableColumns(IdentityModuleExtensionConsts.ModuleName,
-        //     IdentityModuleExtensionConsts.EntityNames.Role));
-
+        RoleManagementTableColumns.Add(new TableColumn
+        {
+            Title = L["Actions"],
+            Actions = EntityActions.Get<RoleManagement>()
+        });
+        
         return base.SetTableColumnsAsync();
     }
 

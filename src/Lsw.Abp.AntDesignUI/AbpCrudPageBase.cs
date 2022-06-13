@@ -7,6 +7,7 @@ using AntDesign.TableModels;
 using JetBrains.Annotations;
 using Localization.Resources.AbpUi;
 using Lsw.Abp.AntDesignUI.Components;
+using Lsw.Abp.AntDesignUI.Components.ObjectExtending;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -17,6 +18,9 @@ using Volo.Abp.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.EntityActions;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.TableColumns;
 using Volo.Abp.Authorization;
+using Volo.Abp.Localization;
+using Volo.Abp.ObjectExtending;
+using Volo.Abp.ObjectExtending.Modularity;
 
 namespace Lsw.Abp.AntDesignUI;
 
@@ -579,6 +583,48 @@ public abstract class AbpCrudPageBase<
     protected virtual ValueTask SetToolbarItemsAsync()
     {
         return ValueTask.CompletedTask;
+    }
+    
+    protected virtual IEnumerable<TableColumn> GetExtensionTableColumns(string moduleName, string entityType)
+    {
+        var properties = ModuleExtensionConfigurationHelper.GetPropertyConfigurations(moduleName, entityType);
+        foreach (var propertyInfo in properties)
+        {
+            if (propertyInfo.IsAvailableToClients && propertyInfo.UI.OnTable.IsVisible)
+            {
+                if (propertyInfo.Name.EndsWith("_Text"))
+                {
+                    var lookupPropertyName = propertyInfo.Name.RemovePostFix("_Text");
+                    var lookupPropertyDefinition = properties.SingleOrDefault(t => t.Name == lookupPropertyName);
+                    yield return new TableColumn
+                    {
+                        Title = lookupPropertyDefinition.GetLocalizedDisplayName(StringLocalizerFactory),
+                        Data = $"ExtraProperties[{propertyInfo.Name}]"
+                    };
+                }
+                else
+                {
+                    var column = new TableColumn
+                    {
+                        Title = propertyInfo.GetLocalizedDisplayName(StringLocalizerFactory),
+                        Data = $"ExtraProperties[{propertyInfo.Name}]"
+                    };
+
+                    if (propertyInfo.IsDate() || propertyInfo.IsDateTime())
+                    {
+                        column.DisplayFormat = propertyInfo.GetDateEditInputFormatOrNull();
+                    }
+
+                    if (propertyInfo.Type.IsEnum)
+                    {
+                        column.ValueConverter = (val) =>
+                            EnumHelper.GetLocalizedMemberName(propertyInfo.Type, val.As<ExtensibleObject>().ExtraProperties[propertyInfo.Name], StringLocalizerFactory);
+                    }
+
+                    yield return column;
+                }
+            }
+        }
     }
 }
 
