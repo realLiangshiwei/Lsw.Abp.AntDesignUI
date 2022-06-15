@@ -39,7 +39,7 @@
             <FormItem Label="@L["DisplayName:AdminPassword"]">
                 <InputPassword @bind-Value="@context.AdminPassword"/>
             </FormItem>
-
+            <ExtensionProperties TEntityType="TenantCreateDto" TResourceType="AbpTenantManagementResource" Entity="@NewEntity" LH="@LH"/>
         </Form>
     </Modal>
 }
@@ -55,7 +55,7 @@
             <FormItem Label="@L["TenantName"]">
                 <Input @bind-Value="@context.Name"/>
             </FormItem>
-
+            <ExtensionProperties TEntityType="TenantUpdateDto" TResourceType="AbpTenantManagementResource" Entity="@EditingEntity" LH="@LH"/>
         </Form>
     </Modal>
 }

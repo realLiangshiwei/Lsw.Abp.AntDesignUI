@@ -11,6 +11,7 @@ using Volo.Abp.AspNetCore.Components.Web.Extensibility.EntityActions;
 using Volo.Abp.AspNetCore.Components.Web.Extensibility.TableColumns;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Localization;
+using Volo.Abp.ObjectExtending;
 
 namespace Lsw.Abp.IdentityManagement.Blazor.AntDesignUI.Pages;
 
@@ -177,13 +178,17 @@ public partial class UserManagement
                     {
                         Title = L["PhoneNumber"],
                         Data = nameof(IdentityUserDto.PhoneNumber),
-                    },
-                    new TableColumn
-                    {
-                        Title = L["Actions"],
-                        Actions = EntityActions.Get<UserManagement>()
-                    },
+                    }
             });
+        
+        UserManagementTableColumns.AddRange(GetExtensionTableColumns(IdentityModuleExtensionConsts.ModuleName,
+            IdentityModuleExtensionConsts.EntityNames.User));
+        
+        UserManagementTableColumns.Add(new TableColumn
+        {
+            Title = L["Actions"],
+            Actions = EntityActions.Get<UserManagement>()
+        });
         
         return base.SetEntityActionsAsync();
     }

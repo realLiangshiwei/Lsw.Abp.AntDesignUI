@@ -1,4 +1,5 @@
-﻿@typeparam TItem
+﻿@using Volo.Abp.Data
+@typeparam TItem
 
 <Table TItem="TItem"
        DataSource="@Data"
@@ -9,7 +10,9 @@
        Total="TotalItems"
        Class="@Class"
        RemoteDataSource="true"
-       Responsive="@Responsive">
+       Responsive="@Responsive"
+       TableLayout=""
+       ScrollX="100%">
 
     @if (Columns != null)
     {
@@ -17,7 +20,7 @@
         {
             if (column.Actions.Any())
             {
-                <Column TData="object" Title="@column.Title" Fixed="true">
+                <Column TData="object" Title="@column.Title" Fixed="right">
                      <EntityActions TItem="TItem">
                         @foreach (var action in column.Actions)
                         {
@@ -75,7 +78,42 @@
                     }
                     else
                     {
-                        
+                        <Column TData="object" Title="@column.Title">
+                            @{
+                                var entity = context as IHasExtraProperties;
+                                var propertyName = ExtensionPropertiesRegex.Match(column.Data).Groups[1].Value;
+                                var propertyValue = entity.GetProperty(propertyName);
+                                if (propertyValue is bool)
+                                {
+                                    if ((bool) propertyValue)
+                                    {
+                                        <Icon Type="check" Theme="outline"/>
+                                    }
+                                    else
+                                    {
+                                        <Icon Type="close" Theme="outline"/>
+                                    }
+                                }
+                                else
+                                {
+                                    if (column.ValueConverter != null)
+                                    {
+                                        @(GetConvertedFieldValue(context, column))
+                                    }
+                                    else
+                                    {
+                                        if (column.DisplayFormat == null)
+                                        {
+                                            @propertyValue
+                                        }
+                                        else
+                                        {
+                                            @string.Format(column.DisplayFormatProvider, column.DisplayFormat, propertyValue)
+                                        }
+                                    }
+                                }
+                            }
+                        </Column>
                     }
                 }
             }

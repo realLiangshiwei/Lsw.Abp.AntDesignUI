@@ -1,0 +1,13 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.Localization
+@inherits ExtensionPropertyComponentBase<TEntity, TResourceType>
+
+@if (PropertyInfo != null && Entity != null)
+{
+    <FormItem>
+        <Checkbox @bind-Value="@Value">
+            @PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)
+        </Checkbox>
+    </FormItem>
+}

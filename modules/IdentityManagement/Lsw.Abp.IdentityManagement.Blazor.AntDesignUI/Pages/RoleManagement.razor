@@ -32,6 +32,7 @@
             <FormItem Label="@L["DisplayName:RoleName"]">
                 <Input @bind-Value="@context.Name"/>
             </FormItem>
+            <ExtensionProperties TEntityType="IdentityRoleCreateDto" TResourceType="IdentityResource" Entity="@NewEntity" LH="@LH"/>
             <FormItem>
                 <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
             </FormItem>
@@ -53,6 +54,7 @@
             <FormItem Label="@L["DisplayName:RoleName"]">
                 <Input @bind-Value="@context.Name"/>
             </FormItem>
+            <ExtensionProperties TEntityType="IdentityRoleUpdateDto" TResourceType="IdentityResource" Entity="@EditingEntity" LH="@LH"/>
             <FormItem>
                 <Checkbox @bind-Value="context.IsDefault">@L["DisplayName:IsDefault"]</Checkbox>
             </FormItem>

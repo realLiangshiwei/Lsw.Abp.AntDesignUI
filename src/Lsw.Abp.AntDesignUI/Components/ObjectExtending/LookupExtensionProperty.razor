@@ -1,0 +1,16 @@
+﻿@typeparam TEntity
+@typeparam TResourceType
+@using Volo.Abp.Localization
+@inherits ExtensionPropertyComponentBase<TEntity, TResourceType>
+
+<FormItem Label="@PropertyInfo.GetLocalizedDisplayName(StringLocalizerFactory)">
+    <AutoComplete @bind-Value="@SelectedValue"
+                  CompareWith="@_compareWith"
+                  Options="@lookupItems"
+                  OnSelectionChange="SelectedValueChanged">
+        <OptionTemplate Context="option">
+                <AutoCompleteOption Value="@option.Value" Label="@option.Value.Text">
+                </AutoCompleteOption>
+            </OptionTemplate>
+    </AutoComplete>
+</FormItem>
