@@ -13,7 +13,7 @@ namespace Lsw.Abp.AntDesignUI;
 public class AntDesignUiNotificationService: IUiNotificationService, IScopedDependency
 {
     [Inject]
-    public NotificationService NoticeService { get; set; }
+    public IMessageService MessageService { get; set; }
 
     private readonly IStringLocalizer<AbpUiResource> _localizer;
 
@@ -24,10 +24,11 @@ public class AntDesignUiNotificationService: IUiNotificationService, IScopedDepe
 
     public async Task Info(string message, string title = null, Action<UiNotificationOptions> options = null)
     {
+        
         var uiNotificationOptions = CreateDefaultOptions();
         options?.Invoke(uiNotificationOptions);
 
-        await Notify(title ?? _localizer["Info"], message, NotificationType.Info);
+        await Notify(title ?? _localizer["Info"], message, MessageType.Info);
     }
 
     public async Task Success(string message, string title = null, Action<UiNotificationOptions> options = null)
@@ -35,7 +36,7 @@ public class AntDesignUiNotificationService: IUiNotificationService, IScopedDepe
         var uiNotificationOptions = CreateDefaultOptions();
         options?.Invoke(uiNotificationOptions);
 
-        await Notify(title ?? _localizer["Success"], message, NotificationType.Success);
+        await Notify(title ?? _localizer["Success"], message, MessageType.Success);
     }
 
     public async Task Warn(string message, string title = null, Action<UiNotificationOptions> options = null)
@@ -43,7 +44,7 @@ public class AntDesignUiNotificationService: IUiNotificationService, IScopedDepe
         var uiNotificationOptions = CreateDefaultOptions();
         options?.Invoke(uiNotificationOptions);
 
-        await Notify(title ?? _localizer["Warn"], message, NotificationType.Warning);
+        await Notify(title ?? _localizer["Warn"], message, MessageType.Warning);
     }
 
     public async Task Error(string message, string title = null, Action<UiNotificationOptions> options = null)
@@ -51,17 +52,15 @@ public class AntDesignUiNotificationService: IUiNotificationService, IScopedDepe
         var uiNotificationOptions = CreateDefaultOptions();
         options?.Invoke(uiNotificationOptions);
 
-        await Notify(title ?? _localizer["Error"], message, NotificationType.Error);
+        await Notify(title ?? _localizer["Error"], message, MessageType.Error);
     }
 
-    protected virtual async Task Notify(string title, string message, NotificationType notificationType)
+    protected virtual async Task Notify(string title, string message, MessageType messageType)
     {
-        await NoticeService.Open(new NotificationConfig
+        await MessageService.Open(new MessageConfig
         {
-            Message = title,
-            Description = message,
-            Placement = NotificationPlacement.BottomRight,
-            NotificationType = notificationType
+            Content = message,
+            Type = messageType
         });
     }
 

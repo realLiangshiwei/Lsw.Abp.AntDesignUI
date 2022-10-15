@@ -9,10 +9,10 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="AntDesign" Version="0.10.3.1" />
-      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="5.2.2" />
-      <PackageReference Include="Volo.Abp.Authorization" Version="5.2.2" />
-      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="5.2.2" />
+      <PackageReference Include="AntDesign" Version="0.12.6" />
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="6.0.0" />
+      <PackageReference Include="Volo.Abp.Authorization" Version="6.0.0" />
+      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="6.0.0" />
     </ItemGroup>
     
     <ItemGroup>

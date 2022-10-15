@@ -67,7 +67,7 @@ public class AntDesignSettingDefultPageContributor : ISettingComponentContributo
 
         var featureCheck = context.ServiceProvider.GetRequiredService<IFeatureChecker>();
 
-        return await featureCheck.IsEnabledAsync(SettingManagementFeatures.AllowTenantsToChangeEmailSettings);
+        return await featureCheck.IsEnabledAsync(SettingManagementFeatures.AllowChangingEmailSettings);
 
     }
 }
