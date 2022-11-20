@@ -20,38 +20,12 @@ The first step is to use ABP CLI to create a new project.
 
 > See the [ABP official documentation](https://docs.abp.io) to learn [ABP framework](https://github.com/abpframework/abp).
 
-**Open `BookStore.Blazor.csproj` and replace with the following:**
+### Replace LeptonXLiteTheme with AntBlazorTheme
 
-```csharp
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
-
-  <Import Project="..\..\common.props" />
-
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="5.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI" Version="0.1.0" />
-    <PackageReference Include="Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI" Version="0.1.0" />
-    <PackageReference Include="Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI" Version="0.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\BookStore.HttpApi.Client\BookStore.HttpApi.Client.csproj" />
-  </ItemGroup>
-
-</Project>
+* Remove `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` Package.
+* Replace `Volo.Abp.Identity.Blazor.WebAssembly` with `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
+* Replace `Volo.Abp.SettingManagement.Blazor.WebAssembly` with `Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI`
+* Replace `Volo.Abp.TenantManagement.Blazor.WebAssembly` with `Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI`
 
 ```
 
