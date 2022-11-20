@@ -20,7 +20,7 @@ The first step is to use ABP CLI to create a new project.
 
 > See the [ABP official documentation](https://docs.abp.io) to learn [ABP framework](https://github.com/abpframework/abp).
 
-### Replace LeptonXLiteTheme with AntBlazorTheme
+**Replace LeptonXLiteTheme with AntBlazorTheme packages**
 
 * Remove `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` Package.
 * Replace `Volo.Abp.Identity.Blazor.WebAssembly` with `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
