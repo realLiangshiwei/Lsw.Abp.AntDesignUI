@@ -22,10 +22,10 @@ public partial class FeatureManagementModal
     [Inject]
     protected IFeatureAppService FeatureAppService { get; set; }
 
-    [Inject] 
+    [Inject]
     protected IUiMessageService UiMessageService { get; set; }
 
-    [Inject] 
+    [Inject]
     protected IStringLocalizerFactory HtmlLocalizerFactory { get; set; }
 
     [Inject]
@@ -35,7 +35,7 @@ public partial class FeatureManagementModal
     protected ICurrentApplicationConfigurationCacheResetService CurrentApplicationConfigurationCacheResetService { get; set; }
 
     protected Modal Modal;
-    
+
     protected string ProviderName;
     protected string ProviderKey;
 
@@ -44,9 +44,9 @@ public partial class FeatureManagementModal
     protected Dictionary<string, bool> ToggleValues;
 
     protected Dictionary<string, string> SelectionStringValues;
-    
+
     private bool _visible;
-    
+
     public virtual async Task OpenAsync([NotNull] string providerName, string providerKey = null)
     {
         try
@@ -196,7 +196,7 @@ public partial class FeatureManagementModal
 
     protected virtual IStringLocalizer CreateStringLocalizer(string resourceName)
     {
-        var resource = LocalizationOptions.Value.Resources.Values.FirstOrDefault(x => x.ResourceName == resourceName);
-        return HtmlLocalizerFactory.Create(resource != null ? resource.ResourceType : LocalizationOptions.Value.DefaultResourceType);
+        return StringLocalizerFactory.CreateByResourceNameOrNull(resourceName) ??
+               StringLocalizerFactory.CreateDefaultOrNull();
     }
 }

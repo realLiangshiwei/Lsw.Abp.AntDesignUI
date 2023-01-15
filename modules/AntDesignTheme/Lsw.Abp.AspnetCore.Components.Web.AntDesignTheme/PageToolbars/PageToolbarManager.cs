@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.DependencyInjection;
 
 namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.PageToolbars;
 
 public class PageToolbarManager : IPageToolbarManager, ITransientDependency
 {
-    protected IHybridServiceScopeFactory ServiceScopeFactory { get; }
+    protected IServiceScopeFactory ServiceScopeFactory { get; }
 
-    public PageToolbarManager(
-        IHybridServiceScopeFactory serviceScopeFactory)
+    public PageToolbarManager(IServiceScopeFactory serviceScopeFactory)
     {
         ServiceScopeFactory = serviceScopeFactory;
     }
