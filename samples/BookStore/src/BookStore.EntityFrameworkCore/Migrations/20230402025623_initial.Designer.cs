@@ -13,8 +13,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(BookStoreDbContext))]
-    [Migration("20230115092635_Initial")]
-    partial class Initial
+    [Migration("20230402025623_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -552,6 +552,9 @@ namespace BookStore.Migrations
                         .HasColumnType("nvarchar(40)")
                         .HasColumnName("ConcurrencyStamp");
 
+                    b.Property<int>("EntityVersion")
+                        .HasColumnType("int");
+
                     b.Property<string>("ExtraProperties")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ExtraProperties");
@@ -735,6 +738,9 @@ namespace BookStore.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false)
                         .HasColumnName("EmailConfirmed");
+
+                    b.Property<int>("EntityVersion")
+                        .HasColumnType("int");
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnType("nvarchar(max)")
@@ -1012,6 +1018,9 @@ namespace BookStore.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)")
                         .HasColumnName("DisplayName");
+
+                    b.Property<int>("EntityVersion")
+                        .HasColumnType("int");
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnType("nvarchar(max)")
@@ -2076,6 +2085,9 @@ namespace BookStore.Migrations
                     b.Property<DateTime?>("DeletionTime")
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletionTime");
+
+                    b.Property<int>("EntityVersion")
+                        .HasColumnType("int");
 
                     b.Property<string>("ExtraProperties")
                         .HasColumnType("nvarchar(max)")

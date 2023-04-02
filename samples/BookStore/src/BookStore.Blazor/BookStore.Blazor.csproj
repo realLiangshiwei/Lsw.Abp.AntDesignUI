@@ -12,11 +12,11 @@
 <!--    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.5.4" />-->
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" />
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="7.0.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="$(ABPPackageVersion)" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="7.0.0" />
+    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="$(ABPPackageVersion)" />
 <!--    <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme" Version="7.0.0" />-->
   </ItemGroup>
 

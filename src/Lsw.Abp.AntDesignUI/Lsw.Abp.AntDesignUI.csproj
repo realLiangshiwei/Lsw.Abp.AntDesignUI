@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 
     <Import Project="..\..\common.props" />
@@ -9,15 +9,10 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="AntDesign" Version="0.13.3" />
-      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="7.0.0" />
-      <PackageReference Include="Volo.Abp.Authorization" Version="7.0.0" />
-      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="7.0.0" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Components\ObjectExtending\ExtensionProperties.razor" />
-      <_ContentIncludedByDefault Remove="Components\ObjectExtending\SelectExtensionProperty.razor" />
+      <PackageReference Include="AntDesign" Version="0.14.4" />
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.Authorization" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="$(ABPPackageVersion)" />
     </ItemGroup>
 
 </Project>

@@ -12,10 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="7.0.0" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="7.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
-        <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" Version="7.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(MicrosoftPackageVersion)" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="$(MicrosoftPackageVersion)" />
+        <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" Version="$(ABPPackageVersion)" />
     </ItemGroup>
 
 </Project>

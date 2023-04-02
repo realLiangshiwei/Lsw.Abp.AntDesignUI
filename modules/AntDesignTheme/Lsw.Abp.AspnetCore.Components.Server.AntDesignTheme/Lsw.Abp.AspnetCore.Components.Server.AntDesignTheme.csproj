@@ -9,9 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.AspNetCore.Components.Server" Version="7.0.0" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bundling" Version="7.0.0" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Packages" Version="7.0.0" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Components.Server" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bundling" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Packages" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
     </ItemGroup>
     

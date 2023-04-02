@@ -29,6 +29,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Lsw.Abp.SettingManagement.Blazor.AntDesignUI;
 using Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.Bundling;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
@@ -104,7 +105,7 @@ public class BookStoreBlazorModule : AbpModule
                     bundle.AddFiles("/global-styles.css");
                 }
             );
-            
+
             //BLAZOR UI
              options.StyleBundles.Configure(
                  BlazorAntDesignThemeBundles.Styles.Global,
