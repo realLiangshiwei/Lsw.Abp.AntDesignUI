@@ -50,6 +50,8 @@ public class BookStoreDbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
+    public DbSet<IdentityUserDelegation> UserDelegations { get; set; }
+
     #endregion
 
     public BookStoreDbContext(DbContextOptions<BookStoreDbContext> options)

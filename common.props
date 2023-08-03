@@ -7,7 +7,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</RepositoryUrl>
-    <ABPPackageVersion>7.1.*</ABPPackageVersion>
+    <ABPPackageVersion>7.3.*</ABPPackageVersion>
     <MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
   </PropertyGroup>
 </Project>
