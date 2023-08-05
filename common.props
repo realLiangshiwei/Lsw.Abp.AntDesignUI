@@ -1,13 +1,13 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <Version>0.7.0</Version>
+    <Version>0.8.0</Version>
     <PackageIconUrl>https://raw.githubusercontent.com/realliangshiwei/Lsw.Abp.AntDesignUI/main/icon.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</RepositoryUrl>
-    <ABPPackageVersion>7.1.*</ABPPackageVersion>
+    <ABPPackageVersion>7.3.*</ABPPackageVersion>
     <MicrosoftPackageVersion>7.0.*</MicrosoftPackageVersion>
   </PropertyGroup>
 </Project>

@@ -4,7 +4,7 @@
     <Version>1.0.0</Version>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
 	  <AbpProjectType>app</AbpProjectType>
-    <ABPPackageVersion>7.1.*</ABPPackageVersion>
+    <ABPPackageVersion>7.3.*</ABPPackageVersion>
   </PropertyGroup>
 
   <Target Name="NoWarnOnRazorViewImportedTypeConflicts" BeforeTargets="RazorCoreCompile">
