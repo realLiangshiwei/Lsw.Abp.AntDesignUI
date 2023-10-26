@@ -178,6 +178,8 @@ public abstract class AbpCrudPageBase<
 
     [Inject] protected IStringLocalizer<AbpUiResource> UiLocalizer { get; set; }
 
+    [Inject] protected IAbpEnumLocalizer AbpEnumLocalizer { get; set; }
+
     protected virtual int PageSize { get; } = LimitedResultRequestDto.DefaultMaxResultCount;
 
     protected int CurrentPage = 1;
@@ -618,7 +620,7 @@ public abstract class AbpCrudPageBase<
                     if (propertyInfo.Type.IsEnum)
                     {
                         column.ValueConverter = (val) =>
-                            EnumHelper.GetLocalizedMemberName(propertyInfo.Type, val.As<ExtensibleObject>().ExtraProperties[propertyInfo.Name], StringLocalizerFactory);
+                            AbpEnumLocalizer.GetString(propertyInfo.Type, val.As<ExtensibleObject>().ExtraProperties[propertyInfo.Name]);
                     }
 
                     yield return column;
