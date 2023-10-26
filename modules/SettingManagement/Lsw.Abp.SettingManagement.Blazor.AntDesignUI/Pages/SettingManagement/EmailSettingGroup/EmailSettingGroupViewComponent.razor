@@ -25,7 +25,7 @@
         <Checkbox @bind-Value="context.SmtpUseDefaultCredentials">@L["SmtpUseDefaultCredentials"]</Checkbox>
     </FormItem>
     
-    @if (EmailSettings.SmtpUseDefaultCredentials)
+    @if (!EmailSettings.SmtpUseDefaultCredentials)
     {
         <FormItem Label="@L["SmtpDomain"]">
             <Input @bind-Value="@context.SmtpDomain"/>
