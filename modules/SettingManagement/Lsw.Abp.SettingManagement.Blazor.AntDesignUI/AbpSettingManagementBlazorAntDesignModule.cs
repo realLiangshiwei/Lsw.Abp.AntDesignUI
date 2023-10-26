@@ -40,6 +40,7 @@ public class AbpSettingManagementBlazorAntDesignModule : AbpModule
         Configure<SettingManagementComponentOptions>(options =>
         {
             options.Contributors.Add(new AntDesignSettingDefultPageContributor());
+            options.Contributors.Add(new AntDesignTimeZonePageContributor());
         });
     }
 }
