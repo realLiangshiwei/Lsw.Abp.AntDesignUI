@@ -5,6 +5,7 @@ using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Options;
+using Volo.Abp.AspNetCore.Components.Web.Security;
 using Volo.Abp.UI.Navigation;
 
 namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme;
@@ -17,7 +18,7 @@ public partial class MainMenu : IDisposable
     protected IMenuManager MenuManager { get; set; }
     
     [Inject]
-    protected AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+    protected ApplicationConfigurationChangedService ApplicationConfigurationChangedService { get; set; }
     
     [Parameter]
     public MenuPlacement Placement { get; set; }
@@ -31,15 +32,15 @@ public partial class MainMenu : IDisposable
     protected override async Task OnInitializedAsync()
     {
         await GetMenuAsync();
-        AuthenticationStateProvider.AuthenticationStateChanged += AuthenticationStateProviderOnAuthenticationStateChanged;
+        ApplicationConfigurationChangedService.Changed += ApplicationConfigurationChanged;
     }
 
     private async Task GetMenuAsync()
     {
         Menu = await MenuManager.GetMainMenuAsync();
     }
-    
-    private async void AuthenticationStateProviderOnAuthenticationStateChanged(Task<AuthenticationState> task)
+
+    private async void ApplicationConfigurationChanged()
     {
         await GetMenuAsync();
         await InvokeAsync(StateHasChanged);
@@ -47,6 +48,6 @@ public partial class MainMenu : IDisposable
 
     public void Dispose()
     {
-        AuthenticationStateProvider.AuthenticationStateChanged -= AuthenticationStateProviderOnAuthenticationStateChanged;
+        ApplicationConfigurationChangedService.Changed -= ApplicationConfigurationChanged;
     }
 }

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.JSInterop;
+using Volo.Abp.AspNetCore.Components.Web.Security;
 using Volo.Abp.UI.Navigation;
 
 namespace Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Themes.AntDesignTheme;
@@ -16,10 +15,7 @@ public partial class LoginDisplay : IDisposable
     protected IMenuManager MenuManager { get; set; }
 
     [Inject]
-    public AuthenticationStateProvider AuthenticationStateProvider { get; set; }
-
-    [CanBeNull]
-    protected SignOutSessionStateManager SignOutManager;
+    protected ApplicationConfigurationChangedService ApplicationConfigurationChangedService { get; set; }
 
     protected ApplicationMenu Menu { get; set; }
 
@@ -29,10 +25,7 @@ public partial class LoginDisplay : IDisposable
 
         Navigation.LocationChanged += OnLocationChanged;
 
-        LazyGetService(ref SignOutManager);
-
-        AuthenticationStateProvider.AuthenticationStateChanged +=
-            AuthenticationStateProviderOnAuthenticationStateChanged;
+        ApplicationConfigurationChangedService.Changed += ApplicationConfigurationChanged;
     }
 
     protected virtual void OnLocationChanged(object sender, LocationChangedEventArgs e)
@@ -40,7 +33,7 @@ public partial class LoginDisplay : IDisposable
         InvokeAsync(StateHasChanged);
     }
 
-    private async void AuthenticationStateProviderOnAuthenticationStateChanged(Task<AuthenticationState> task)
+    private async void ApplicationConfigurationChanged()
     {
         Menu = await MenuManager.GetAsync(StandardMenus.User);
         await InvokeAsync(StateHasChanged);
@@ -49,8 +42,7 @@ public partial class LoginDisplay : IDisposable
     public void Dispose()
     {
         Navigation.LocationChanged -= OnLocationChanged;
-        AuthenticationStateProvider.AuthenticationStateChanged -=
-            AuthenticationStateProviderOnAuthenticationStateChanged;
+        ApplicationConfigurationChangedService.Changed -= ApplicationConfigurationChanged;
     }
 
     private async Task NavigateToAsync(string uri, string target = null)
@@ -65,12 +57,8 @@ public partial class LoginDisplay : IDisposable
         }
     }
 
-    private async Task BeginSignOut()
+    private void BeginSignOut()
     {
-        if (SignOutManager != null)
-        {
-            await SignOutManager.SetSignOutState();
-            await NavigateToAsync("authentication/logout");
-        }
+        Navigation.NavigateToLogout("authentication/logout");
     }
 }

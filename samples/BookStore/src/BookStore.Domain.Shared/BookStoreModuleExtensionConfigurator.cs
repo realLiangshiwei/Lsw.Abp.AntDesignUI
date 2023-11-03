@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Identity;
+﻿using BookStore.Identity;
+using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
@@ -66,5 +67,16 @@ public static class BookStoreModuleExtensionConfigurator
          * See the documentation for more:
          * https://docs.abp.io/en/abp/latest/Module-Entity-Extensions
          */
+
+        ObjectExtensionManager.Instance.Modules()
+            .ConfigureIdentity(identity => {
+                identity.ConfigureUser(user =>
+                {
+                    user.AddOrUpdateProperty<IdentityUserType>("IdentityUserType", property =>
+                    {
+                        property.DefaultValue = IdentityUserType.Normal;
+                    });
+                });
+            });
     }
 }

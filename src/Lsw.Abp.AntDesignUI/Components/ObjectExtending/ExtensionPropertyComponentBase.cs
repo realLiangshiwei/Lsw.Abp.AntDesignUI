@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.AspNetCore.Components.Web;
 using Volo.Abp.Data;
+using Volo.Abp.Localization;
 using Volo.Abp.ObjectExtending;
 
 namespace Lsw.Abp.AntDesignUI.Components.ObjectExtending;
@@ -12,6 +13,9 @@ public abstract class ExtensionPropertyComponentBase<TEntity, TResourceType> : O
 {
     [Inject]
     public IStringLocalizerFactory StringLocalizerFactory { get; set; }
+
+    [Inject]
+    public IAbpEnumLocalizer EnumLocalizer { get; set; }
 
     [Parameter]
     public TEntity Entity { get; set; }

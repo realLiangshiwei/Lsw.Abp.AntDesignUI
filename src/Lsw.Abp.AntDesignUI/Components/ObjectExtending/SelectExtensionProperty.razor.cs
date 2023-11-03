@@ -22,7 +22,7 @@ public partial class SelectExtensionProperty<TEntity, TResourceType>
             selectItems.Add(new SelectItem<int>
             {
                 Value = (int)enumValue,
-                Text = EnumHelper.GetLocalizedMemberName(PropertyInfo.Type, enumValue, StringLocalizerFactory)
+                Text = EnumLocalizer.GetString(PropertyInfo.Type, enumValue)
             });
         }
 

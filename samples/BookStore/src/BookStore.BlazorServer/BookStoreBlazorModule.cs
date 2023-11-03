@@ -34,6 +34,7 @@ using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Timing;
 
 namespace BookStore.Blazor;
 
@@ -73,6 +74,8 @@ public class BookStoreBlazorModule : AbpModule
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
 
+        Configure<AbpClockOptions>(options => options.Kind = DateTimeKind.Utc);
+
         ConfigureUrls(configuration);
         ConfigureBundles();
         ConfigureAuthentication(context, configuration);
@@ -107,15 +110,15 @@ public class BookStoreBlazorModule : AbpModule
             );
 
             //BLAZOR UI
-             options.StyleBundles.Configure(
-                 BlazorAntDesignThemeBundles.Styles.Global,
-                 bundle =>
-                 {
-                     bundle.AddFiles("/blazor-global-styles.css");
-                     //You can remove the following line if you don't use Blazor CSS isolation for components
-                     bundle.AddFiles("/BookStore.BlazorServer.styles.css");
-                 }
-             );
+            options.StyleBundles.Configure(
+                BlazorAntDesignThemeBundles.Styles.Global,
+                bundle =>
+                {
+                    bundle.AddFiles("/blazor-global-styles.css");
+                    //You can remove the following line if you don't use Blazor CSS isolation for components
+                    bundle.AddFiles("/BookStore.BlazorServer.styles.css");
+                }
+            );
         });
     }
 

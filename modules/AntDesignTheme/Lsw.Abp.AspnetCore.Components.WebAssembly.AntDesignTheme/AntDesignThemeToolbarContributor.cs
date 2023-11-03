@@ -14,8 +14,9 @@ public class AntDesignThemeToolbarContributor: IToolbarContributor
         {
             context.Toolbar.Items.Add(new ToolbarItem(typeof(LanguageSwitch)));
 
+            //TODO: Can we find a different way to understand if authentication was configured or not?
             var authenticationStateProvider = context.ServiceProvider
-                .GetRequiredService<AuthenticationStateProvider>();
+                .GetService<AuthenticationStateProvider>();
 
             if (authenticationStateProvider != null)
             {
