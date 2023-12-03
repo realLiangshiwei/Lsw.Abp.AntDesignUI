@@ -5,14 +5,14 @@
     <Import Project="..\..\..\configureawait.props" />
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Volo.Abp.AspNetCore.Components.Server" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bundling" Version="$(ABPPackageVersion)" />
         <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Packages" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.0" />
     </ItemGroup>
     
     <ItemGroup>
