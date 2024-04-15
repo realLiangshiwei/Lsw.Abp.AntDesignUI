@@ -1,14 +1,16 @@
 ﻿@page "/identity/roles"
 @attribute [Authorize(IdentityPermissions.Roles.Default)]
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
 @using Volo.Abp.Identity
 @using Volo.Abp.Identity.Localization
 @using Lsw.Abp.PermissionManagement.Blazor.AntDesignUI.Components
 @using Volo.Abp.AspNetCore.Components.Web
 @inject AbpBlazorMessageLocalizerHelper<IdentityResource> LH
 @inherits AbpCrudPageBase<IIdentityRoleAppService, IdentityRoleDto, Guid, GetIdentityRolesInput, IdentityRoleCreateDto, IdentityRoleUpdateDto>
-
-<AbpPageHeader Title="@L["Roles"]" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar"/>
+@implements IReuseTabsPage
+<AbpPageHeader Title="@L["Roles"]" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar" />
 
 <div class="page-content">
     <AbpExtensibleDataGrid TItem="IdentityRoleDto"
@@ -69,4 +71,9 @@
 @if (HasManagePermissionsPermission)
 {
     <PermissionManagementModal @ref="PermissionManagementModal"/>
+}
+
+@code {
+    public RenderFragment GetPageTitle() =>
+    @<div>@L["Roles"]</div>;
 }

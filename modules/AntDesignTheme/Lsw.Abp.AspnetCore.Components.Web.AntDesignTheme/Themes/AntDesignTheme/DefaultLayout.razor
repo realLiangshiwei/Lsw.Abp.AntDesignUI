@@ -58,7 +58,13 @@ else
             <Content Class="ant-design-content">
                 <PageAlert/>
                 <div class="ant-design-body-content">
-                    @Body
+                    @if (!Options.Value.EnableMultipleTabs){
+                        @Body
+                    }
+                    else
+                    {
+                        <ReuseTabs Class="ant-design-body-reusetabs" TabPaneClass="ant-design-body-reusetabs-tabpane" Draggable></ReuseTabs>
+                    }
                 </div>
                 <UiPageProgress/>
             </Content>

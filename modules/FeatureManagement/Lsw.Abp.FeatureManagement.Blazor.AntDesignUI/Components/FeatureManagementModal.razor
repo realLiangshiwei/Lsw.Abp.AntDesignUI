@@ -1,9 +1,11 @@
 ﻿@using AntDesign
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme
 @using Microsoft.AspNetCore.Components
 @using Microsoft.Extensions.Localization
+@using Microsoft.Extensions.Options
 @using Volo.Abp.Validation.StringValues
 @inherits AbpFeatureManagementComponentBase
-
+@implements IReuseTabsPage
 <Modal Title="@L["Features"]"
        Visible="@_visible"
        OnOk="@SaveAsync"
@@ -76,3 +78,8 @@
         }
     }
 </Modal>
+
+@code {
+    public RenderFragment GetPageTitle() =>
+    @<div>L["Features"]</div>;
+}

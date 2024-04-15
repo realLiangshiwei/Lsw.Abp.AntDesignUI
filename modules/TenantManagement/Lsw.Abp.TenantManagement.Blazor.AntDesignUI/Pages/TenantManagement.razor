@@ -8,6 +8,7 @@
 @using Volo.Abp.TenantManagement
 @inject AbpBlazorMessageLocalizerHelper<AbpTenantManagementResource> LH
 @inherits AbpCrudPageBase<ITenantAppService, TenantDto, Guid, GetTenantsInput, TenantCreateDto, TenantUpdateDto>
+@implements IReuseTabsPage
 
 <AbpPageHeader Title="@L["Tenants"]" BreadcrumbItems="@BreadcrumbItems" Toolbar="@Toolbar"/>
 
@@ -63,4 +64,9 @@
 @if (HasManageFeaturesPermission)
 {
     <FeatureManagementModal @ref="FeatureManagementModal"/>
+}
+
+@code {
+    public RenderFragment GetPageTitle() =>
+    @<div>@L["Tenants"]</div>;
 }
