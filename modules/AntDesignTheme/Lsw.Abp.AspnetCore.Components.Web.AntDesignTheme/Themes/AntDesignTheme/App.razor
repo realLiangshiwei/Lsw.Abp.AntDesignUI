@@ -5,18 +5,20 @@
     <Router AppAssembly="RouterOptions.Value.AppAssembly"
             AdditionalAssemblies="RouterOptions.Value.AdditionalAssemblies">
         <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(DefaultLayout)">
-                <NotAuthorized>
-                    @if (!context.User.Identity.IsAuthenticated)
-                    {
-                        <RedirectToLogin/>
-                    }
-                    else
-                    {
-                        <p>You are not authorized to access this resource.</p>
-                    }
-                </NotAuthorized>
-            </AuthorizeRouteView>
+            <CascadingValue Value="routeData">
+                <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(DefaultLayout)">
+                    <NotAuthorized>
+                        @if (!context.User.Identity.IsAuthenticated)
+                        {
+                            <RedirectToLogin/>
+                        }
+                        else
+                        {
+                            <p>You are not authorized to access this resource.</p>
+                        }
+                    </NotAuthorized>
+                </AuthorizeRouteView>
+             </CascadingValue>
         </Found>
         <NotFound>
             <LayoutView Layout="@typeof(DefaultLayout)">

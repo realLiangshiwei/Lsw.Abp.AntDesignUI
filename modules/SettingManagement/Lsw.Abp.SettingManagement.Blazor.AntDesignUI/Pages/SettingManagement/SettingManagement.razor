@@ -1,11 +1,13 @@
 ﻿@page "/setting-management"
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme
 @using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
 @using Volo.Abp.Features
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
 @using Volo.Abp.SettingManagement
 @attribute [Authorize]
 @attribute [RequiresFeature(SettingManagementFeatures.Enable)]
-
+@implements IReuseTabsPage
 <CascadingValue Value="this" IsFixed="true">
 
     <AbpPageHeader Title="@L["Settings"]" BreadcrumbItems="@BreadcrumbItems"/>
@@ -32,3 +34,8 @@
         </Tabs>
     </div>
 </CascadingValue>
+
+@code {
+    public RenderFragment GetPageTitle() =>
+    @<div>@L["Settings"]</div>;
+}

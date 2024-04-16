@@ -7,6 +7,11 @@ public class AbpAntDesignThemeOptions
 {
     public MenuOptions Menu { get; set; }
 
+    /// <summary>
+    /// 是否启用多标签页
+    /// </summary>
+    public bool EnableMultipleTabs { get; set; }
+
     public AbpAntDesignThemeOptions()
     {
         Menu = new MenuOptions();

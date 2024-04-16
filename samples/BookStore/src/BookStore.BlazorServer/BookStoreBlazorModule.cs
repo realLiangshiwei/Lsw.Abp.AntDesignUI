@@ -35,6 +35,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Timing;
+using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 
 namespace BookStore.Blazor;
 
@@ -75,7 +76,7 @@ public class BookStoreBlazorModule : AbpModule
         var configuration = context.Services.GetConfiguration();
 
         Configure<AbpClockOptions>(options => options.Kind = DateTimeKind.Utc);
-
+        Configure<AbpAntDesignThemeOptions>(options=> options.EnableMultipleTabs=true);
         ConfigureUrls(configuration);
         ConfigureBundles();
         ConfigureAuthentication(context, configuration);
