@@ -8,7 +8,7 @@
 ## Samples
 
 * [Blazor WebApp sample](/samples/BookStoreWebApp/)
-* [BLazor WebAssembly and Blazor server samples](/samples/BookStore/)
+* [Blazor WebAssembly and Blazor server samples](/samples/BookStore/)
 
 ![1](img/1.png)
 ![2](img/2.png)
