@@ -1,6 +1,8 @@
 ﻿using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Toolbars;
+using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.AspNetCore.Components.Web;
 using Volo.Abp.AspNetCore.Components.WebAssembly;
 using Volo.Abp.Http.Client.IdentityModel.WebAssembly;
 using Volo.Abp.Modularity;
@@ -25,5 +27,14 @@ public class AbpAspNetCoreComponentsWebAssemblyAntDesignThemeModule : AbpModule
         {
             options.Contributors.Add(new AntDesignThemeToolbarContributor());
         });
+        
+        if (context.Services.ExecutePreConfiguredActions<AbpAspNetCoreComponentsWebOptions>().IsBlazorWebApp)
+        {
+            Configure<AuthenticationOptions>(options =>
+            {
+                options.LoginUrl = "Account/Login";
+                options.LogoutUrl = "Account/Logout";
+            });
+        }
     }
 }

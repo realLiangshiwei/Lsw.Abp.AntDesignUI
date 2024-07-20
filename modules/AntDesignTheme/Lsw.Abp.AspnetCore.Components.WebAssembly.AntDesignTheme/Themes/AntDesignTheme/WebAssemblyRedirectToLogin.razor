@@ -1,0 +1,27 @@
+@inject NavigationManager Navigation
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme
+@using Microsoft.Extensions.Options
+@inject IOptions<AuthenticationOptions> AuthenticationOptions
+@inject IOptions<AbpAspNetCoreComponentsWebOptions> AbpAspNetCoreComponentsWebOptions
+@using Volo.Abp.DependencyInjection
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Volo.Abp.AspNetCore.Components.Web
+@inherits RedirectToLogin
+@attribute [ExposeServices(typeof(RedirectToLogin))]
+@attribute [Dependency(ReplaceServices = true)]
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        if (AbpAspNetCoreComponentsWebOptions.Value.IsBlazorWebApp)
+        {
+            Navigation.NavigateTo(AuthenticationOptions.Value.LogoutUrl, forceLoad: true);
+        }
+        else
+        {
+            Navigation.NavigateToLogin(AuthenticationOptions.Value.LoginUrl);
+        }
+    }
+
+}

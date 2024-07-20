@@ -1,6 +1,7 @@
 ﻿@using global::Localization.Resources.AbpUi
 @using Microsoft.Extensions.Localization
 @using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.Extensions.Options
 @using Microsoft.JSInterop
 @inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
 @inject IJSRuntime JsRuntime
@@ -41,6 +42,6 @@
          </Dropdown>
     </Authorized>
     <NotAuthorized>
-        <a class="nav-link" href="authentication/login">@UiLocalizer["Login"]</a>
+        <a class="nav-link" href="@AuthenticationOptions.Value.LoginUrl">@UiLocalizer["Login"]</a>
     </NotAuthorized>
 </AuthorizeView>

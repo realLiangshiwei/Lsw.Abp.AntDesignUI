@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+using Microsoft.Extensions.Options;
 using Microsoft.JSInterop;
 using Volo.Abp.AspNetCore.Components.Web.Security;
 using Volo.Abp.UI.Navigation;
@@ -16,6 +17,9 @@ public partial class LoginDisplay : IDisposable
 
     [Inject]
     protected ApplicationConfigurationChangedService ApplicationConfigurationChangedService { get; set; }
+    
+    [Inject]
+    protected IOptions<AuthenticationOptions> AuthenticationOptions { get; set; }
 
     protected ApplicationMenu Menu { get; set; }
 
@@ -59,6 +63,6 @@ public partial class LoginDisplay : IDisposable
 
     private void BeginSignOut()
     {
-        Navigation.NavigateToLogout("authentication/logout");
+        Navigation.NavigateToLogout(AuthenticationOptions.Value.LogoutUrl);
     }
 }
