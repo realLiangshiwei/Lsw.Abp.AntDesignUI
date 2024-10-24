@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Volo.Abp.AutoMapper" Version="$(ABPPackageVersion)" />
-      <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.AutoMapper" />
+      <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" />
     </ItemGroup>
 
     <ItemGroup>

@@ -14,8 +14,8 @@
 
 
     <ItemGroup>
-        <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
-        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+        <PackageReference Include="Serilog.AspNetCore" />
+        <PackageReference Include="Serilog.Sinks.Async" />
     </ItemGroup>
 
     <ItemGroup>
@@ -26,12 +26,12 @@
         <ProjectReference Include="..\..\src\BookStore.Application\BookStore.Application.csproj" />
         <ProjectReference Include="..\..\src\BookStore.HttpApi\BookStore.HttpApi.csproj" />
         <ProjectReference Include="..\..\src\BookStore.EntityFrameworkCore\BookStore.EntityFrameworkCore.csproj" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Volo.Abp.Autofac" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(ABPPackageVersion)" />
-        <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" />
+        <PackageReference Include="Volo.Abp.Autofac" />
+        <PackageReference Include="Volo.Abp.Swashbuckle" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" />
+        <PackageReference Include="Volo.Abp.AspNetCore.Serilog" />
+        <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" />
     </ItemGroup>
 
     <ItemGroup>

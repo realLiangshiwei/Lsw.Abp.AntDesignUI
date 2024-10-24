@@ -22,14 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging"  />
+    <PackageReference Include="Serilog.Sinks.Async" />
+    <PackageReference Include="Serilog.Sinks.File" />
+    <PackageReference Include="Serilog.Sinks.Console" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac" Version="$(ABPPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Autofac" />
     <ProjectReference Include="..\BookStore.Application.Contracts\BookStore.Application.Contracts.csproj" />
     <ProjectReference Include="..\BookStore.EntityFrameworkCore\BookStore.EntityFrameworkCore.csproj" />
   </ItemGroup>

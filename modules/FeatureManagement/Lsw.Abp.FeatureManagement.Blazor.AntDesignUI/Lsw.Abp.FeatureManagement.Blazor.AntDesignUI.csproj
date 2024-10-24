@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Volo.Abp.AutoMapper" Version="$(ABPPackageVersion)" />
-      <PackageReference Include="Volo.Abp.Features" Version="$(ABPPackageVersion)" />
-      <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.AutoMapper" />
+      <PackageReference Include="Volo.Abp.Features" />
+      <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" />
     </ItemGroup>
 
     <ItemGroup>

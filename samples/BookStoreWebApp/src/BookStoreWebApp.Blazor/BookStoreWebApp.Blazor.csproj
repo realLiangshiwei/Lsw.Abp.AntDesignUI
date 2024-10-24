@@ -15,18 +15,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
 <!--    <PackageReference Include="Blazorise.Bootstrap5" Version="1.5.2" />-->
 <!--    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.5.2" />-->
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Sinks.Async" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- <PackageReference Include="Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme" Version="3.2.0" /> -->
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" Version="3.2.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" />
 
-     <PackageReference Include="Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme" Version="0.9.5" />
+     <PackageReference Include="Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,18 +34,18 @@
     <ProjectReference Include="..\BookStoreWebApp.Blazor.Client\BookStoreWebApp.Blazor.Client.csproj" />
     <ProjectReference Include="..\BookStoreWebApp.HttpApi\BookStoreWebApp.HttpApi.csproj" />
     <ProjectReference Include="..\BookStoreWebApp.MongoDB\BookStoreWebApp.MongoDB.csproj" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.Swashbuckle" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="8.2.0" />
-    <!-- <PackageReference Include="Volo.Abp.Identity.Blazor.Server" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" Version="8.2.0" /> -->
+    <PackageReference Include="Volo.Abp.Autofac" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" />
+    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" />
+    <!-- <PackageReference Include="Volo.Abp.Identity.Blazor.Server" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" /> -->
     
 
-    <PackageReference Include="Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI" Version="0.9.5" />
-    <PackageReference Include="Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI" Version="0.9.5" />
-    <PackageReference Include="Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI" Version="0.9.5" />
+    <PackageReference Include="Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI" />
+    <PackageReference Include="Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI" />
+    <PackageReference Include="Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI" />
   </ItemGroup>
 
   <ItemGroup Condition="Exists('./openiddict.pfx')">

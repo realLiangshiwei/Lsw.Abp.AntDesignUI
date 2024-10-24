@@ -9,7 +9,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="Volo.Abp.UI.Navigation" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.UI.Navigation" />
     </ItemGroup>
     
     <ItemGroup>

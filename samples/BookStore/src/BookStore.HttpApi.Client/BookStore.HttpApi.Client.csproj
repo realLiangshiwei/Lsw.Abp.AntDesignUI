@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>BookStore</RootNamespace>
   </PropertyGroup>
 
@@ -12,12 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Account.HttpApi.Client" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" />
+    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" />
   </ItemGroup>
 
   <ItemGroup>

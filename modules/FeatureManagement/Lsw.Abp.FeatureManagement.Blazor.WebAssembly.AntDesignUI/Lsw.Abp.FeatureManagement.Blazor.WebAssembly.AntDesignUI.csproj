@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
+        <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" />
     </ItemGroup>
 
     <ItemGroup>
