@@ -123,11 +123,15 @@ public class BookStoreHttpApiHostModule : AbpModule
                 options.Authority = configuration["AuthServer:Authority"];
                 options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                 options.Audience = "BookStore";
+                options.UseSecurityTokenValidators = true;
                 options.BackchannelHttpHandler = new HttpClientHandler
                 {
                     ServerCertificateCustomValidationCallback =
                         HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
                 };
+#if DEBUG
+                options.IncludeErrorDetails = true;
+#endif
             });
     }
 
