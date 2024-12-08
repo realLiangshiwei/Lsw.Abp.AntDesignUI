@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "samples\\BookStore\\src\\BookStore.HttpApi.Host\\BookStore.HttpApi.Host.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "samples\\BookStore\\src\\BookStore.Blazor\\BookStore.Blazor.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -5,14 +5,14 @@
     <Import Project="..\..\configureawait.props" />
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
-      <PackageReference Include="AntDesign" Version="0.19.4" />
-      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" Version="$(ABPPackageVersion)" />
-      <PackageReference Include="Volo.Abp.Authorization" Version="$(ABPPackageVersion)" />
-      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="AntDesign" />
+      <PackageReference Include="Volo.Abp.AspNetCore.Components.Web" />
+      <PackageReference Include="Volo.Abp.Authorization" />
+      <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" />
     </ItemGroup>
 
 </Project>

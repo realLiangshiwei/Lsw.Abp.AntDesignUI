@@ -3,25 +3,25 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>BookStore</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BookStore.Domain\BookStore.Domain.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.BackgroundJobs.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="$(ABPPackageVersion)" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.IdentityServer.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>compile; contentFiles; build; buildMultitargeting; buildTransitive; analyzers; native</PrivateAssets>
     </PackageReference>

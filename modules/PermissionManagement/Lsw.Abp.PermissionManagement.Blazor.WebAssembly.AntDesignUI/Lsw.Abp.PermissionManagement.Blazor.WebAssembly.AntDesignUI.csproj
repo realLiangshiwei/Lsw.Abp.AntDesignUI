@@ -4,11 +4,11 @@
     <Import Project="..\..\..\configureawait.props" />
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="$(ABPPackageVersion)" />
+      <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" />
     </ItemGroup>
 
     <ItemGroup>

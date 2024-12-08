@@ -1,24 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\common.props" />
+	<Import Project="..\..\common.props" />
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <RootNamespace>BookStoreWebApp</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>BookStoreWebApp</RootNamespace>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\BookStoreWebApp.MongoDB\BookStoreWebApp.MongoDB.csproj" />
-    <ProjectReference Include="..\BookStoreWebApp.Application.Tests\BookStoreWebApp.Application.Tests.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\BookStoreWebApp.MongoDB\BookStoreWebApp.MongoDB.csproj" />
+		<ProjectReference Include="..\BookStoreWebApp.Application.Tests\BookStoreWebApp.Application.Tests.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="EphemeralMongo.Core" Version="1.1.3" />
-    <PackageReference Include="EphemeralMongo6.runtime.linux-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('Linux'))" />
-    <PackageReference Include="EphemeralMongo6.runtime.osx-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('OSX'))" />
-    <PackageReference Include="EphemeralMongo6.runtime.win-x64" Version="1.1.3" Condition="$([MSBuild]::IsOSPlatform('Windows'))" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="EphemeralMongo.Core"  />
+		<PackageReference Include="EphemeralMongo6.runtime.linux-x64" Condition="$([MSBuild]::IsOSPlatform('Linux'))" />
+		<PackageReference Include="EphemeralMongo6.runtime.osx-x64"  Condition="$([MSBuild]::IsOSPlatform('OSX'))" />
+		<PackageReference Include="EphemeralMongo6.runtime.win-x64"  Condition="$([MSBuild]::IsOSPlatform('Windows'))" />
+	</ItemGroup>
 
 </Project>

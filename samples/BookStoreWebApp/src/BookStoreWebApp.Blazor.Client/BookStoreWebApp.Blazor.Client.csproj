@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     <RootNamespace>BookStoreWebApp.Blazor.Client</RootNamespace>
@@ -12,30 +12,31 @@
   <ItemGroup>
 <!--    <PackageReference Include="Blazorise.Bootstrap5" Version="1.5.2" />-->
 <!--    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.5.2" />-->
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme" Version="3.2.0" /> -->
-    <PackageReference Include="Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme" Version="0.9.5" />
+    <ProjectReference Include="..\..\..\..\modules\AntDesignTheme\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" Version="8.2.0" />
+    <PackageReference Include="Volo.Abp.Autofac.WebAssembly" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <PackageReference Include="Volo.Abp.Identity.Blazor.WebAssembly" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" Version="8.2.0" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Blazor.WebAssembly" Version="8.2.0" />
+    <PackageReference Include="Volo.Abp.Identity.Blazor.WebAssembly" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Blazor.WebAssembly" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Blazor.WebAssembly" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <PackageReference Include="Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI" Version="0.9.5" />
-    <PackageReference Include="Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI" Version="0.9.5" />
-    <PackageReference Include="Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI" Version="0.9.5" />
+    <ProjectReference Include="..\..\..\..\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI.csproj" />
+		<ProjectReference Include="..\..\..\..\modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI.csproj" />
+		<ProjectReference Include="..\..\..\..\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI.csproj" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BookStoreWebApp.HttpApi.Client\BookStoreWebApp.HttpApi.Client.csproj" />

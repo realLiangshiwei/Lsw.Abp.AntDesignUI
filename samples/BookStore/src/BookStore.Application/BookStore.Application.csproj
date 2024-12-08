@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>BookStore</RootNamespace>
   </PropertyGroup>
 
@@ -13,12 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Account.Application" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.Identity.Application" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="$(ABPPackageVersion)" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="$(ABPPackageVersion)" />
+    <PackageReference Include="Volo.Abp.Account.Application" />
+    <PackageReference Include="Volo.Abp.Identity.Application" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" />
   </ItemGroup>
 
 </Project>
