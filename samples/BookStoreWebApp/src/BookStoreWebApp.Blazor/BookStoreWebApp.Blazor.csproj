@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -26,7 +26,7 @@
     <!-- <PackageReference Include="Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme" Version="3.2.0" /> -->
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite" />
 
-     <PackageReference Include="Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme" />
+    <ProjectReference Include="..\..\..\..\modules\AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +42,9 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Blazor.Server" />
     <PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" /> -->
     
-
-    <PackageReference Include="Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI" />
-    <PackageReference Include="Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI" />
-    <PackageReference Include="Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI" />
+    <ProjectReference Include="..\..\..\..\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\..\..\modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\..\..\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="Exists('./openiddict.pfx')">
