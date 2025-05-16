@@ -9,14 +9,14 @@
 @if (Data.As<IdentityRoleDto>().IsDefault)
 {
     <Badge Dot="true"
-           Status="success"
+           Status="BadgeStatus.Success"
            Style="margin-left: 0.25rem"
            Text="@L["DisplayName:IsDefault"]"/>
 }
 @if (Data.As<IdentityRoleDto>().IsPublic)
 {
     <Badge Dot="true"
-           Status="processing"
+           Status="BadgeStatus.Processing"
            Style="margin-left: 0.25rem"
            Text="@L["DisplayName:IsPublic"]"/>
 }

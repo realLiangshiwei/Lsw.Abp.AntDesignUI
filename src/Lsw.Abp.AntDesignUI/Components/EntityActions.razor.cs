@@ -23,7 +23,7 @@ public partial class EntityActions<TItem> : ComponentBase
     public bool Disabled { get; set; } = false;
     
     [Parameter]
-    public string ToggleColor { get; set; } = ButtonType.Primary;
+    public ButtonType ToggleColor { get; set; } = ButtonType.Primary;
     
     [Parameter]
     public string ToggleText { get; set; }

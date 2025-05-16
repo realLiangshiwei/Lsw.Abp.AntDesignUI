@@ -20,14 +20,14 @@
         {
             if (column.Actions.Any())
             {
-                <Column TData="object" Title="@column.Title" Fixed="right">
+                <Column TData="object" Title="@column.Title" Fixed="ColumnFixPlacement.Right">
                      <EntityActions TItem="TItem">
                         @foreach (var action in column.Actions)
                         {
                             if (action.ConfirmationMessage != null)
                             {
                                 <EntityAction TItem="TItem"
-                                              Color="@(action.Color != null ? action.Color.ToString() : ButtonType.Primary)"
+                                              Color="@(action.Color != null ? (ButtonType)action.Color : ButtonType.Primary)"
                                               Icon="@action.Icon"
                                               Clicked="async () => await action.Clicked(context)"
                                               ConfirmationMessage="() => action.ConfirmationMessage.Invoke(context)"
@@ -40,7 +40,7 @@
                             {
                                 <EntityAction TItem="TItem"
                                               Clicked="async () => await action.Clicked(context)"
-                                              Color="@(action.Color != null ? action.Color.ToString() : ButtonType.Default)"
+                                              Color="@(action.Color != null ? (ButtonType)action.Color : ButtonType.Default)"
                                               Icon="@action.Icon"
                                               Visible="@(action.Visible?.Invoke(context) ?? true)"
                                               Text="@action.Text"
@@ -83,15 +83,15 @@
                                 var entity = context as IHasExtraProperties;
                                 var propertyName = ExtensionPropertiesRegex.Match(column.Data).Groups[1].Value;
                                 var propertyValue = entity.GetProperty(propertyName);
-                                if (propertyValue is bool)
+                                if (propertyValue is bool value)
                                 {
-                                    if ((bool) propertyValue)
+                                    if (value)
                                     {
-                                        <Icon Type="check" Theme="outline"/>
+                                        <Icon Type="check" Theme="IconThemeType.Outline"/>
                                     }
                                     else
                                     {
-                                        <Icon Type="close" Theme="outline"/>
+                                        <Icon Type="close" Theme="IconThemeType.Outline"/>
                                     }
                                 }
                                 else

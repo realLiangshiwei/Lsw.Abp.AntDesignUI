@@ -57,7 +57,7 @@ public class AntDesignUiNotificationService: IUiNotificationService, IScopedDepe
 
     protected virtual async Task Notify(string title, string message, MessageType messageType)
     {
-        await MessageService.Open(new MessageConfig
+        await MessageService.OpenAsync(new MessageConfig
         {
             Content = message,
             Type = messageType

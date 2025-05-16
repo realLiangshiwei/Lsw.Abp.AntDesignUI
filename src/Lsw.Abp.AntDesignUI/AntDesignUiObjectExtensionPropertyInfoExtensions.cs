@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using AntDesign;
 using Lsw.Abp.AntDesignUI.Components.ObjectExtending;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Reflection;
@@ -83,22 +84,22 @@ public static class AntDesignUiObjectExtensionPropertyInfoExtensions
         return (T)value;
     }
 
-    public static string GetTextInputMode(this ObjectExtensionPropertyInfo propertyInfo)
+    public static InputType GetTextInputMode(this ObjectExtensionPropertyInfo propertyInfo)
     {
         foreach (var attribute in propertyInfo.Attributes)
         {
             var textRoleByAttribute = GetTextInputModeFromAttributeOrNull(attribute);
             if (textRoleByAttribute != null)
             {
-                return textRoleByAttribute;
+                return textRoleByAttribute.Value;
             }
         }
 
         return GetTextInputModeFromTypeOrNull(propertyInfo.Type)
-               ?? "text"; //default
+               ?? InputType.Text; //default
     }
 
-    private static string GetTextInputModeFromTypeOrNull(Type type)
+    private static InputType? GetTextInputModeFromTypeOrNull(Type type)
     {
         // if (TypeHelper.IsFloatingType(type))
         // {
@@ -107,28 +108,28 @@ public static class AntDesignUiObjectExtensionPropertyInfoExtensions
 
         if (NumberTypes.Contains(type))
         {
-            return "number";
+            return InputType.Number;
         }
 
         return null;
     }
 
-    private static string GetTextInputModeFromAttributeOrNull(Attribute attribute)
+    private static InputType? GetTextInputModeFromAttributeOrNull(Attribute attribute)
     {
         if (attribute is EmailAddressAttribute)
         {
-            return "email";
+            return InputType.Email;
         }
 
         if (attribute is UrlAttribute)
         {
-            return "url";
+            return InputType.Url;
         }
 
 
         if (attribute is PhoneAttribute)
         {
-            return "tel";
+            return InputType.Tel;
         }
 
         if (attribute is DataTypeAttribute dataTypeAttribute)
@@ -136,11 +137,11 @@ public static class AntDesignUiObjectExtensionPropertyInfoExtensions
             switch (dataTypeAttribute.DataType)
             {
                 case DataType.EmailAddress:
-                    return "email";
+                    return InputType.Email;
                 case DataType.Url:
-                    return "url";
+                    return InputType.Url;
                 case DataType.PhoneNumber:
-                    return "tel";
+                    return InputType.Tel;
             }
         }
 

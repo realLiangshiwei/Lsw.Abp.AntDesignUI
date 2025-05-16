@@ -10,7 +10,7 @@
         <MenuItem Key="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
             @if (!Menu.Icon.IsNullOrWhiteSpace())
             {
-                <Icon Type="@Menu.Icon" Theme="outline"></Icon>
+                <Icon Type="@Menu.Icon" Theme="IconThemeType.Outline"></Icon>
             }
             <span>@Menu.DisplayName</span>
         </MenuItem>
@@ -33,7 +33,7 @@
         return @<span>
                    @if (!Menu.Icon.IsNullOrWhiteSpace())
                    {
-                       <Icon Type="@Menu.Icon" Theme="outline"></Icon>
+                       <Icon Type="@Menu.Icon" Theme="IconThemeType.Outline"></Icon>
                    }
                    <span>@menu.DisplayName</span>
                </span>;

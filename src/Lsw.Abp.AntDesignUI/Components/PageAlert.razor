@@ -1,10 +1,11 @@
 ﻿@using Volo.Abp.AspNetCore.Components.Alerts
 @using System.Collections.Specialized
 @using Microsoft.AspNetCore.Components.Routing
+@using AlertType = AntDesign.AlertType
 
 @foreach (var message in _messages)
 {
-    <Alert Type="@message.Type.ToString().ToLower()"
+    <Alert Type="@GetAlertType(message)"
            Message="@message.Title"
            Description="@message.Text"
            ShowIcon="true"
@@ -47,5 +48,9 @@
         }
         InvokeAsync(StateHasChanged);
     }
-    
+
+    private AlertType GetAlertType(AlertMessage message)
+    {
+        return Enum.Parse<AlertType>(message.Type.ToString());
+    }
 }

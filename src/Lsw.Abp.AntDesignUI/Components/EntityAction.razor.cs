@@ -24,7 +24,7 @@ public partial class EntityAction<TItem> : ComponentBase
     public string Icon { get; set; }
 
     [Parameter] 
-    public string Color { get; set; } = ButtonType.Default;
+    public ButtonType Color { get; set; } = ButtonType.Default;
 
     [Parameter]
     public bool Primary { get; set; }

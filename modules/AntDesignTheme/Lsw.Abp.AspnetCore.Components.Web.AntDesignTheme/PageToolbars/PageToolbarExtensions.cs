@@ -46,7 +46,7 @@ public static class PageToolbarExtensions
         string text,
         Func<Task> clicked,
         object icon = null,
-        string color = ButtonType.Primary,
+        ButtonType color = ButtonType.Primary,
         bool disabled = false,
         int order = 0,
         string requiredPolicyName = null)

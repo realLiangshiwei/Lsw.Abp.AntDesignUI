@@ -10,7 +10,7 @@
         <Header Class="@HeaderClass">
             <Branding/>
             <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed"/>
-            <Row Justify="end">
+            <Row Justify="RowJustify.End">
                 <NavToolbar/>
             </Row>
         </Header>
@@ -42,15 +42,15 @@ else
                 <div style="float: left">
                     @if (Collapsed)
                     {
-                        <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="OnCollapse"/>
+                        <Icon Type="menu-unfold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse"/>
                     }
                     else
                     {
-                        <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="OnCollapse"/>
+                        <Icon Type="menu-fold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse"/>
                     }
                 </div>
 
-                <Row Justify="end">
+                <Row Justify="RowJustify.End">
                     <NavToolbar/>
                 </Row>
                 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Bundling;
-using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Bundling;
 using Volo.Abp.DependencyInjection;
 
 namespace Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.Bundling;
