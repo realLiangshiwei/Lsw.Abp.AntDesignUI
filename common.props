@@ -7,7 +7,5 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/realLiangshiwei/Lsw.Abp.AntDesignUI</RepositoryUrl>
-    <!--<VoloAbpPackageVersion>8.3.0</VoloAbpPackageVersion>-->
-    <!--<MicrosoftPackageVersion>8.0.4</MicrosoftPackageVersion>-->
   </PropertyGroup>
 </Project>
