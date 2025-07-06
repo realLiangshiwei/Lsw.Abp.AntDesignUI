@@ -1,0 +1,13 @@
+using System.Collections.Generic;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+
+namespace Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Bundling;
+
+public class BlazorWebAssemblyAntDesignThemeStyleContributor: BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.AddIfNotContains("_content/AntDesign/css/ant-design-blazor.css");
+        context.Files.AddIfNotContains("_content/Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme/libs/abp/css/theme.css");
+    }
+}

@@ -1,5 +1,5 @@
 ﻿using Lsw.Abp.AntDesignUI;
-using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp.AspNetCore.Components.Web.Security;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 
@@ -13,5 +13,9 @@ public class AbpAspNetCoreComponentsWebAntDesignThemeModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        Configure<AbpDynamicLayoutComponentOptions>(options =>
+        {
+            options.Components.Add(typeof(AbpAuthenticationState), null);
+        });
     }
 }

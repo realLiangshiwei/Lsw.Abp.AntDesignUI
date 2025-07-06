@@ -7,6 +7,7 @@ public class BlazorAntDesignThemeStyleContributor: BundleContributor
 {
     public override void ConfigureBundle(BundleConfigurationContext context)
     {
+        context.Files.AddIfNotContains("/_content/AntDesign/css/ant-design-blazor.css");
         context.Files.AddIfNotContains("/_content/Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme/libs/abp/css/theme.css");
     }
 }

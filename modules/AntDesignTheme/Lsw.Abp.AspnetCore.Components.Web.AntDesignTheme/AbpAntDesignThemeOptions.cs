@@ -8,7 +8,7 @@ public class AbpAntDesignThemeOptions
     public MenuOptions Menu { get; set; }
 
     /// <summary>
-    /// 是否启用多标签页
+    /// Enable multiple tabs in the application.
     /// </summary>
     public bool EnableMultipleTabs { get; set; }
 
