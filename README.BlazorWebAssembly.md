@@ -7,9 +7,11 @@ The first step is to use ABP CLI to create a new project.
 **Replace LeptonXLiteTheme with AntBlazorTheme packages**
 
 * Replace `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` with `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme`
+* Replace `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.Bundling` with `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Bundling`
 * Replace `Volo.Abp.Identity.Blazor.WebAssembly` with `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
 * Replace `Volo.Abp.SettingManagement.Blazor.WebAssembly` with `Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI`
 * Replace `Volo.Abp.TenantManagement.Blazor.WebAssembly` with `Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI`
+* Replace `Volo.Abp.FeatureManagement.Blazor.WebAssembly` with `Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI`
 
 ```
 
@@ -23,7 +25,7 @@ The first step is to use ABP CLI to create a new project.
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Bundling
 ```
 
-**Open `BookStoreBlazorModule` make the following changes:**
+**Open `BookStoreBlazorClientModule` make the following changes:**
 
 * Remove the `ConfigureBlazorise` method
 * Fix wrong using namespace
@@ -55,7 +57,25 @@ The first step is to use ABP CLI to create a new project.
 
     </div>
 </div>
+```
 
+**Open `Routes.razor` and replace with the following:**
+
+```csharp
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme
+@using Microsoft.Extensions.Options
+@using Volo.Abp.AspNetCore.Components.WebAssembly.WebApp
+
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="WebAppAdditionalAssembliesHelper.GetAssemblies<BookStoreBlazorClientModule>()">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(DefaultLayout)">
+            <NotAuthorized>
+                <RedirectToLogin />
+            </NotAuthorized>
+        </AuthorizeRouteView>
+    </Found>
+</Router>
 ```
 
 Run the `dotnet build` & `abp bundle` command in the `BookStore.Blazor` folder.

@@ -1,0 +1,14 @@
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme
+@using Microsoft.Extensions.Options
+@using Volo.Abp.AspNetCore.Components.WebAssembly.WebApp
+
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="WebAppAdditionalAssembliesHelper.GetAssemblies<BookStoreBlazorClientModule>()">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(DefaultLayout)">
+            <NotAuthorized>
+                <RedirectToLogin />
+            </NotAuthorized>
+        </AuthorizeRouteView>
+    </Found>
+</Router>

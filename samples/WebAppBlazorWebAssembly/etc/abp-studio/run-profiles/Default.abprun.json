@@ -1,0 +1,28 @@
+﻿{
+  "applications": {
+    "BookStore.HttpApi.Host": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44318",
+      "path": "../../../src/BookStore.HttpApi.Host/BookStore.HttpApi.Host.csproj",
+      "kubernetesService": ".*-httpapihost$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 4
+      }
+    },
+    "BookStore.Blazor": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44376",
+      "path": "../../../src/BookStore.Blazor/BookStore.Blazor.csproj",
+      "healthCheckEndpoint": "/",
+      "kubernetesService": ".*-blazor$",
+      "execution": {
+        "order": 2
+      }
+    }
+  },
+  "containers": {
+    "serviceName": "BookStore-Containers",
+  }
+}

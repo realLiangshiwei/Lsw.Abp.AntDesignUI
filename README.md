@@ -16,9 +16,9 @@
 
 ## Quick Start
 
-[Change the theme of the ABP project to AntBlazorTheme for Blazor WebApp.](./README.WebApp.md)
-
-[Change the theme of the ABP project to AntBlazorTheme for Blazor Server.](./README.BlazorServer.md)
+* [Change the theme of the ABP project to AntBlazorTheme for Blazor WebApp.](./README.WebApp.md)
+* [Change the theme of the ABP project to AntBlazorTheme for Blazor Server.](./README.BlazorServer.md)
+* [Change the theme of the ABP project to AntBlazorTheme for Blazor WebAssembly.](./README.BlazorWebAssembly.md)
 
 ## Road map
 
