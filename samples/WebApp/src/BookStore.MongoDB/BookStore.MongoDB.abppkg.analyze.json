@@ -1,0 +1,145 @@
+{
+  "name": "BookStore.MongoDB",
+  "hash": "",
+  "contents": [
+    {
+      "namespace": "BookStore.MongoDB",
+      "dependsOnModules": [
+        {
+          "declaringAssemblyName": "BookStore.Domain",
+          "namespace": "BookStore",
+          "name": "BookStoreDomainModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.PermissionManagement.MongoDB",
+          "namespace": "Volo.Abp.PermissionManagement.MongoDB",
+          "name": "AbpPermissionManagementMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.SettingManagement.MongoDB",
+          "namespace": "Volo.Abp.SettingManagement.MongoDB",
+          "name": "AbpSettingManagementMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.BackgroundJobs.MongoDB",
+          "namespace": "Volo.Abp.BackgroundJobs.MongoDB",
+          "name": "AbpBackgroundJobsMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.AuditLogging.MongoDB",
+          "namespace": "Volo.Abp.AuditLogging.MongoDB",
+          "name": "AbpAuditLoggingMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.FeatureManagement.MongoDB",
+          "namespace": "Volo.Abp.FeatureManagement.MongoDB",
+          "name": "AbpFeatureManagementMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Identity.Pro.MongoDB",
+          "namespace": "Volo.Abp.Identity.MongoDB",
+          "name": "AbpIdentityProMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.OpenIddict.Pro.MongoDb",
+          "namespace": "Volo.Abp.OpenIddict.MongoDB",
+          "name": "AbpOpenIddictProMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.LanguageManagement.MongoDB",
+          "namespace": "Volo.Abp.LanguageManagement.MongoDB",
+          "name": "LanguageManagementMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Saas.MongoDB",
+          "namespace": "Volo.Saas.MongoDB",
+          "name": "SaasMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.TextTemplateManagement.MongoDB",
+          "namespace": "Volo.Abp.TextTemplateManagement.MongoDB",
+          "name": "TextTemplateManagementMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.Gdpr.MongoDB",
+          "namespace": "Volo.Abp.Gdpr",
+          "name": "AbpGdprMongoDbModule"
+        },
+        {
+          "declaringAssemblyName": "Volo.Abp.BlobStoring.Database.MongoDB",
+          "namespace": "Volo.Abp.BlobStoring.Database.MongoDB",
+          "name": "BlobStoringDatabaseMongoDbModule"
+        }
+      ],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpModule",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IAbpModule"
+        },
+        {
+          "name": "IOnPreApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPreApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationInitialization",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationInitialization"
+        },
+        {
+          "name": "IOnPostApplicationInitialization",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IOnPostApplicationInitialization"
+        },
+        {
+          "name": "IOnApplicationShutdown",
+          "namespace": "Volo.Abp",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.IOnApplicationShutdown"
+        },
+        {
+          "name": "IPreConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPreConfigureServices"
+        },
+        {
+          "name": "IPostConfigureServices",
+          "namespace": "Volo.Abp.Modularity",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.Modularity.IPostConfigureServices"
+        }
+      ],
+      "contentType": "abpModule",
+      "name": "BookStoreMongoDbModule",
+      "summary": null
+    },
+    {
+      "namespace": "BookStore.MongoDB",
+      "connectionStringName": "Default",
+      "databaseCollections": [],
+      "implementingInterfaces": [
+        {
+          "name": "IAbpMongoDbContext",
+          "namespace": "Volo.Abp.MongoDB",
+          "declaringAssemblyName": "Volo.Abp.MongoDB",
+          "fullName": "Volo.Abp.MongoDB.IAbpMongoDbContext"
+        },
+        {
+          "name": "ITransientDependency",
+          "namespace": "Volo.Abp.DependencyInjection",
+          "declaringAssemblyName": "Volo.Abp.Core",
+          "fullName": "Volo.Abp.DependencyInjection.ITransientDependency"
+        }
+      ],
+      "contentType": "mongoDbContext",
+      "name": "BookStoreMongoDbContext",
+      "summary": null
+    }
+  ]
+}

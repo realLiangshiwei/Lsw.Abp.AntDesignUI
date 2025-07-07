@@ -1,0 +1,62 @@
+﻿@using System.Globalization
+@using Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme.Bundling
+@using Microsoft.Extensions.Hosting
+@using Volo.Abp.Localization
+@inject IHostEnvironment Env
+@{
+    var rtl = CultureHelper.IsRtl ? "rtl" : string.Empty;
+}
+
+<!DOCTYPE html>
+<html lang="@CultureInfo.CurrentCulture.Name" dir="@rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookStore</title>
+    <base href="/" />
+
+    <AbpStyles BundleName="@BlazorAntDesignThemeBundles.Styles.Global" WebAssemblyStyleFiles="GlobalStyles" @rendermode="InteractiveAuto" />
+
+    <link href="BookStore.Blazor.styles.css" rel="stylesheet"/>
+    <link href="BookStore.Blazor.Client.styles.css" rel="stylesheet"/>
+    
+    <HeadOutlet @rendermode="InteractiveAuto" />
+
+    
+</head>
+<body class="abp-application-layout @rtl">
+
+    <Routes @rendermode="InteractiveAuto" />
+
+    <div id="blazor-error-ui">
+        @if (Env.IsDevelopment())
+        {
+            <text>An unhandled exception has occurred. See browser dev tools for details.</text>
+        }
+        else if (Env.IsStaging() || Env.IsProduction())
+        {
+            <text>An error has occurred. This application may no longer respond until reloaded.</text>
+        }
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    
+    <AbpScripts BundleName="@BlazorAntDesignThemeBundles.Scripts.Global" WebAssemblyScriptFiles="GlobalScripts" @rendermode="InteractiveAuto" />
+
+    <script src="_framework/blazor.web.js"></script>
+
+</body>
+</html>
+
+@code{
+    private List<string> GlobalStyles =>
+    [
+        "global.css"
+    ];
+
+    private List<string> GlobalScripts =>
+    [
+        "global.js"
+    ];
+
+}

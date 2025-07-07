@@ -403,3 +403,5 @@ FodyWeavers.xsd
 samples/BookStore/src/BookStore.BlazorServer/wwwroot/libs/
 
 samples/BookStore/src/BookStore.HttpApi.Host/wwwroot/libs/
+
+.DS_Store
