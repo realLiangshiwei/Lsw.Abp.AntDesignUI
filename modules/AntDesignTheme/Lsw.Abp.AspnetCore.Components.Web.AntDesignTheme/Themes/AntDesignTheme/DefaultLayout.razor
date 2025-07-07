@@ -2,6 +2,9 @@
 @using Microsoft.Extensions.Options
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Components
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
+@using Volo.Abp.Ui.LayoutHooks
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Components.LayoutHooks
 @inject IOptions<AbpAntDesignThemeOptions> Options
 
 
@@ -18,7 +21,9 @@
         <Content Class="ant-design-content">
             <PageAlert/>
             <div class="ant-design-body-content">
+                <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
                 @Body
+                <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
             </div>
             <DynamicLayoutComponent />
             <UiPageProgress/>
@@ -60,13 +65,16 @@ else
             <Content Class="ant-design-content">
                 <PageAlert/>
                 <div class="ant-design-body-content">
-                    @if (!Options.Value.EnableMultipleTabs){
+                    <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
+                    @if (!Options.Value.EnableMultipleTabs)
+                    {
                         @Body
                     }
                     else
                     {
                         <ReuseTabs Class="ant-design-body-reusetabs" TabPaneClass="ant-design-body-reusetabs-tabpane" Draggable></ReuseTabs>
                     }
+                    <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
                 </div>
                 <DynamicLayoutComponent />
                 <UiPageProgress/>
