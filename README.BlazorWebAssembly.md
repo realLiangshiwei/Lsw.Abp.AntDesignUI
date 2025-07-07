@@ -1,12 +1,12 @@
 The first step is to use ABP CLI to create a new project.
 
-`abp new BookStore -u blazor`
+`abp new BookStore -u blazor -t app`
 
 > See the [ABP official documentation](https://docs.abp.io) to learn [ABP framework](https://github.com/abpframework/abp).
 
 **Replace LeptonXLiteTheme with AntBlazorTheme packages**
 
-* Remove `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` Package.
+* Replace `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` with `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme`
 * Replace `Volo.Abp.Identity.Blazor.WebAssembly` with `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
 * Replace `Volo.Abp.SettingManagement.Blazor.WebAssembly` with `Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI`
 * Replace `Volo.Abp.TenantManagement.Blazor.WebAssembly` with `Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI`
@@ -20,6 +20,7 @@ The first step is to use ABP CLI to create a new project.
 @using Lsw.Abp.AntDesignUI
 @using Lsw.Abp.AntDesignUI.Components
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Bundling
 ```
 
 **Open `BookStoreBlazorModule` make the following changes:**

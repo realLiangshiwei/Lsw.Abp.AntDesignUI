@@ -7,8 +7,9 @@
 
 ## Samples
 
-* [Blazor WebApp sample](/samples/BookStoreWebApp/)
-* [Blazor WebAssembly and Blazor server samples](/samples/BookStore/)
+* [Blazor WebApp(Auto mode) sample](/samples/WebApp/)
+* [Blazor WebApp(Server mode) sample](/samples/WebAppBlazorServer/)
+* [Blazor WebApp(WebAssembly mode) sample](/samples/WebAppBlazorWebAssembly/)
 
 ![1](img/1.png)
 ![2](img/2.png)
@@ -17,7 +18,7 @@
 
 [Change the theme of the ABP project to AntBlazorTheme for Blazor WebApp.](./README.WebApp.md)
 
-[Change the theme of the ABP project to AntBlazorTheme for Blazor.](./README.Blazor.md)
+[Change the theme of the ABP project to AntBlazorTheme for Blazor Server.](./README.BlazorServer.md)
 
 ## Road map
 

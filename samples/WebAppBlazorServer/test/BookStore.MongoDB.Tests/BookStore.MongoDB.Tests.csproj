@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BookStore</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BookStore.MongoDB\BookStore.MongoDB.csproj" />
+    <ProjectReference Include="..\BookStore.Application.Tests\BookStore.Application.Tests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="MongoSandbox.Core" />
+    <PackageReference Include="MongoSandbox8.runtime.linux-x64" />
+    <PackageReference Include="MongoSandbox8.runtime.osx-arm64" />
+    <PackageReference Include="MongoSandbox8.runtime.win-x64" />
+  </ItemGroup>
+
+</Project>
