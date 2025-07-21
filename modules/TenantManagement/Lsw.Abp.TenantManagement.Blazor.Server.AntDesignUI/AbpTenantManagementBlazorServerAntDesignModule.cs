@@ -6,7 +6,7 @@ namespace Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI;
 
 [DependsOn(
     typeof(AbpTenantManagementBlazorAntDesignModule),
-    typeof(AbpFeatureManagementBlazorWebServerAntDesignModule)
+    typeof(AbpFeatureManagementBlazorServerAntDesignModule)
 )]
 public class AbpTenantManagementBlazorServerAntDesignModule : AbpModule
 {

@@ -64,7 +64,7 @@ namespace BookStore.Blazor;
     typeof(AbpAspNetCoreComponentsServerAntDesignThemeModule),
     typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule),
     typeof(AbpAspNetCoreSerilogModule),
-    typeof(AbpFeatureManagementBlazorWebServerAntDesignModule),
+    typeof(AbpFeatureManagementBlazorServerAntDesignModule),
     typeof(AbpSettingManagementBlazorServerAntDesignModule)
    )]
 public class BookStoreBlazorModule : AbpModule

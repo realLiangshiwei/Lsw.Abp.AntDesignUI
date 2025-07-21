@@ -8,6 +8,6 @@ namespace Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI;
     typeof(AbpFeatureManagementBlazorAntDesignModule),
     typeof(AbpAspNetCoreComponentsServerAntDesignThemeModule)
 )]
-public class AbpFeatureManagementBlazorWebServerAntDesignModule : AbpModule
+public class AbpFeatureManagementBlazorServerAntDesignModule : AbpModule
 {
 }

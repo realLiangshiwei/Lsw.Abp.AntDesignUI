@@ -5,6 +5,7 @@ $projects = (
     "modules/AntDesignTheme/Lsw.Abp.AspnetCore.Components.Server.AntDesignTheme",
 	"modules/AntDesignTheme/Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme",
 	"modules/AntDesignTheme/Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme",
+	"modules/AntDesignTheme/Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Bundling",
 
 	"modules/FeatureManagement/Lsw.Abp.FeatureManagement.Blazor.AntDesignUI",
 	"modules/FeatureManagement/Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI",
