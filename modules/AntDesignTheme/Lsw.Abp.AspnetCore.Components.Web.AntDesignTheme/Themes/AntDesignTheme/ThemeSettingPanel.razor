@@ -1,0 +1,147 @@
+@using Lsw.Abp.AntDesignThemeManagement.Settings
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+@if (IsVisible)
+{
+    <div id="@HostId"
+         class="@FloatingButtonClass"
+         role="button"
+         tabindex="0"
+         aria-label="@ThemeL["ThemeSettings"]"
+         @onclick="TogglePanel"
+         @onkeydown="OnFabKeyDownAsync">
+        <span class="lsw-theme-setting-fab-handle lsw-theme-setting-fab-icon" aria-hidden="true">
+            <Icon Type="setting" Theme="IconThemeType.Outline" />
+        </span>
+    </div>
+
+    <div class="lsw-theme-setting-mask @(PanelVisible ? "is-open" : string.Empty)" @onclick="ClosePanel"></div>
+
+    <aside class="lsw-theme-setting-panel @(PanelVisible ? "is-open" : string.Empty)" tabindex="0">
+        <div class="lsw-theme-setting-panel-header">
+            <h3>@ThemeL["ThemeSettings"]</h3>
+            <button type="button" class="lsw-theme-setting-close" @onclick="ClosePanel" aria-label="Close">
+                <Icon Type="close" Theme="IconThemeType.Outline" />
+            </button>
+        </div>
+
+        <div class="lsw-theme-setting-panel-body">
+            @if (Preference.PageStyleSettingEnabled)
+            {
+                <section class="lsw-theme-setting-section">
+                    <h4>@ThemeL["PageStyleSetting"]</h4>
+                    <div class="lsw-theme-style-grid">
+                        @foreach (var style in ThemeStyleOptions)
+                        {
+                            <button
+                                type="button"
+                                class="lsw-theme-style-option @(Preference.ThemeStyle == style.Value ? "active" : string.Empty)"
+                                @onclick="() => SetThemeStyleAsync(style.Value)">
+                                <span class="lsw-theme-style-preview @style.CssClass"></span>
+                                <span class="lsw-theme-style-label">@ThemeL[style.LocalizationKey]</span>
+                            </button>
+                        }
+                    </div>
+                </section>
+            }
+
+            @if (Preference.NavigationModeSettingEnabled)
+            {
+                <section class="lsw-theme-setting-section">
+                    <h4>@ThemeL["NavigationMode"]</h4>
+                    <div class="lsw-theme-style-grid lsw-theme-style-grid-nav">
+                        @foreach (var nav in NavigationOptions)
+                        {
+                            <button
+                                type="button"
+                                class="lsw-theme-style-option @(Preference.NavigationMode == nav.Value ? "active" : string.Empty)"
+                                @onclick="() => SetNavigationModeAsync(nav.Value)">
+                                <span class="lsw-theme-style-preview @nav.CssClass"></span>
+                                <span class="lsw-theme-style-label">@ThemeL[nav.LocalizationKey]</span>
+                            </button>
+                        }
+                    </div>
+                </section>
+
+                <section class="lsw-theme-setting-section">
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["ContentWidth"]</span>
+                        <select class="lsw-theme-setting-select" value="@Preference.ContentWidth" @onchange="OnContentWidthChangedAsync">
+                            <option value="@ContentWidths.Fluid">@ThemeL["Fluid"]</option>
+                            <option value="@ContentWidths.Fixed">@ThemeL["Fixed"]</option>
+                        </select>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["FixedHeader"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.FixedHeader" @onchange="OnFixedHeaderChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["WorksOnSideMenuLayout"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.FixSiderbar" @onchange="OnFixedSiderbarChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["SplitMenus"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.SplitMenus" @onchange="OnSplitMenusChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                </section>
+            }
+
+            @if (Preference.RegionalSettingsEnabled)
+            {
+                <section class="lsw-theme-setting-section">
+                    <h4>@ThemeL["RegionalSettings"]</h4>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["Header"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.ShowHeader" @onchange="OnShowHeaderChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["Footer"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.ShowFooter" @onchange="OnShowFooterChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["Menu"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.ShowMenu" @onchange="OnShowMenuChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["MenuHeader"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.ShowMenuHeader" @onchange="OnShowMenuHeaderChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                </section>
+            }
+
+            @if (Preference.OtherSettingsEnabled)
+            {
+                <section class="lsw-theme-setting-section">
+                    <h4>@ThemeL["OtherSettings"]</h4>
+                    <div class="lsw-theme-setting-item">
+                        <span>@ThemeL["WeakMode"]</span>
+                        <label class="lsw-theme-setting-switch">
+                            <input type="checkbox" checked="@Preference.ColorWeak" @onchange="OnColorWeakChangedAsync" />
+                            <span></span>
+                        </label>
+                    </div>
+                </section>
+            }
+        </div>
+    </aside>
+}

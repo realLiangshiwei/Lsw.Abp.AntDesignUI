@@ -1,10 +1,16 @@
-﻿@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
-<Menu Mode="@(Placement == MenuPlacement.Left? MenuMode.Inline: MenuMode.Horizontal)" Theme="@Theme" InlineCollapsed="@Collapsed">
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+<Menu @key="MenuRenderKey"
+      Mode="@MenuMode"
+      Theme="@Theme"
+      InlineCollapsed="@InlineCollapsedValue"
+      AutoCloseDropdown="true"
+      TriggerSubMenuAction="@TriggerSubMenuAction">
     @if (Menu != null)
     {
         foreach (var menu in Menu.Items)
         {
-            <MainMenuItem Menu="@menu"></MainMenuItem>
+            <MainMenuItem Menu="@menu" OnItemClick="OnMenuItemClickedAsync"></MainMenuItem>
         }
     }
 </Menu>

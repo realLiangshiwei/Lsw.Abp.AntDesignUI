@@ -36,6 +36,7 @@
     <ProjectReference Include="..\BookStore.Application\BookStore.Application.csproj" />
     <ProjectReference Include="..\BookStore.HttpApi\BookStore.HttpApi.csproj" />
     <ProjectReference Include="..\BookStore.MongoDB\BookStore.MongoDB.csproj" />
+    <ProjectReference Include="..\..\..\..\modules\AntDesignThemeManagement\Lsw.Abp.AntDesignThemeManagement.Application\Lsw.Abp.AntDesignThemeManagement.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

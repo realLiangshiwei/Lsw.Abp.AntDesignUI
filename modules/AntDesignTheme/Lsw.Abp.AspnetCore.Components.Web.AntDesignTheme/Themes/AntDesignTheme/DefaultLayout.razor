@@ -1,4 +1,4 @@
-﻿@inherits LayoutComponentBase
+@inherits LayoutComponentBase
 @using Microsoft.Extensions.Options
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Settings
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Components
@@ -7,79 +7,123 @@
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Components.LayoutHooks
 @inject IOptions<AbpAntDesignThemeOptions> Options
 
-
-@if (Options.Value.Menu.Placement == MenuPlacement.Top)
+@if (IsTopNavigation)
 {
-    <Layout Class="ant-design-layout">
-        <Header Class="@HeaderClass">
-            <Branding/>
-            <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed"/>
-            <Row Justify="RowJustify.End">
-                <NavToolbar/>
-            </Row>
-        </Header>
+    <Layout Class="@LayoutClass">
+        @if (ShowHeader)
+        {
+            <Header Class="@HeaderClass">
+                @if (ShowMenuHeader)
+                {
+                    <Branding />
+                }
+                @if (ShowMenu)
+                {
+                    <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed" OnMenuItemClick="OnMainMenuItemClickAsync" />
+                }
+                <Row Justify="RowJustify.End">
+                    <NavToolbar />
+                </Row>
+            </Header>
+        }
+
         <Content Class="ant-design-content">
-            <PageAlert/>
+            <PageAlert />
             <div class="ant-design-body-content">
-                <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
-                @Body
-                <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
+                <div class="lsw-pro-page-container">
+                    <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
+                    @Body
+                    <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
+                </div>
             </div>
             <DynamicLayoutComponent />
-            <UiPageProgress/>
+            <UiPageProgress />
         </Content>
-        <Footer Class="ant-design-footer"></Footer>
+
+        @if (ShowFooter)
+        {
+            <Footer Class="ant-design-footer"></Footer>
+        }
     </Layout>
 }
 else
 {
-    <Layout Class="ant-design-layout">
-        <Sider
-            Style="@SiderStyle"
-            Class="ant-design-side"
-            Theme="@SiderTheme"
-            Collapsible
-            NoTrigger
-            Collapsed=Collapsed>
-            <Branding Collapsed="@Collapsed"/>
-            <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed"/>
-        </Sider>
-        <Layout Class="ant-design-layout">
-            <Header Class="@HeaderClass">
-                <div style="float: left">
-                    @if (Collapsed)
-                    {
-                        <Icon Type="menu-unfold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse"/>
-                    }
-                    else
-                    {
-                        <Icon Type="menu-fold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse"/>
-                    }
-                </div>
+    <Layout Class="@LayoutClass">
+        @if (ShowMenu)
+        {
+            <Sider
+                Style="@SiderStyle"
+                Class="@SiderClass"
+                Theme="@SiderTheme"
+                Collapsible
+                NoTrigger
+                Breakpoint="@BreakpointType.Lg"
+                CollapsedWidth="64"
+                OnBreakpoint="OnSiderBreakpointChanged"
+                Collapsed="@Collapsed">
+                @if (ShowMenuHeader)
+                {
+                    <Branding Collapsed="@Collapsed" />
+                }
+                <MainMenu Placement="@MenuPlacement" Theme="@MenuTheme" Collapsed="@Collapsed" OnMenuItemClick="OnMainMenuItemClickAsync" />
+            </Sider>
 
-                <Row Justify="RowJustify.End">
-                    <NavToolbar/>
-                </Row>
-                
-            </Header>
+            @if (IsMobile && !Collapsed)
+            {
+                <div class="lsw-pro-mobile-sider-mask" @onclick="CloseMobileMenu"></div>
+            }
+        }
+
+        <Layout Class="ant-design-layout">
+            @if (ShowHeader)
+            {
+                <Header Class="@HeaderClass">
+                    @if (ShowMenu)
+                    {
+                        <div class="lsw-pro-header-trigger-wrapper">
+                            @if (Collapsed)
+                            {
+                                <Icon Type="menu-unfold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse" />
+                            }
+                            else
+                            {
+                                <Icon Type="menu-fold" Theme="IconThemeType.Outline" Class="trigger" OnClick="OnCollapse" />
+                            }
+                        </div>
+                    }
+
+                    <Row Justify="RowJustify.End">
+                        <NavToolbar />
+                    </Row>
+                </Header>
+            }
+
             <Content Class="ant-design-content">
-                <PageAlert/>
+                <PageAlert />
                 <div class="ant-design-body-content">
-                    <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
-                    @if (!Options.Value.EnableMultipleTabs)
-                    {
-                        @Body
-                    }
-                    else
-                    {
-                        <ReuseTabs Class="ant-design-body-reusetabs" TabPaneClass="ant-design-body-reusetabs-tabpane" Draggable></ReuseTabs>
-                    }
-                    <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
+                    <div class="lsw-pro-page-container">
+                        <LayoutHook Name="@LayoutHooks.Body.First" Layout="@StandardLayouts.Application" />
+                        @if (!Options.Value.EnableMultipleTabs)
+                        {
+                            @Body
+                        }
+                        else
+                        {
+                            <ReuseTabs Class="ant-design-body-reusetabs" TabPaneClass="ant-design-body-reusetabs-tabpane" Draggable></ReuseTabs>
+                        }
+                        <LayoutHook Name="@LayoutHooks.Body.Last" Layout="@StandardLayouts.Application" />
+                    </div>
                 </div>
                 <DynamicLayoutComponent />
-                <UiPageProgress/>
+                <UiPageProgress />
             </Content>
-            <Footer Class="ant-design-footer"></Footer>
+
+            @if (ShowFooter)
+            {
+                <Footer Class="ant-design-footer"></Footer>
+            }
         </Layout>
     </Layout>
 }
+
+<ThemeSettingPanel />

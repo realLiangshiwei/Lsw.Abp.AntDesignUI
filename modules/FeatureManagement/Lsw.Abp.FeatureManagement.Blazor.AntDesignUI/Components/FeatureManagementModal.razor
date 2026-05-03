@@ -64,7 +64,7 @@
                             {
                                  <Checkbox 
                                      Disabled="@disabled" 
-                                     @bind-Checked="@ToggleValues[feature.Name]"
+                                     @bind-Value="@ToggleValues[feature.Name]"
                                      OnChange="b =>  OnSelectedValueChangedAsync(b, feature)">
                                      @feature.DisplayName 
                                  </Checkbox> 

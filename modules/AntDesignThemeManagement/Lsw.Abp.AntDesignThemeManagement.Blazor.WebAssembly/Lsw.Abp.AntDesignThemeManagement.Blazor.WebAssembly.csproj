@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\configureawait.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.Http.Client.IdentityModel.WebAssembly" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Lsw.Abp.AntDesignThemeManagement.Blazor\Lsw.Abp.AntDesignThemeManagement.Blazor.csproj" />
+        <ProjectReference Include="..\..\AntDesignTheme\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme\Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.csproj" />
+    </ItemGroup>
+
+</Project>

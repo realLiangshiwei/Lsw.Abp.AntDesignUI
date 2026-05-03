@@ -10,6 +10,7 @@ public class ComponentsComponentsBundleContributor : IBundleContributor
         context.Add("_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js");
         context.Add("_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/lang-utils.js");
         context.Add("_content/AntDesign/js/ant-design-blazor.js");
+        context.Add("_content/Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme/libs/abp/js/theme-settings.js");
     }
 
     public void AddStyles(BundleContext context)

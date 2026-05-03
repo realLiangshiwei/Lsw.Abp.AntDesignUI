@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Toolbars;
 using Microsoft.AspNetCore.Components;
+using Volo.Abp.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Web.Security;
 
 namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme;
 
-public partial class NavToolbar : IDisposable
+public partial class NavToolbar : AbpComponentBase, IDisposable
 {
     [Inject]
     private IToolbarManager ToolbarManager { get; set; }
@@ -19,8 +20,15 @@ public partial class NavToolbar : IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        await GetToolbarItemRendersAsync();
-        ApplicationConfigurationChangedService.Changed += ApplicationConfigurationChanged;
+        try
+        {
+            await GetToolbarItemRendersAsync();
+            ApplicationConfigurationChangedService.Changed += ApplicationConfigurationChanged;
+        }
+        catch (Exception ex)
+        {
+            await HandleErrorAsync(ex);
+        }
     }
 
     private async Task GetToolbarItemRendersAsync()
@@ -42,8 +50,15 @@ public partial class NavToolbar : IDisposable
 
     private async void ApplicationConfigurationChanged()
     {
-        await GetToolbarItemRendersAsync();
-        await InvokeAsync(StateHasChanged);
+        try
+        {
+            await GetToolbarItemRendersAsync();
+            await InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            await HandleErrorAsync(ex);
+        }
     }
 
     public void Dispose()

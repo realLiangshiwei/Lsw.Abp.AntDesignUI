@@ -15,7 +15,7 @@ using OpenIddict.Validation.AspNetCore;
 using OpenIddict.Server.AspNetCore;
 using BookStore.MongoDB;
 using BookStore.MultiTenancy;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Volo.Abp;
 using Volo.Abp.Studio;
 using Volo.Abp.Account;
@@ -38,6 +38,7 @@ using Volo.Abp.OpenIddict;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.Studio.Client.AspNetCore;
 using Volo.Abp.Security.Claims;
+using Lsw.Abp.AntDesignThemeManagement;
 
 namespace BookStore;
 
@@ -48,6 +49,7 @@ namespace BookStore;
     typeof(AbpAutofacModule),
     typeof(AbpAspNetCoreMultiTenancyModule),
     typeof(BookStoreApplicationModule),
+    typeof(AbpAntDesignThemeManagementApplicationModule),
     typeof(BookStoreMongoDbModule),
     typeof(AbpAccountWebOpenIddictModule),
     typeof(AbpSwashbuckleModule),
@@ -180,6 +182,7 @@ public class BookStoreHttpApiHostModule : AbpModule
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options.ConventionalControllers.Create(typeof(BookStoreApplicationModule).Assembly);
+            options.ConventionalControllers.Create(typeof(AbpAntDesignThemeManagementApplicationModule).Assembly);
         });
     }
 

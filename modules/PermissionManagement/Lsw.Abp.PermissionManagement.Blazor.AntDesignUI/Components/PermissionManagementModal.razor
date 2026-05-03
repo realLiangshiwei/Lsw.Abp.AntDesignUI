@@ -8,7 +8,7 @@
     @if (_visible)
     {
         var grantAll = _groups.All(x => x.Permissions.All(p => p.IsGranted));
-        <Checkbox @bind-Checked="@grantAll" OnChange="@GrantAllChanged">@L["SelectAllInAllTabs"]</Checkbox>
+        <Checkbox @bind-Value="@grantAll" OnChange="@GrantAllChanged">@L["SelectAllInAllTabs"]</Checkbox>
         <Divider/>
 
         @if (_groups != null)
@@ -21,7 +21,7 @@
                         <h4>@group.DisplayName</h4>
                         <Divider/>
                         <Checkbox
-                             @bind-Checked="@selectAllInThisTab"
+                             @bind-Value="@selectAllInThisTab"
                              OnChange="b => GroupGrantAllChanged(b, group)">
                             @L["SelectAllInThisTab"]
                         </Checkbox>
@@ -34,7 +34,7 @@
                             <div style="margin: @margin">
                                 <Checkbox
                                     Disabled="@(IsDisabledPermission(permission))"
-                                    @bind-Checked="@permission.IsGranted"
+                                    @bind-Value="@permission.IsGranted"
                                     OnChange="b => PermissionChanged(b, group, permission)">
                                     @GetShownName(permission)
                                 </Checkbox>

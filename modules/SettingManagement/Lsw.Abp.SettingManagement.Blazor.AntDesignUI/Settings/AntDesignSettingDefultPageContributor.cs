@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.Features;
 using Volo.Abp.MultiTenancy;
-using Lsw.Abp.SettingManagement.Blazor.AntDesignUI.Pages.SettingManagement.AntDesignThemeGroup;
 using Lsw.Abp.SettingManagement.Blazor.AntDesignUI.Pages.SettingManagement.EmailSettingGroup;
 using Volo.Abp.SettingManagement;
 using Volo.Abp.SettingManagement.Blazor;
@@ -30,13 +29,6 @@ public class AntDesignSettingDefultPageContributor : ISettingComponentContributo
             )
         );
         
-        context.Groups.Add(
-            new SettingComponentGroup(
-                AntDesignThemeGroupViewComponent.Name,
-                "Theme",
-                typeof(AntDesignThemeGroupViewComponent)
-            )
-        );
     }
 
     public async Task<bool> CheckPermissionsAsync(SettingComponentCreationContext context)

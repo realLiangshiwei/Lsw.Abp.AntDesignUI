@@ -9,6 +9,7 @@ using Volo.Abp.Localization;
 using BookStore.Localization;
 using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing;
 using Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme;
+using Lsw.Abp.AntDesignThemeManagement.Blazor.WebAssembly;
 using Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI;
 using Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI;
 using Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI;
@@ -28,6 +29,7 @@ namespace BookStore.Blazor.Client;
     typeof(AbpFeatureManagementBlazorWebAssemblyAntDesignModule),
     typeof(AbpTenantManagementBlazorWebAssemblyAntDesignModule),
     typeof(AbpAspNetCoreComponentsWebAssemblyAntDesignThemeModule),
+    typeof(AbpAntDesignThemeManagementBlazorWebAssemblyModule),
     typeof(AbpMapperlyModule),
     typeof(BookStoreHttpApiClientModule)
 )]

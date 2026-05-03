@@ -14,6 +14,7 @@ using Volo.Abp.Mapperly;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme;
+using Lsw.Abp.AntDesignThemeManagement.Blazor.WebAssembly;
 using Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI;
 using Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI;
 using Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI;
@@ -33,6 +34,7 @@ namespace BookStore.Blazor.Client;
     typeof(AbpIdentityBlazorWebAssemblyAntDesignModule),
     typeof(AbpTenantManagementBlazorWebAssemblyAntDesignModule),
     typeof(AbpAspNetCoreComponentsWebAssemblyAntDesignThemeModule),
+    typeof(AbpAntDesignThemeManagementBlazorWebAssemblyModule),
     typeof(AbpAutofacWebAssemblyModule),
     typeof(AbpMapperlyModule),
     typeof(BookStoreHttpApiClientModule)

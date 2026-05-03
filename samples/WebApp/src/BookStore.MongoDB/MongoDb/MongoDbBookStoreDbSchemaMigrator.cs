@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using BookStore.Data;
@@ -26,6 +27,7 @@ public class MongoDbBookStoreDbSchemaMigrator : IBookStoreDbSchemaMigrator, ITra
     {
         var dbContexts = _serviceProvider.GetServices<IAbpMongoDbContext>();
         var connectionStringResolver = _serviceProvider.GetRequiredService<IConnectionStringResolver>();
+        var configuration = _serviceProvider.GetRequiredService<IConfiguration>();
 
         if (_serviceProvider.GetRequiredService<ICurrentTenant>().IsAvailable)
         {
@@ -34,9 +36,22 @@ public class MongoDbBookStoreDbSchemaMigrator : IBookStoreDbSchemaMigrator, ITra
 
         foreach (var dbContext in dbContexts)
         {
-            var connectionString =
-                await connectionStringResolver.ResolveAsync(
-                    ConnectionStringNameAttribute.GetConnStringName(dbContext.GetType()));
+            var connectionStringName = ConnectionStringNameAttribute.GetConnStringName(dbContext.GetType());
+            var connectionString = await connectionStringResolver.ResolveAsync(connectionStringName);
+            if (connectionString.IsNullOrWhiteSpace())
+            {
+                connectionString = await connectionStringResolver.ResolveAsync();
+            }
+            if (connectionString.IsNullOrWhiteSpace())
+            {
+                connectionString = configuration.GetConnectionString("Default");
+            }
+            if (connectionString.IsNullOrWhiteSpace())
+            {
+                throw new InvalidOperationException(
+                    $"Could not find a MongoDB connection string for '{connectionStringName}' or 'Default'.");
+            }
+
             var mongoUrl = new MongoUrl(connectionString);
             var databaseName = mongoUrl.DatabaseName;
             var client = new MongoClient(mongoUrl);
