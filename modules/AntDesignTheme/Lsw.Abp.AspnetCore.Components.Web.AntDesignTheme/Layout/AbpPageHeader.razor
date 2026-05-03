@@ -2,7 +2,7 @@
 @inject IOptions<PageHeaderOptions> Options
 
 <Row Class="ant-design-row-breadcrumb">
-    <Col Span="12">
+    <Col Span="12" Class="ant-design-page-breadcrumb-col">
         <Breadcrumb Class="ant-design-breadcrumb">
             @if (Options.Value.RenderBreadcrumbs && BreadcrumbItems.Any())
             {
@@ -26,17 +26,17 @@
         </Breadcrumb>
     </Col>
     
-    <Col Span="12">
+    <Col Span="12" Class="ant-design-page-toolbar-col">
         @if (Options.Value.RenderToolbar)
         {
-            <Row Justify="RowJustify.End">
+            <Row Class="ant-design-page-toolbar-row" Justify="RowJustify.End">
                 @if (Toolbar == null)
                 {
                     @ChildContent
                 }
                 @foreach (var toolbarItemRender in ToolbarItemRenders)
                 {
-                    <div style="margin: 0 5px">
+                    <div class="ant-design-page-toolbar-item">
                         @toolbarItemRender
                     </div>
                 }

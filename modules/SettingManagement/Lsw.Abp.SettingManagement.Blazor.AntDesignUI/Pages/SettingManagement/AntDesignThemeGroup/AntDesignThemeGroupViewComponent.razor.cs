@@ -50,7 +50,7 @@ public partial class AntDesignThemeGroupViewComponent
 
     private async Task UpdateSettingAsync()
     {
-        await AntDesignSettingsProvider.TriggerSettingChanged();
+        await AntDesignSettingsProvider.TriggerSettingChangedAsync();
 
         await Notify.Success(L["SuccessfullySaved"]);
     }

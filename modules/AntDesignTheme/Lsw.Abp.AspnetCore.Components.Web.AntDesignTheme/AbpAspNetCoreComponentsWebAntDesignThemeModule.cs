@@ -1,4 +1,5 @@
-﻿using Lsw.Abp.AntDesignUI;
+using Lsw.Abp.AntDesignThemeManagement;
+using Lsw.Abp.AntDesignUI;
 using Volo.Abp.AspNetCore.Components.Web.Security;
 using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
@@ -7,6 +8,7 @@ namespace Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme;
 
 [DependsOn(
     typeof(AbpAntDesignUIModule),
+    typeof(AbpAntDesignThemeManagementApplicationContractsModule),
     typeof(AbpUiNavigationModule)
 )]
 public class AbpAspNetCoreComponentsWebAntDesignThemeModule : AbpModule

@@ -1,23 +1,119 @@
-The first step is to use ABP CLI to create a new project.
+## ABP Blazor WebAssembly - AntDesign Theme
 
-`abp new BookStore -u blazor -t app`
+Use this guide for an ABP `blazor` WebAssembly application. The matching working sample is `samples/WebAppBlazorWebAssembly`.
 
-> See the [ABP official documentation](https://docs.abp.io) to learn [ABP framework](https://github.com/abpframework/abp).
+![Advanced theme settings panel](img/theme-settings-panel.png)
 
-**Replace LeptonXLiteTheme with AntBlazorTheme packages**
+## 1. Create The App
 
-* Replace `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme` with `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme`
-* Replace `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.Bundling` with `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Bundling`
-* Replace `Volo.Abp.Identity.Blazor.WebAssembly` with `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
-* Replace `Volo.Abp.SettingManagement.Blazor.WebAssembly` with `Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI`
-* Replace `Volo.Abp.TenantManagement.Blazor.WebAssembly` with `Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI`
-* Replace `Volo.Abp.FeatureManagement.Blazor.WebAssembly` with `Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI`
-
+```bash
+abp new BookStore -u blazor -t app
 ```
 
-**Open `_Imports.razor` and add with the following:**
+The paths below use the generated `BookStore` solution layout.
+
+## 2. Add References
+
+Add these references to `src/BookStore.Blazor.Client/BookStore.Blazor.Client.csproj`:
+
+- `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme`
+- `Lsw.Abp.IdentityManagement.Blazor.WebAssembly.AntDesignUI`
+- `Lsw.Abp.TenantManagement.Blazor.WebAssembly.AntDesignUI`
+- `Lsw.Abp.SettingManagement.Blazor.WebAssembly.AntDesignUI`
+- `Lsw.Abp.FeatureManagement.Blazor.WebAssembly.AntDesignUI`
+- `Lsw.Abp.AntDesignThemeManagement.Blazor.WebAssembly`
+
+Add this reference to `src/BookStore.HttpApi.Host/BookStore.HttpApi.Host.csproj`:
+
+- `Lsw.Abp.AntDesignThemeManagement.Application`
+
+Add this reference to `src/BookStore.Blazor/BookStore.Blazor.csproj`:
+
+- `Lsw.Abp.AspnetCore.Components.WebAssembly.AntDesignTheme.Bundling`
+
+Use `ProjectReference` inside this repository, or the same package names when consuming NuGet packages.
+
+Remove the old Blazorise-based Blazor packages from the same projects if they exist:
+
+- `Blazorise.Bootstrap5`
+- `Blazorise.Icons.FontAwesome`
+- `Blazorise.Components`
+- `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme`
+- `Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.Bundling`
+- `Volo.Abp.Identity.Blazor.WebAssembly`
+- `Volo.Abp.TenantManagement.Blazor.WebAssembly`
+- `Volo.Abp.SettingManagement.Blazor.WebAssembly`
+- `Volo.Abp.FeatureManagement.Blazor.WebAssembly`
+
+Do not remove `Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite` from the HTTP API host unless you also replace the MVC/account-page theme.
+
+## 3. Update The WebAssembly Client
+
+Open `src/BookStore.Blazor.Client/BookStoreBlazorClientModule.cs`.
+
+In the existing `[DependsOn]`, use these AntDesign entries:
 
 ```csharp
+typeof(AbpIdentityBlazorWebAssemblyAntDesignModule),
+typeof(AbpSettingManagementBlazorWebAssemblyAntDesignModule),
+typeof(AbpFeatureManagementBlazorWebAssemblyAntDesignModule),
+typeof(AbpTenantManagementBlazorWebAssemblyAntDesignModule),
+typeof(AbpAspNetCoreComponentsWebAssemblyAntDesignThemeModule),
+typeof(AbpAntDesignThemeManagementBlazorWebAssemblyModule)
+```
+
+Configure the client router:
+
+```csharp
+private void ConfigureRouter(ServiceConfigurationContext context)
+{
+    Configure<AbpRouterOptions>(options =>
+    {
+        options.AppAssembly = typeof(BookStoreBlazorClientModule).Assembly;
+    });
+}
+```
+
+Remove the old Blazorise provider setup if it exists.
+
+## 4. Update The HTTP API Host
+
+Open `src/BookStore.HttpApi.Host/BookStoreHttpApiHostModule.cs`.
+
+Add the theme management application module to `[DependsOn]`:
+
+```csharp
+typeof(AbpAntDesignThemeManagementApplicationModule)
+```
+
+Expose the theme management application service:
+
+```csharp
+private void ConfigureConventionalControllers()
+{
+    Configure<AbpAspNetCoreMvcOptions>(options =>
+    {
+        options.ConventionalControllers.Create(typeof(BookStoreApplicationModule).Assembly);
+        options.ConventionalControllers.Create(typeof(AbpAntDesignThemeManagementApplicationModule).Assembly);
+    });
+}
+```
+
+## 5. Update The Blazor Host
+
+Open `src/BookStore.Blazor/BookStoreBlazorModule.cs`.
+
+Add the WebAssembly AntDesign bundling module to `[DependsOn]`:
+
+```csharp
+typeof(AbpAspNetCoreComponentsWebAssemblyAntDesignThemeBundlingModule)
+```
+
+## 6. Update Razor Files
+
+Add these imports to `src/BookStore.Blazor.Client/_Imports.razor`:
+
+```razor
 @using AntDesign
 @using Lsw.Abp.AntDesignUI
 @using Lsw.Abp.AntDesignUI.Components
@@ -25,46 +121,11 @@ The first step is to use ABP CLI to create a new project.
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Bundling
 ```
 
-**Open `BookStoreBlazorClientModule` make the following changes:**
+Use the AntDesign layout in `src/BookStore.Blazor.Client/Routes.razor`:
 
-* Remove the `ConfigureBlazorise` method
-* Fix wrong using namespace
-* Update module dependencies
-    * For example, replace `AbpIdentityBlazorWebAssemblyModule` with `AbpIdentityBlazorWebAssemblyAntDesignModule`
-
-**Open `BookStoreMenuContributor` to update icon:**
-
-* `"fas fa-home"` to `IconType.Outline.Home`
-* `"fa fa-cog"` to `IconType.Outline.Setting`
-
-**Open `Index.razor` and replace with the following:**
-
-```csharp
-@page "/"
-@inherits BookStoreComponentBase
-
-<AbpPageHeader Title="Index"></AbpPageHeader>
-
-<div class="page-content">
-    <div style="text-align: center">
-        
-        <Alert Type="@AlertType.Success"
-               Message="Success"
-               Description=" Congratulations, BookStore is successfully running!"
-               ShowIcon="true"/>
-
-        <Divider/>
-
-    </div>
-</div>
-```
-
-**Open `Routes.razor` and replace with the following:**
-
-```csharp
+```razor
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Routing
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Themes.AntDesignTheme
-@using Microsoft.Extensions.Options
 @using Volo.Abp.AspNetCore.Components.WebAssembly.WebApp
 
 <Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="WebAppAdditionalAssembliesHelper.GetAssemblies<BookStoreBlazorClientModule>()">
@@ -78,8 +139,23 @@ The first step is to use ABP CLI to create a new project.
 </Router>
 ```
 
-Run the `dotnet build` & `abp bundle` command in the `BookStore.Blazor` folder.
+## 7. Build And Run
 
-That's all, enjoy your code :).
+From the solution root:
 
-![3](img/3.png)
+```bash
+dotnet build
+```
+
+To run this repository sample, start all three projects:
+
+```bash
+cd samples/WebAppBlazorWebAssembly
+dotnet run --project .\src\BookStore.DbMigrator\
+dotnet run --project .\src\BookStore.HttpApi.Host\
+dotnet run --project .\src\BookStore.Blazor\
+```
+
+Open `https://localhost:44376`.
+
+Log in with `admin` / `1q2w3E*`, then verify that the AntDesign layout and right-side theme settings panel are visible.

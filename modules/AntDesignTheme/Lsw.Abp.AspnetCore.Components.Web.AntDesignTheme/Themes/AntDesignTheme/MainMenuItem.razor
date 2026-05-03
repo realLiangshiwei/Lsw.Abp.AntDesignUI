@@ -1,4 +1,4 @@
-﻿@using Volo.Abp.UI.Navigation
+@using Volo.Abp.UI.Navigation
 
 @if (Menu != null)
 {
@@ -7,7 +7,10 @@
 
     if (Menu.IsLeaf && Menu.Url != null)
     {
-        <MenuItem Key="@elementId" RouterLink="@url" Disabled="@Menu.IsDisabled">
+        <MenuItem Key="@elementId"
+                  RouterLink="@url"
+                  Disabled="@Menu.IsDisabled"
+                  OnClick="OnClickAsync">
             @if (!Menu.Icon.IsNullOrWhiteSpace())
             {
                 <Icon Type="@Menu.Icon" Theme="IconThemeType.Outline"></Icon>
@@ -20,14 +23,13 @@
         <SubMenu Title="@Menu.DisplayName" TitleTemplate="@GetSubMenuTemplate(Menu)" Key="@elementId">
             @foreach (var menuItem in Menu.Items)
             {
-                <MainMenuItem Menu="@menuItem"></MainMenuItem>
+                <MainMenuItem Menu="@menuItem" OnItemClick="OnItemClick"></MainMenuItem>
             }
         </SubMenu>
     }
 }
 
 @{
-    
     RenderFragment GetSubMenuTemplate(ApplicationMenuItem menu)
     {
         return @<span>

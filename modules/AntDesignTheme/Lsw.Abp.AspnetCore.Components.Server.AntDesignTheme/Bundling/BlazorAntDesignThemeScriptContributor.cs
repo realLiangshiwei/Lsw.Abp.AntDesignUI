@@ -8,5 +8,6 @@ public class BlazorAntDesignThemeScriptContributor: BundleContributor
     public override void ConfigureBundle(BundleConfigurationContext context)
     {
         context.Files.AddIfNotContains("/_content/AntDesign/js/ant-design-blazor.js");
+        context.Files.AddIfNotContains("/_content/Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme/libs/abp/js/theme-settings.js");
     }
 }

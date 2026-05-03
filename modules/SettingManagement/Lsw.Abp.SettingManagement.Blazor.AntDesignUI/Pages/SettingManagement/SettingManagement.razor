@@ -1,9 +1,10 @@
-﻿@page "/setting-management"
+@page "/setting-management"
+@using AntDesign
 @using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme
+@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.Extensions.Options
 @using Volo.Abp.Features
-@using Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.Layout
 @using Volo.Abp.SettingManagement
 @attribute [Authorize]
 @attribute [RequiresFeature(SettingManagementFeatures.Enable)]
@@ -12,23 +13,26 @@
 
     <AbpPageHeader Title="@L["Settings"]" BreadcrumbItems="@BreadcrumbItems"/>
 
-    <div class="page-content">
-        <Tabs ActiveKey="@SelectedGroup" TabPosition="@TabPosition.Left">
+    <div class="page-content lsw-setting-management-page">
+        <div class="lsw-setting-management-mobile-selector">
+            <Select DataSource="@GroupOptions"
+                    ValueName="@nameof(SettingGroupSelectItem.Value)"
+                    LabelName="@nameof(SettingGroupSelectItem.Text)"
+                    @bind-Value="@SelectedGroup"
+>
+            </Select>
+        </div>
+
+        <Tabs Class="lsw-setting-management-tabs"
+              ActiveKey="@SelectedGroup"
+              OnChange="@OnSelectedGroupChangedAsync"
+              TabPosition="@TabPosition.Left">
             @foreach (var group in SettingComponentCreationContext.Groups)
             {
                 <TabPane Key="@GetNormalizedString(group.Id)" Tab="@group.DisplayName">
                     <h4>@group.DisplayName</h4>
                     <Divider/>
-
-                    @{
-                        SettingItemRenders.Add(b =>
-                        {
-                            b.OpenComponent(0, group.ComponentType);
-                            b.CloseComponent();
-                        });
-                    }
-                    @SettingItemRenders.Last()
-
+                    <DynamicComponent Type="@group.ComponentType" />
                 </TabPane>
             }
         </Tabs>

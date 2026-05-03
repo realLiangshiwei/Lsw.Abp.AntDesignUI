@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\configureawait.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Lsw.Abp.AntDesignThemeManagement.Application.Contracts\Lsw.Abp.AntDesignThemeManagement.Application.Contracts.csproj" />
+        <ProjectReference Include="..\..\AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme\Lsw.Abp.AspnetCore.Components.Web.AntDesignTheme.csproj" />
+        <ProjectReference Include="..\..\SettingManagement\Lsw.Abp.SettingManagement.Blazor.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.AntDesignUI.csproj" />
+    </ItemGroup>
+
+</Project>

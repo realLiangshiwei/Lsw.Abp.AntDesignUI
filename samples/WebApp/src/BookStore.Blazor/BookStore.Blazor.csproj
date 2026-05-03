@@ -37,6 +37,7 @@
     <ProjectReference Include="..\..\..\..\modules\IdentityManagement\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI\Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI.csproj" />
     <ProjectReference Include="..\..\..\..\modules\SettingManagement\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI\Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI.csproj" />
     <ProjectReference Include="..\..\..\..\modules\TenantManagement\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI\Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI.csproj" />
+    <ProjectReference Include="..\..\..\..\modules\AntDesignThemeManagement\Lsw.Abp.AntDesignThemeManagement.Blazor.Server\Lsw.Abp.AntDesignThemeManagement.Blazor.Server.csproj" />
   </ItemGroup>
 
   <ItemGroup>

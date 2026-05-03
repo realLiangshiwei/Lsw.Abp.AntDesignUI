@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\..\common.props" />
+    <Import Project="..\..\..\configureawait.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.SettingManagement.Application" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Lsw.Abp.AntDesignThemeManagement.Application.Contracts\Lsw.Abp.AntDesignThemeManagement.Application.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

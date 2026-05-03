@@ -17,7 +17,7 @@ using BookStore.Blazor.Menus;
 using BookStore.MongoDB;
 using BookStore.Localization;
 using BookStore.MultiTenancy;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Volo.Abp;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Components.Web;
@@ -35,6 +35,8 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.Bundling;
 using Volo.Abp.Identity;
 using Volo.Abp.Autofac;
 using Lsw.Abp.IdentityManagement.Blazor.Server.AntDesignUI;
+using Lsw.Abp.AntDesignThemeManagement.Blazor.Server;
+using Lsw.Abp.AntDesignThemeManagement;
 using Lsw.Abp.TenantManagement.Blazor.Server.AntDesignUI;
 using Lsw.Abp.SettingManagement.Blazor.Server.AntDesignUI;
 using Lsw.Abp.FeatureManagement.Blazor.Server.AntDesignUI;
@@ -65,6 +67,7 @@ namespace BookStore.Blazor;
     typeof(AbpAspNetCoreMvcUiLeptonXLiteThemeModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpFeatureManagementBlazorServerAntDesignModule),
+    typeof(AbpAntDesignThemeManagementBlazorServerModule),
     typeof(AbpSettingManagementBlazorServerAntDesignModule),
     typeof(AbpMapperlyModule)
    )]
@@ -264,6 +267,7 @@ public class BookStoreBlazorModule : AbpModule
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options.ConventionalControllers.Create(typeof(BookStoreApplicationModule).Assembly);
+            options.ConventionalControllers.Create(typeof(AbpAntDesignThemeManagementApplicationModule).Assembly);
         });
     }
 

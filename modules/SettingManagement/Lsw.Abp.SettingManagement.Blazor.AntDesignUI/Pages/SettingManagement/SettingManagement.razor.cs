@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Lsw.Abp.AntDesignUI;
 using Microsoft.AspNetCore.Components;
@@ -25,10 +26,9 @@ public partial class SettingManagement
 
     protected SettingManagementComponentOptions Options => _options.Value;
 
-    protected List<RenderFragment> SettingItemRenders { get; set; } = new();
-
     protected string SelectedGroup { get; set; }
     protected List<AbpBreadcrumbItem> BreadcrumbItems = new();
+    protected List<SettingGroupSelectItem> GroupOptions { get; } = new();
 
 
     protected override async Task OnInitializedAsync()
@@ -41,11 +41,37 @@ public partial class SettingManagement
             await contributor.ConfigureAsync(SettingComponentCreationContext);
         }
 
-        SettingItemRenders.Clear();
+        GroupOptions.Clear();
+        foreach (var group in SettingComponentCreationContext.Groups)
+        {
+            GroupOptions.Add(new SettingGroupSelectItem
+            {
+                Text = group.DisplayName,
+                Value = GetNormalizedString(group.Id)
+            });
+        }
+
+        if (string.IsNullOrWhiteSpace(SelectedGroup))
+        {
+            SelectedGroup = GroupOptions.FirstOrDefault()?.Value ?? string.Empty;
+        }
     }
 
     protected virtual string GetNormalizedString(string value)
     {
         return value.Replace('.', '_');
     }
+
+    protected virtual Task OnSelectedGroupChangedAsync(string value)
+    {
+        SelectedGroup = value;
+        return Task.CompletedTask;
+    }
+}
+
+public class SettingGroupSelectItem
+{
+    public string Text { get; set; } = string.Empty;
+
+    public string Value { get; set; } = string.Empty;
 }

@@ -1,0 +1,36 @@
+@inherits Volo.Abp.AspNetCore.Components.AbpComponentBase
+@using AntDesign
+@using Lsw.Abp.AntDesignThemeManagement.Localization
+
+<div class="lsw-theme-settings-management-root">
+    <Checkbox @bind-Value="ThemeSettingsEnabled" OnChange="OnThemeSettingsEnabledChanged">
+        @L["Settings:EnableThemeSettings"]
+    </Checkbox>
+</div>
+<div class="lsw-theme-settings-management-children">
+    <div class="lsw-theme-settings-management-item">
+        <Checkbox @bind-Value="PageStyleSettingEnabled" OnChange="OnPageStyleSettingEnabledChanged">
+            @L["Settings:PageStyleSetting"]
+        </Checkbox>
+    </div>
+    <div class="lsw-theme-settings-management-item">
+        <Checkbox @bind-Value="NavigationModeSettingEnabled" OnChange="OnNavigationModeSettingEnabledChanged">
+            @L["Settings:NavigationModeSetting"]
+        </Checkbox>
+    </div>
+    <div class="lsw-theme-settings-management-item">
+        <Checkbox @bind-Value="RegionalSettingsEnabled" OnChange="OnRegionalSettingsEnabledChanged">
+            @L["Settings:RegionalSettings"]
+        </Checkbox>
+    </div>
+    <div class="lsw-theme-settings-management-item">
+        <Checkbox @bind-Value="OtherSettingsEnabled" OnChange="OnOtherSettingsEnabledChanged">
+            @L["Settings:OtherSettings"]
+        </Checkbox>
+    </div>
+</div>
+<div class="lsw-theme-settings-management-actions">
+    <Button Type="@ButtonType.Primary" OnClick="@SaveAsync">
+        @L["Submit"]
+    </Button>
+</div>
